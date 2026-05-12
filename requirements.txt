@@ -1,0 +1,14 @@
+faiss-cpu
+fastapi
+flagembedding
+numpy
+pandas
+pdfplumber
+pymupdf
+pyyaml
+rank-bm25
+scikit-learn
+sentence-transformers
+streamlit
+uvicorn
+

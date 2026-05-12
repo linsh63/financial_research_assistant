@@ -1,0 +1,30 @@
+data:
+  raw_pdf_dir: data/raw
+  parsed_chunk_file: data/processed/chunks.jsonl
+
+chunking:
+  chunk_size: 512
+  overlap: 100
+
+retrieval:
+  dense_index: faiss
+  embedding_model: BAAI/bge-large-zh-v1.5
+  use_bm25: true
+  top_k: 20
+
+rerank:
+  enabled: true
+  model: BAAI/bge-reranker-v2-m3
+  top_k: 5
+
+generation:
+  model: Qwen/Qwen2.5-7B-Instruct
+  require_citations: true
+
+evaluation:
+  qa_file: data/processed/eval_qa.jsonl
+  metrics:
+    - recall_at_5
+    - recall_at_10
+    - citation_hit_rate
+
