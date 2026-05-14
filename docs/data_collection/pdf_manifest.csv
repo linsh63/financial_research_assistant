@@ -1,0 +1,151 @@
+doc_id,file_path,title,industry,doc_type,year_month,source_url,pages,file_size_bytes,notes
+byd_202601,data/raw/new_energy/BYD_202601.pdf,BYD 2026年1月相关报告,新能源,report,202601,,5,348949,汽车/新能源方向短 PDF；适合第一阶段快速验证解析、切块和引用链路
+gac_group_202601,data/raw/new_energy/广汽集团_202601.pdf,广汽集团 2026年1月相关报告,新能源,report,202601,,3,423600,汽车/新能源方向短 PDF；页数少，适合调试基础流程
+seres_202601,data/raw/new_energy/赛力斯_202601.pdf,赛力斯 2026年1月相关报告,新能源,report,202601,,3,447324,汽车/新能源方向短 PDF；适合与其他车企做对比型问题
+changan_auto_202601,data/raw/new_energy/长安汽车_202601.pdf,长安汽车 2026年1月相关报告,新能源,report,202601,,3,460506,汽车/新能源方向短 PDF；适合做汽车行业横向对比
+ejgf,data/raw/new_energy/EJGF.pdf,EJGF 相关报告,新能源,report,,,3,445310,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+gxgk,data/raw/new_energy/GXGK.pdf,GXGK 相关报告,新能源,report,,,6,867382,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ljln,data/raw/new_energy/LJLN.pdf,LJLN 相关报告,新能源,report,,,3,450881,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+xwd,data/raw/new_energy/XWD.pdf,XWD 相关报告,新能源,report,,,3,484206,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ywln_202601,data/raw/new_energy/YWLN_202601.pdf,YWLN 2026年1月相关报告,新能源,report,202601,,4,1369941,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+catl_202601,data/raw/new_energy/宁德时代_202601.pdf,宁德时代 2026年1月相关报告,新能源,report,202601,,3,262530,新能源方向短 PDF；适合与其他电池/汽车企业做对比型问题
+bfhc,data/raw/semiconductor/BFHC.pdf,BFHC 相关报告,半导体,report,,,6,372711,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+gyfl,data/raw/semiconductor/GYFL.pdf,GYFL 相关报告,半导体,report,,,4,761301,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hgcy,data/raw/semiconductor/HGCY.pdf,HGCY 相关报告,半导体,report,,,7,873973,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hgxx,data/raw/semiconductor/HGXX.pdf,HGXX 相关报告,半导体,report,,,5,442081,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hwj,data/raw/semiconductor/HWJ.pdf,HWJ 相关报告,半导体,report,,,4,273762,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+lcxx,data/raw/semiconductor/LCXX.pdf,LCXX 相关报告,半导体,report,,,4,272369,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+tjkj,data/raw/semiconductor/TJKJ.pdf,TJKJ 相关报告,半导体,report,,,5,991737,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zksg,data/raw/semiconductor/ZKSG.pdf,ZKSG 相关报告,半导体,report,,,5,590740,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zwgs,data/raw/semiconductor/ZWGS.pdf,ZWGS 相关报告,半导体,report,,,6,373270,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zxgj,data/raw/semiconductor/ZXGJ.pdf,ZXGJ 相关报告,半导体,report,,,5,872331,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+bly,data/raw/consumer/BLY.pdf,BLY 相关报告,消费,report,,,3,638191,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+dpyl,data/raw/consumer/DPYL.pdf,DPYL 相关报告,消费,report,,,4,286480,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+gzmt,data/raw/consumer/GZMT.pdf,GZMT 相关报告,消费,report,,,5,1173131,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+htwy,data/raw/consumer/HTWY.pdf,HTWY 相关报告,消费,report,,,5,1126864,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hxsw,data/raw/consumer/HXSW.pdf,HXSW 相关报告,消费,report,,,4,877615,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+lzlj,data/raw/consumer/LZLJ.pdf,LZLJ 相关报告,消费,report,,,8,552331,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+qdpj,data/raw/consumer/QDPJ.pdf,QDPJ 相关报告,消费,report,,,3,932132,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+sxfj,data/raw/consumer/SXFJ.pdf,SXFJ 相关报告,消费,report,,,7,545905,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+wly,data/raw/consumer/WLY.pdf,WLY 相关报告,消费,report,,,3,480605,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ylgf,data/raw/consumer/YLGF.pdf,YLGF 相关报告,消费,report,,,5,327643,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ndrc_2024_equipment_update_consumer_trade_in,data/raw/policy/ndrc_2024_equipment_update_consumer_trade_in.pdf,关于加力支持大规模设备更新和消费品以旧换新的若干措施,政策,policy,202407,https://www.ndrc.gov.cn/xxgk/zcfb/tz/202407/P020240725538006899272.pdf,7,288966,发改委/财政部政策文件；覆盖设备更新、消费品以旧换新、汽车和家电消费
+ndrc_2024_energy_equipment_update_plan,data/raw/policy/ndrc_2024_energy_equipment_update_plan.pdf,能源重点领域大规模设备更新实施方案,政策,policy,202408,https://www.ndrc.gov.cn/xxgk/zcfb/tz/202408/P020240821593575195639.pdf,5,247306,发改委/能源局政策文件；覆盖能源设备更新、风电光伏和电网改造
+ndrc_2024_consumer_new_scenarios,data/raw/policy/ndrc_2024_consumer_new_scenarios.pdf,关于打造消费新场景培育消费新增长点的措施,政策,policy,202406,https://www.ndrc.gov.cn/xxgk/zcfb/tz/202406/P020240624566580361448.pdf,9,347846,发改委等部门政策文件；覆盖消费新场景、文旅、服务消费和消费增长点
+ndrc_2024_new_power_system_action_plan,data/raw/policy/ndrc_2024_new_power_system_action_plan.pdf,加快构建新型电力系统行动方案（2024—2027年）,政策,policy,202408,https://www.ndrc.gov.cn/xxgk/zcfb/tz/202408/P020240806533443606568.pdf,8,296310,发改委/能源局/数据局政策文件；覆盖新型电力系统、储能、新能源消纳
+ndrc_2024_green_low_carbon_industry_catalog,data/raw/policy/ndrc_2024_green_low_carbon_industry_catalog.pdf,绿色低碳转型产业指导目录（2024年版）,政策,policy,202402,https://www.ndrc.gov.cn/xxgk/zcfb/tz/202402/P020240229576133467957.pdf,14,286280,发改委等部门政策文件；覆盖绿色低碳产业目录和产业分类
+ndrc_2024_green_low_carbon_data_center_action_plan,data/raw/policy/ndrc_2024_green_low_carbon_data_center_action_plan.pdf,数据中心绿色低碳发展专项行动计划,政策,policy,202407,https://www.ndrc.gov.cn/xxgk/zcfb/tz/202407/P020240723625582947550.pdf,7,277173,发改委等部门政策文件；覆盖数据中心绿色低碳、算力和能耗治理
+ndrc_2025_low_altitude_economy_classification,data/raw/policy/ndrc_2025_low_altitude_economy_classification.pdf,低空经济及其核心产业统计分类（试行）,政策,policy,202512,https://www.ndrc.gov.cn/xxgk/zcfb/tz/202512/P020251226695890137861.pdf,12,318432,发改委政策文件；覆盖低空经济产业分类、制造、运营、基建和配套服务
+ndrc_2025_new_energy_market_quotation_notice,data/raw/policy/ndrc_2025_new_energy_market_quotation_notice.pdf,关于优化集中式新能源发电企业市场报价的通知（试行）,政策,policy,2025,,2,1011562,发改委政策文件；从 data/new 归档，来源链接待补充
+ndrc_2025_new_energy_consumption_guidance_qna,data/raw/policy/ndrc_2025_new_energy_consumption_guidance_qna.pdf,国家能源局有关负责同志就《关于促进新能源消纳和调控的指导意见》答记者问,政策,policy,2025,,2,1039855,发改委政策解读；从 data/new 归档，来源链接待补充
+ndrc_ai_high_quality_employment_article,data/raw/policy/ndrc_ai_high_quality_employment_article.pdf,以人工智能赋能高质量充分就业,政策,policy,,,2,1060440,发改委相关文章；从 data/new 归档，来源链接待补充
+ndrc_changzhutan_green_transition_interpretation,data/raw/policy/ndrc_changzhutan_green_transition_interpretation.pdf,打造城市集群绿色转型新标杆——《长株潭生态绿心加快绿色转型发展实施方案》政策解读之二,政策,policy,,,2,1069714,发改委政策解读；从 data/new 归档，来源链接待补充
+ndrc_ai_manufacturing_power_article,data/raw/policy/ndrc_ai_manufacturing_power_article.pdf,人工智能赋能制造强国建设大有可为,政策,policy,,,2,1028459,发改委相关文章；从 data/new 归档，来源链接待补充
+ndrc_generation_capacity_price_qna,data/raw/policy/ndrc_generation_capacity_price_qna.pdf,国家发展改革委、国家能源局有关负责同志就完善发电侧容量电价机制答记者问,政策,policy,,,2,1015940,发改委政策解读；从 data/new 归档，来源链接待补充
+ndrc_unified_power_market_interview,data/raw/policy/ndrc_unified_power_market_interview.pdf,国家发展改革委负责同志就《关于完善全国统一电力市场体系的实施意见》接受访谈,政策,policy,,,2,1084567,发改委访谈材料；从 data/new 归档，来源链接待补充
+ndrc_2026_generation_capacity_price_notice,data/raw/policy/ndrc_2026_generation_capacity_price_notice.pdf,关于完善发电侧容量电价机制的通知,政策,policy,2026,,2,1029360,发改委政策文件；从 data/new 归档，来源链接待补充
+ndrc_ai_international_cooperation_article,data/raw/policy/ndrc_ai_international_cooperation_article.pdf,广泛开展人工智能国际合作 推动全球包容普惠发展,政策,policy,,,2,1018665,发改委相关文章；从 data/new 归档，来源链接待补充
+ndrc_2024_distribution_grid_high_quality_development,data/raw/policy/ndrc_2024_distribution_grid_high_quality_development.pdf,关于新形势下配电网高质量发展的指导意见,政策,policy,2024,,3,1126236,发改委/能源局政策文件；从 data/new 归档，来源链接待补充
+ndrc_solid_waste_governance_interpretation,data/raw/policy/ndrc_solid_waste_governance_interpretation.pdf,专家解读文章之三：构建全链条治理体系 开启固体废物综合治理新征程,政策,policy,,,2,1069125,发改委专家解读；从 data/new 归档，来源链接待补充
+policy_202210114475091,data/raw/policy/202210114475091.pdf,202210114475091,政策,policy,,,9,237101,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020201029597065666501,data/raw/policy/P020201029597065666501.pdf,P020201029597065666501,政策,policy,,,5,303842,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020210325504120315428,data/raw/policy/P020210325504120315428.pdf,P020210325504120315428,政策,policy,,,11,391494,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020210421528000000606,data/raw/policy/P020210421528000000606.pdf,P020210421528000000606,政策,policy,,,8,355445,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020210421528000346108,data/raw/policy/P020210421528000346108.pdf,P020210421528000346108,政策,policy,,,5,421791,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020220121303052384813,data/raw/policy/P020220121303052384813.pdf,P020220121303052384813,政策,policy,,,15,428392,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020220321550104020921,data/raw/policy/P020220321550104020921.pdf,P020220321550104020921,政策,policy,,,18,479750,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020220602315650388122,data/raw/policy/P020220602315650388122.pdf,P020220602315650388122,政策,policy,,,46,628643,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020230721357059106134,data/raw/policy/P020230721357059106134.pdf,P020230721357059106134,政策,policy,,,4,273286,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020230721360399538898,data/raw/policy/P020230721360399538898.pdf,P020230721360399538898,政策,policy,,,3,217386,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020240624569333510920,data/raw/policy/P020240624569333510920.pdf,P020240624569333510920,政策,policy,,,9,347846,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020240726413585348997,data/raw/policy/P020240726413585348997.pdf,P020240726413585348997,政策,policy,,,7,288966,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020240806534738672970,data/raw/policy/P020240806534738672970.pdf,P020240806534738672970,政策,policy,,,8,296310,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020240821593575195639,data/raw/policy/P020240821593575195639.pdf,P020240821593575195639,政策,policy,,,5,247306,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020250106570227369979,data/raw/policy/P020250106570227369979.pdf,P020250106570227369979,政策,policy,,,12,339315,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020250912338143145278,data/raw/policy/P020250912338143145278.pdf,P020250912338143145278,政策,policy,,,7,279590,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020190905514280441190,data/raw/policy/W020190905514280441190.pdf,W020190905514280441190,政策,policy,,,6,321817,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020190906340655425738,data/raw/policy/W020190906340655425738.pdf,W020190906340655425738,政策,policy,,,12,388029,政策文件；编号式文件名，标题和来源链接待补充
+aeyk,data/raw/healthcare/AEYK.pdf,AEYK 相关报告,医疗,report,,,7,625202,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+bast,data/raw/healthcare/BAST.pdf,BAST 相关报告,医疗,report,,,21,1597467,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+bcyy,data/raw/healthcare/BCYY.pdf,BCYY 相关报告,医疗,report,,,3,522991,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+bdyy,data/raw/healthcare/BDYY.pdf,BDYY 相关报告,医疗,report,,,4,862377,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+btgf,data/raw/healthcare/BTGF.pdf,BTGF 相关报告,医疗,report,,,5,451175,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+gjyx,data/raw/healthcare/GJYX.pdf,GJYX 相关报告,医疗,report,,,6,1010510,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hxyk,data/raw/healthcare/HXYK.pdf,HXYK 相关报告,医疗,report,,,6,1052468,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hyyy,data/raw/healthcare/HYYY.pdf,HYYY 相关报告,医疗,report,,,3,487386,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+jyyx,data/raw/healthcare/JYYX.pdf,JYYX 相关报告,医疗,report,,,5,703544,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+jzyy,data/raw/healthcare/JZYY.pdf,JZYY 相关报告,医疗,report,,,5,461864,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+kly,data/raw/healthcare/KLY.pdf,KLY 相关报告,医疗,report,,,8,717489,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+mnjk,data/raw/healthcare/MNJK.pdf,MNJK 相关报告,医疗,report,,,3,475175,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+prs,data/raw/healthcare/PRS.pdf,PRS 相关报告,医疗,report,,,5,400232,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+pryk,data/raw/healthcare/PRYK.pdf,PRYK 相关报告,医疗,report,,,3,495709,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+syxy,data/raw/healthcare/SYXY.pdf,SYXY 相关报告,医疗,report,,,7,558434,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+tcyl,data/raw/healthcare/TCYL.pdf,TCYL 相关报告,医疗,report,,,4,994832,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+tgyy,data/raw/healthcare/TGYY.pdf,TGYY 相关报告,医疗,report,,,5,657680,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ygnh,data/raw/healthcare/YGNH.pdf,YGNH 相关报告,医疗,report,,,4,864086,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+yksw,data/raw/healthcare/YKSW.pdf,YKSW 相关报告,医疗,report,,,19,1716841,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ymkd,data/raw/healthcare/YMKD.pdf,YMKD 相关报告,医疗,report,,,8,686835,医疗行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+bdt,data/raw/semiconductor/BDT.pdf,BDT 相关报告,半导体,report,,,28,3317041,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+bkxc,data/raw/semiconductor/BKXC.pdf,BKXC 相关报告,半导体,report,,,3,266648,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+dlgf,data/raw/semiconductor/DLGF.pdf,DLGF 相关报告,半导体,report,,,14,1565598,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+dzkj,data/raw/semiconductor/DZKJ.pdf,DZKJ 相关报告,半导体,report,,,4,796668,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+frd,data/raw/semiconductor/FRD.pdf,FRD 相关报告,半导体,report,,,5,475694,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hde,data/raw/semiconductor/HDE.pdf,HDE 相关报告,半导体,report,,,4,795422,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hykg,data/raw/semiconductor/HYKG.pdf,HYKG 相关报告,半导体,report,,,29,3196995,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+kkzn,data/raw/semiconductor/KKZN.pdf,KKZN 相关报告,半导体,report,,,4,585223,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+lskj,data/raw/semiconductor/LSKJ.pdf,LSKJ 相关报告,半导体,report,,,6,525589,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+rjgf,data/raw/semiconductor/RJGF.pdf,RJGF 相关报告,半导体,report,,,5,621738,半导体行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+bjjt,data/raw/real_estate/BJJT.pdf,BJJT 相关报告,房地产,report,,,5,832750,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+blfz,data/raw/real_estate/BLFZ.pdf,BLFZ 相关报告,房地产,report,,,3,436044,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+cjfz,data/raw/real_estate/CJFZ.pdf,CJFZ 相关报告,房地产,report,,,3,527214,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+dyc,data/raw/real_estate/DYC.pdf,DYC 相关报告,房地产,report,,,4,800615,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hfgf,data/raw/real_estate/HFGF.pdf,HFGF 相关报告,房地产,report,,,8,685254,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+jdjt,data/raw/real_estate/JDJT.pdf,JDJT 相关报告,房地产,report,,,9,623706,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ljz,data/raw/real_estate/LJZ.pdf,LJZ 相关报告,房地产,report,,,4,714032,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ndwy,data/raw/real_estate/NDWY.pdf,NDWY 相关报告,房地产,report,,,4,680745,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+njgk,data/raw/real_estate/NJGK.pdf,NJGK 相关报告,房地产,report,,,4,704107,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+pdxq,data/raw/real_estate/PDXQ.pdf,PDXQ 相关报告,房地产,report,,,4,868787,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+shlg,data/raw/real_estate/SHLG.pdf,SHLG 相关报告,房地产,report,,,4,867171,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+szgx,data/raw/real_estate/SZGX.pdf,SZGX 相关报告,房地产,report,,,3,535551,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+wawj,data/raw/real_estate/WAWJ.pdf,WAWJ 相关报告,房地产,report,,,15,832654,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+xckg,data/raw/real_estate/XCKG.pdf,XCKG 相关报告,房地产,report,,,3,520434,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+xdz,data/raw/real_estate/XDZ.pdf,XDZ 相关报告,房地产,report,,,7,1426238,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zggm,data/raw/real_estate/ZGGM.pdf,ZGGM 相关报告,房地产,report,,,11,715991,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zjgf,data/raw/real_estate/ZJGF.pdf,ZJGF 相关报告,房地产,report,,,3,872852,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zsjy,data/raw/real_estate/ZSJY.pdf,ZSJY 相关报告,房地产,report,,,5,893051,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zssk,data/raw/real_estate/ZSSK.pdf,ZSSK 相关报告,房地产,report,,,5,862802,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zxjt,data/raw/real_estate/ZXJT.pdf,ZXJT 相关报告,房地产,report,,,4,871331,房地产行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+glm,data/raw/new_energy/GLM.pdf,GLM 相关报告,新能源,report,,,5,473579,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+lxdq,data/raw/new_energy/LXDQ.pdf,LXDQ 相关报告,新能源,report,,,30,2666680,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+lyny,data/raw/new_energy/LYNY.pdf,LYNY 相关报告,新能源,report,,,5,497864,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+mjxc,data/raw/new_energy/MJXC.pdf,MJXC 相关报告,新能源,report,,,5,761396,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+sghn,data/raw/new_energy/SGHN.pdf,SGHN 相关报告,新能源,report,,,13,2079101,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ssgf,data/raw/new_energy/SSGF.pdf,SSGF 相关报告,新能源,report,,,8,655411,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+wmdz,data/raw/new_energy/WMDZ.pdf,WMDZ 相关报告,新能源,report,,,4,681475,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zghd,data/raw/new_energy/ZGHD.pdf,ZGHD 相关报告,新能源,report,,,9,556050,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zjjt,data/raw/new_energy/ZJJT.pdf,ZJJT 相关报告,新能源,report,,,5,558544,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+zzkj,data/raw/new_energy/ZZKJ.pdf,ZZKJ 相关报告,新能源,report,,,5,454253,新能源产业链短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+ajsp,data/raw/consumer/AJSP.pdf,AJSP 相关报告,消费,report,,,5,1116548,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+aqjm,data/raw/consumer/AQJM.pdf,AQJM 相关报告,消费,report,,,5,1121776,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+gldq,data/raw/consumer/GLDQ.pdf,GLDQ 相关报告,消费,report,,,6,1103469,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hezj,data/raw/consumer/HEZJ.pdf,HEZJ 相关报告,消费,report,,,4,885049,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+hxjd,data/raw/consumer/HXJD.pdf,HXJD 相关报告,消费,report,,,6,403230,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+jzsp,data/raw/consumer/JZSP.pdf,JZSP 相关报告,消费,report,,,6,1291323,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+mdjt1,data/raw/consumer/MDJT1.pdf,MDJT1 相关报告,消费,report,,,4,324441,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+qhwy,data/raw/consumer/QHWY.pdf,QHWY 相关报告,消费,report,,,6,1241002,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+snjt,data/raw/consumer/SNJT.pdf,SNJT 相关报告,消费,report,,,5,1698534,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+tcl,data/raw/consumer/TCL.pdf,TCL 相关报告,消费,report,,,6,1029742,消费行业短 PDF；文件名为缩写，后续可补充公司全称和来源链接
+policy_p020191031776387313331,data/raw/policy/P020191031776387313331.pdf,P020191031776387313331,政策,policy,,,9,487630,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020200522360052470224,data/raw/policy/P020200522360052470224.pdf,P020200522360052470224,政策,policy,,,12,141805,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020210701531103755311,data/raw/policy/P020210701531103755311.pdf,P020210701531103755311,政策,policy,,,23,414702,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020220427327040309102,data/raw/policy/P020220427327040309102.pdf,P020220427327040309102,政策,policy,,,15,355636,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020220510324220702505,data/raw/policy/P020220510324220702505.pdf,P020220510324220702505,政策,policy,,,29,507140,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020230613309060086035,data/raw/policy/P020230613309060086035.pdf,P020230613309060086035,政策,policy,,,7,274589,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020190905503633747904,data/raw/policy/W020190905503633747904.pdf,W020190905503633747904,政策,policy,,,11,454541,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020190905516324668971,data/raw/policy/W020190905516324668971.pdf,W020190905516324668971,政策,policy,,,14,306140,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020190905517087932598,data/raw/policy/W020190905517087932598.pdf,W020190905517087932598,政策,policy,,,8,210195,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020190905518984480870,data/raw/policy/W020190905518984480870.pdf,W020190905518984480870,政策,policy,,,10,172465,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020191024567304692452,data/raw/policy/W020191024567304692452.pdf,W020191024567304692452,政策,policy,,,19,400498,政策文件；编号式文件名，标题和来源链接待补充
+policy_w020191104623864832390,data/raw/policy/W020191104623864832390.pdf,W020191104623864832390,政策,policy,,,13,229321,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020200728576152165824,data/raw/policy/P020200728576152165824.pdf,P020200728576152165824,政策,policy,,,18,442041,政策文件；编号式文件名，标题和来源链接待补充
+policy_p020220323314396580505,data/raw/policy/P020220323314396580505.pdf,P020220323314396580505,政策,policy,,,13,387107,政策文件；编号式文件名，标题和来源链接待补充
