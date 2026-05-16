@@ -2,14 +2,79 @@
 
 from __future__ import annotations
 
+import re
 from typing import Iterable
 
 from ..parsing.table_structure import split_protected_table_rows
 from ..utils import normalize_whitespace
 
 
+BOUNDARY_RE = re.compile(r"[。！？；;]\s*|\n+")
+UNFINISHED_TAILS = (
+    "分别为",
+    "主要为",
+    "包括",
+    "如下",
+    "其中",
+    "同比",
+    "环比",
+    "达到",
+    "为",
+)
+UNFINISHED_CHARS = ("，", ",", "、", "/", "：", ":")
+
+
+def _boundary_ends(text: str, start: int, end: int) -> list[int]:
+    """找出指定区间内适合作为句子边界的结束位置。"""
+    return [start + match.end() for match in BOUNDARY_RE.finditer(text[start:end])]
+
+
+def _looks_unfinished(piece: str) -> bool:
+    """判断 chunk 尾部是否明显像半句话。"""
+    tail = piece.rstrip()
+    if not tail:
+        return False
+    if tail.endswith(UNFINISHED_CHARS):
+        return True
+    compact_tail = re.sub(r"\s+", "", tail)
+    return any(compact_tail.endswith(word) for word in UNFINISHED_TAILS)
+
+
+def _choose_semantic_end(text: str, start: int, hard_end: int, chunk_size: int) -> int:
+    """在固定窗口附近选择更自然的句子结束位置。"""
+    if hard_end >= len(text):
+        return len(text)
+
+    min_piece_len = max(80, int(chunk_size * 0.5))
+    min_end = min(hard_end, start + min_piece_len)
+    candidates = _boundary_ends(text, min_end, hard_end)
+    for end in reversed(candidates):
+        if not _looks_unfinished(text[start:end]):
+            return end
+    if candidates:
+        return candidates[-1]
+
+    max_extension = min(240, max(80, chunk_size // 2))
+    extended_end = min(len(text), hard_end + max_extension)
+    for end in _boundary_ends(text, hard_end, extended_end):
+        if not _looks_unfinished(text[start:end]):
+            return end
+    return hard_end
+
+
+def _choose_next_start(text: str, current_start: int, current_end: int, overlap: int) -> int:
+    """为下一个 chunk 选择不容易切半句话的起点。"""
+    proposed = max(current_end - overlap, current_start + 1)
+    if proposed >= current_end:
+        return proposed
+    candidates = _boundary_ends(text, proposed, current_end)
+    if candidates:
+        return max(candidates[-1], current_start + 1)
+    return proposed
+
+
 def split_text(text: str, chunk_size: int, overlap: int) -> list[str]:
-    """按固定窗口切分普通文本。"""
+    """按固定窗口切分普通文本，并尽量保护中文句子边界。"""
     text = normalize_whitespace(text)
     if not text:
         return []
@@ -23,13 +88,14 @@ def split_text(text: str, chunk_size: int, overlap: int) -> list[str]:
     chunks = []
     start = 0
     while start < len(text):
-        end = min(start + chunk_size, len(text))
+        hard_end = min(start + chunk_size, len(text))
+        end = _choose_semantic_end(text, start, hard_end, chunk_size)
         piece = text[start:end].strip()
         if piece:
             chunks.append(piece)
         if end >= len(text):
             break
-        start = max(end - overlap, start + 1)
+        start = _choose_next_start(text, start, end, overlap)
     return chunks
 
 

@@ -49,8 +49,8 @@ def parse_config(value: str) -> tuple[int, int]:
 def parse_args() -> argparse.Namespace:
     """读取切块实验需要的命令行参数。"""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", default="data/processed/pages_deepdoc.jsonl")
-    parser.add_argument("--output-dir", default="data/processed/chunking_experiment")
+    parser.add_argument("--input", default="data/processed/pages/pages_deepdoc.jsonl")
+    parser.add_argument("--output-dir", default="data/processed/chunks/chunking_experiment")
     parser.add_argument("--report", default="docs/experiments/chunking_experiment.md")
     parser.add_argument(
         "--config",

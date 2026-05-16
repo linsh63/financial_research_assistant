@@ -29,7 +29,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", default="docs/data_collection/pdf_manifest.csv")
     parser.add_argument("--raw-dir", default="data/raw")
-    parser.add_argument("--output", default="data/processed/pages.jsonl")
+    parser.add_argument("--output", default="data/processed/pages/pages.jsonl")
     parser.add_argument("--limit", type=int, default=0, help="Parse only the first N documents.")
     parser.add_argument(
         "--manifest-only",

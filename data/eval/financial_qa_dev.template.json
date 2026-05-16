@@ -1,0 +1,2032 @@
+[
+  {
+    "question_id": "fact_001",
+    "question_type": "fact",
+    "query": "比亚迪2026 Q1 营收多少",
+    "answer": "1502.25亿元",
+    "industry": "new_energy",
+    "ground_truth": [
+      {
+        "doc_id": "BYD_202601",
+        "source": "data/raw/new_energy/BYD_202601.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_002",
+    "question_type": "fact",
+    "query": "恩捷股份2025A 的 P/E 是多少？",
+    "answer": "2025A 的 P/E 为 514.94 倍。",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/EJGF.pdf",
+        "pages": [1,2]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_003",
+    "question_type": "fact",
+    "query": "格林美一季度公司回收钨资源销售收入是多少？",
+    "answer": "14.19 亿元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/GLM.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_004",
+    "question_type": "fact",
+    "query": "国轩高科 2024A 的 PB 估值是多少倍",
+    "answer": "2.7 倍。",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/GXGK.pdf",
+        "pages": [2]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_005",
+    "question_type": "fact",
+    "query": "隆基绿能 26Q1 费用率同比提升了多少？",
+    "answer": "26Q1 费用率同比提升 8.3pct。",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/LJLN.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_006",
+    "question_type": "fact",
+    "query": "朗信电气电子风扇及电机总成在 2025 年的产能是多少？",
+    "answer": "695.64 万套",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/LXDQ.pdf",
+        "pages": [9]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_007",
+    "question_type": "fact",
+    "query": "林洋能源Q1毛利率是多少？",
+    "answer": "20.72%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/LYNY.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_008",
+    "question_type": "fact",
+    "query": "麦加芯彩 2026E 归母净利润预计是多少",
+    "answer": "272.43 百万元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/MJXC.pdf",
+        "pages": [2]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_009",
+    "question_type": "fact",
+    "query": "山高环能2025 年供暖业务实现营收多少",
+    "answer": "3.12 亿元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/SGHN.pdf",
+        "pages": [5]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_010",
+    "question_type": "fact",
+    "query": "崧盛股份主业方面，2026Q1 营收为 多少",
+    "answer": "2.75 亿元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/SSGF.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_011",
+    "question_type": "fact",
+    "query": "威贸电子近 3 个月换手率是多少？",
+    "answer": "69.24%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/new_energy/WMDZ.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_012",
+    "question_type": "fact",
+    "query": "安井食品26Q1 公司毛利率为多少",
+    "answer": "25%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/AJSP.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_013",
+    "question_type": "fact",
+    "query": "安琪酵母2025A净利润为多少",
+    "answer": "15.89亿元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/AQJM.pdf",
+        "pages": [2]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_014",
+    "question_type": "fact",
+    "query": "珀莱雅洗护品类中OR同比增长多少",
+    "answer": "102.19%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/BLY.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_015",
+    "question_type": "fact",
+    "query": "东鹏饮料的“东鹏补水啦”电解质水在 2025 年营收同比增长多少",
+    "answer": "118.99%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/DPYL.pdf",
+        "pages": [2]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_016",
+    "question_type": "fact",
+    "query": "格力电器2026年预计的营业收入为多少",
+    "answer": "178,510.20百万元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/GLDQ.pdf",
+        "pages": [2]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_017",
+    "question_type": "fact",
+    "query": "贵州茅台26Q1 毛利率同比下降至多少？",
+    "answer": "89.8%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/GZMT.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_018",
+    "question_type": "fact",
+    "query": "海尔智家2026Q1 欧洲冰箱销额份额分别同比提高多少",
+    "answer": "1.3pct",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/HEZJ.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_019",
+    "question_type": "fact",
+    "query": "海天味业26Q1 净利率同比增长多少",
+    "answer": "0.5pp",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/HTWY.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_020",
+    "question_type": "fact",
+    "query": "海信家电北美区家电收入同比增长多少",
+    "answer": "13%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/consumer/HXJD.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_021",
+    "question_type": "fact",
+    "query": "爱尔眼科归属母公司净利润是多少",
+    "answer": "11.81 亿元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/healthcare/AEYK.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_022",
+    "question_type": "fact",
+    "query": "百奥赛图成立于哪一年",
+    "answer": "2009",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/healthcare/BAST.pdf",
+        "pages": [4]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_023",
+    "question_type": "fact",
+    "query": "截至 2025 年底，百诚医药的新药研发团队硕博比例达到多少",
+    "answer": "65.29%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/healthcare/BCYY.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_024",
+    "question_type": "fact",
+    "query": "毕得医药2024A 营业收入同比增速是多少",
+    "answer": "0.9%",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/healthcare/BDYY.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_025",
+    "question_type": "fact",
+    "query": "博腾股份2025年小分子原料药业务收入是多少",
+    "answer": "30.92 亿元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/healthcare/BTGF.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_026",
+    "question_type": "fact",
+    "query": "国际医学公司2025年营收是多少",
+    "answer": "40.7 亿元",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "data/raw/healthcare/GJYX.pdf",
+        "pages": [1]
+      }
+    ]
+  },
+  {
+    "question_id": "fact_027",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_028",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_029",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_030",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_031",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_032",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_033",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_034",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_035",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_036",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_037",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_038",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_039",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_040",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_041",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_042",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_043",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_044",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_045",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_046",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_047",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_048",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_049",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_050",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_051",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_052",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_053",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_054",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_055",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_056",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_057",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_058",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_059",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_060",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_061",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_062",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_063",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_064",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_065",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_066",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_067",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_068",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_069",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "fact_070",
+    "question_type": "fact",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_001",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_002",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_003",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_004",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_005",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_006",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_007",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_008",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_009",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_010",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_011",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_012",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_013",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_014",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_015",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_016",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_017",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_018",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_019",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_020",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_021",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_022",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_023",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_024",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_025",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_026",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_027",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_028",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_029",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "compare_030",
+    "question_type": "compare",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_001",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_002",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_003",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_004",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_005",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_006",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_007",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_008",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_009",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_010",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_011",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_012",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_013",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_014",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_015",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_016",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_017",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_018",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_019",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  },
+  {
+    "question_id": "summary_020",
+    "question_type": "summary",
+    "query": "",
+    "answer": "",
+    "industry": "",
+    "ground_truth": [
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      },
+      {
+        "doc_id": "",
+        "source": "",
+        "pages": []
+      }
+    ]
+  }
+]

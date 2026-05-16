@@ -26,8 +26,8 @@ from financial_report_rag.utils import read_jsonl, write_jsonl  # noqa: E402
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", default="data/processed/pages.jsonl")
-    parser.add_argument("--output", default="data/processed/chunks.jsonl")
+    parser.add_argument("--input", default="data/processed/pages/pages.jsonl")
+    parser.add_argument("--output", default="data/processed/chunks/chunks.jsonl")
     parser.add_argument("--chunk-size", type=int, default=512)
     parser.add_argument("--overlap", type=int, default=100)
     return parser.parse_args()

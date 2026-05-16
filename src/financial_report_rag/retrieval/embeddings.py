@@ -11,6 +11,7 @@ import numpy as np
 @dataclass
 class EmbeddingConfig:
     model_name: str = "BAAI/bge-large-zh-v1.5"
+    backend: str = "sentence-transformers"
     batch_size: int = 16
     max_length: int = 512
     normalize: bool = True
@@ -24,11 +25,20 @@ class FlagEmbeddingModel:
     def __init__(self, config: EmbeddingConfig):
         """初始化 embedding 模型。"""
         self.config = config
+        self.backend = _normalize_backend(config.backend)
         self.model = self._load_model(config)
 
-    @staticmethod
-    def _load_model(config: EmbeddingConfig):
-        """加载 FlagEmbedding 模型实例。"""
+    def _load_model(self, config: EmbeddingConfig):
+        """按后端加载 embedding 模型实例。"""
+        if self.backend == "sentence-transformers":
+            try:
+                from sentence_transformers import SentenceTransformer
+            except ImportError as exc:
+                raise RuntimeError(
+                    "未安装 sentence-transformers，请先运行 `pip install -r requirements.txt`。"
+                ) from exc
+            return SentenceTransformer(config.model_name)
+
         try:
             from FlagEmbedding import FlagModel
         except ImportError as exc:
@@ -57,6 +67,19 @@ class FlagEmbeddingModel:
         """根据文本类型调用合适的编码接口。"""
         if not texts:
             return np.zeros((0, 0), dtype="float32")
+
+        if self.backend == "sentence-transformers":
+            encoded_texts = texts
+            if is_query and self.config.query_instruction:
+                encoded_texts = [self.config.query_instruction + text for text in texts]
+            vectors = self.model.encode(
+                encoded_texts,
+                batch_size=self.config.batch_size,
+                normalize_embeddings=self.config.normalize,
+                convert_to_numpy=True,
+                show_progress_bar=False,
+            )
+            return np.asarray(vectors, dtype="float32")
 
         method_names = ["encode_queries", "encode"] if is_query else ["encode_corpus", "encode"]
         last_error = None
@@ -91,3 +114,13 @@ def _normalize(vectors: np.ndarray) -> np.ndarray:
     norms = np.linalg.norm(vectors, axis=1, keepdims=True)
     norms[norms == 0] = 1.0
     return vectors / norms
+
+
+def _normalize_backend(backend: str) -> str:
+    """规范化 embedding 后端名称。"""
+    normalized = backend.lower().replace("_", "-")
+    if normalized in {"sentence-transformers", "sentence-transformer", "st"}:
+        return "sentence-transformers"
+    if normalized in {"flagembedding", "flag-embedding", "flag"}:
+        return "flagembedding"
+    raise ValueError(f"不支持的 embedding backend：{backend}")
