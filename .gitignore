@@ -23,4 +23,6 @@ logs/
 
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/processed/metadata/
+!data/processed/metadata/*.csv
 !data/external/.gitkeep

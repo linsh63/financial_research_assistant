@@ -238,7 +238,7 @@ data/eval/financial_qa_dev.jsonl
 同时保留一份标注说明：
 
 ```text
-docs/experiments/eval_set_construction_from_pdfs.md
+docs/experiments/eval_set/eval_set_construction_from_pdfs.md
 ```
 
 后续跑评测时，Recall 的判断逻辑可以先用 `ground_truth_doc_id`，再升级到 `evidence_chunk_id`。第一版不要一开始就追求自动化标注，先保证 30 条高质量样本能稳定复现问题。

@@ -36,8 +36,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--query", required=True)
     parser.add_argument(
         "--index-dir",
-        default="data/processed/indexes/bge_large_zh_v15_sample",
-        help="索引目录，例如 data/processed/indexes/bge_large_zh_v15_sample。",
+        default="data/processed/indexes/bge_large_zh_v15",
+        help="索引目录，例如 data/processed/indexes/bge_large_zh_v15。",
     )
     parser.add_argument("--index-type", choices=["flat", "ivf", "hnsw"], default="flat")
     parser.add_argument("--index-path", default="data/processed/indexes/faiss_flat.index")

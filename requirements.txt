@@ -1,6 +1,7 @@
 faiss-cpu
 fastapi
 flagembedding
+jieba
 numpy
 pandas
 pdfplumber
@@ -11,4 +12,3 @@ scikit-learn
 sentence-transformers
 streamlit
 uvicorn
-

@@ -38,8 +38,8 @@ from financial_report_rag.utils import read_jsonl  # noqa: E402
 def parse_args() -> argparse.Namespace:
     """读取命令行参数。"""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--chunks", default="data/processed/chunks/chunks_deepdoc_sample.jsonl")
-    parser.add_argument("--output-dir", default="data/processed/indexes/bge_large_zh_v15_sample")
+    parser.add_argument("--chunks", default="data/processed/chunks/samples/chunks_deepdoc_sample.jsonl")
+    parser.add_argument("--output-dir", default="data/processed/indexes/samples/bge_large_zh_v15_sample")
     parser.add_argument("--model", default="BAAI/bge-large-zh-v1.5")
     parser.add_argument(
         "--backend",
