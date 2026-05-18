@@ -1,0 +1,649 @@
+{
+  "scores": [
+    {
+      "question_id": "fact_002",
+      "question_type": "fact",
+      "query": "恩捷股份2025A 的 P/E 是多少？",
+      "expected_answer": "514.94 倍。",
+      "generated_answer": "直接答案：2025A 的 P/E 为 514.94 倍。  \n依据：资料中“盈利预测与估值”表明确列示“P/E（现价&最新摊薄）; 2025A: 514.94”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "514.94"
+      ],
+      "matched_numbers": [
+        "514.94"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/EJGF.pdf",
+        "data/raw/real_estate/CJFZ.pdf",
+        "data/raw/new_energy/赛力斯_202601.pdf"
+      ],
+      "judge": {
+        "is_correct": true,
+        "score": 100.0,
+        "correctness": 5.0,
+        "completeness": 5.0,
+        "faithfulness": 5.0,
+        "reason": "答案与标准答案完全一致，数值准确，且未见无依据扩展。",
+        "raw": "{\"is_correct\":true,\"score\":100,\"correctness\":5,\"completeness\":5,\"faithfulness\":5,\"reason\":\"答案与标准答案完全一致，数值准确，且未见无依据扩展。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "fact_004",
+      "question_type": "fact",
+      "query": "国轩高科 2024A 的 PB 估值是多少倍",
+      "expected_answer": "2.7 倍。",
+      "generated_answer": "直接答案：2.7倍\n\n依据：资料中“财务指标预测”表显示，国轩高科 2024A 的 **PB\\*** 为 **2.7**。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2.7"
+      ],
+      "matched_numbers": [
+        "2.7"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/GXGK.pdf",
+        "data/raw/consumer/WLY.pdf",
+        "data/raw/real_estate/XCKG.pdf"
+      ],
+      "judge": {
+        "is_correct": true,
+        "score": 100.0,
+        "correctness": 5.0,
+        "completeness": 5.0,
+        "faithfulness": 5.0,
+        "reason": "答案与标准答案完全一致，且无明显编造。",
+        "raw": "{\"is_correct\":true,\"score\":100,\"correctness\":5,\"completeness\":5,\"faithfulness\":5,\"reason\":\"答案与标准答案完全一致，且无明显编造。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "fact_008",
+      "question_type": "fact",
+      "query": "麦加芯彩 2026E 归母净利润预计是多少",
+      "expected_answer": "272.43 百万元",
+      "generated_answer": "直接答案：2026E 归母净利润预计为 2.72 亿元。\n\n依据：资料中“归属母公司净利润（百万元）”对应 2026E 为 272.43 百万元，折合约 2.72 亿元；同时正文也写明“我们预测公司2026-2028 年……归母净利润分别为 2.72/3.15/4.15 亿元” [资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "272.43"
+      ],
+      "matched_numbers": [
+        "272.43"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/MJXC.pdf",
+        "data/raw/consumer/HXJD.pdf",
+        "data/raw/semiconductor/HWJ.pdf",
+        "data/raw/consumer/DPYL.pdf"
+      ],
+      "judge": {
+        "is_correct": true,
+        "score": 98.0,
+        "correctness": 5.0,
+        "completeness": 5.0,
+        "faithfulness": 5.0,
+        "reason": "生成答案与标准答案一致，2.72亿元与272.43百万元等值，且未出现明显编造或偏离。",
+        "raw": "{\"is_correct\": true,\"score\": 98,\"correctness\": 5,\"completeness\": 5,\"faithfulness\": 5,\"reason\":\"生成答案与标准答案一致，2.72亿元与272.43百万元等值，且未出现明显编造或偏离。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "fact_036",
+      "question_type": "fact",
+      "query": "截至 2025 年末，金地集团有息负债多少",
+      "expected_answer": "672亿元",
+      "generated_answer": "直接答案：根据现有资料无法确定“截至 2025 年末，金地集团有息负债”的具体金额；资料仅能看到“截至2025年末，金地集团有息负债中短期有息负债占比为61%，长期有息负债占比为39%”，但未给出有息负债总额。  \n依据：[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "672"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "672"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/real_estate/JDJT.pdf",
+        "data/raw/real_estate/HFGF.pdf"
+      ],
+      "judge": {
+        "is_correct": false,
+        "score": 18.0,
+        "correctness": 0.0,
+        "completeness": 0.0,
+        "faithfulness": 4.0,
+        "reason": "标准答案是672亿元，但生成答案未给出总额，反而称无法确定；仅提供了占比信息，未覆盖关键数字，因此不正确且不完整。",
+        "raw": "{\"is_correct\":false,\"score\":18,\"correctness\":0,\"completeness\":0,\"faithfulness\":4,\"reason\":\"标准答案是672亿元，但生成答案未给出总额，反而称无法确定；仅提供了占比信息，未覆盖关键数字，因此不正确且不完整。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "fact_043",
+      "question_type": "fact",
+      "query": "深圳皓飞新材2026年Q1实现产品销售收入多少",
+      "expected_answer": "1.57亿元",
+      "generated_answer": "直接答案：1.57亿元，2026年Q1产品销售收入。\n\n依据：[资料1] 中明确写到“公司控股子公司深圳皓飞新材2026年Q1实现产品销售收入1.57亿元，同比增长40.75%”。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "1.57"
+      ],
+      "matched_numbers": [
+        "1.57"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/DLGF.pdf",
+        "data/raw/new_energy/SSGF.pdf",
+        "data/raw/real_estate/ZSSK.pdf",
+        "data/raw/new_energy/赛力斯_202601.pdf",
+        "data/raw/new_energy/广汽集团_202601.pdf"
+      ],
+      "judge": {
+        "is_correct": true,
+        "score": 100.0,
+        "correctness": 5.0,
+        "completeness": 5.0,
+        "faithfulness": 5.0,
+        "reason": "与标准答案完全一致，直接给出1.57亿元，且未引入无关或编造信息。",
+        "raw": "{\"is_correct\":true,\"score\":100,\"correctness\":5,\"completeness\":5,\"faithfulness\":5,\"reason\":\"与标准答案完全一致，直接给出1.57亿元，且未引入无关或编造信息。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "compare_002",
+      "question_type": "compare",
+      "query": "泸州老窖 vs 五粮液，哪家公司的2025年营业总收入更高？",
+      "expected_answer": "五粮液。泸州老窖2025年公司实现营业总收入 257.3 亿元，五粮液2025年公司实现营收 405.29亿元。",
+      "generated_answer": "- 对象A：泸州老窖 2025年营业总收入为 **257.3亿元**，口径为“营业总收入”，时间为“2025年/2025A”，引用：[资料3]。\n- 对象B：五粮液 资料中**未提供**“2025年营业总收入”这一同口径数字；[资料1] 仅给出了五粮液的估值表信息，未见营业总收入数据。引用：[资料1]。\n\n结论：根据现有资料，**无法直接比较泸州老窖与五粮液2025年营业总收入高低**，因为五粮液的2025年营业总收入缺失。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]",
+        "[资料1]"
+      ],
+      "reference_coverage": 0.5,
+      "reference_matched": 1,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2025",
+        "257.3",
+        "405.29"
+      ],
+      "matched_numbers": [
+        "2025",
+        "257.3"
+      ],
+      "missing_numbers": [
+        "405.29"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/consumer/SXFJ.pdf",
+        "data/raw/consumer/LZLJ.pdf"
+      ],
+      "judge": {
+        "is_correct": false,
+        "score": 24.0,
+        "correctness": 1.0,
+        "completeness": 1.0,
+        "faithfulness": 4.0,
+        "reason": "生成答案承认五粮液2025年营业总收入缺失，未给出标准答案中的结论“五粮液更高”，属于核心结论错误且遗漏关键数字405.29亿元；但未明显编造数值，整体较为保守。",
+        "raw": "{\"is_correct\":false,\"score\":24,\"correctness\":1,\"completeness\":1,\"faithfulness\":4,\"reason\":\"生成答案承认五粮液2025年营业总收入缺失，未给出标准答案中的结论“五粮液更高”，属于核心结论错误且遗漏关键数字405.29亿元；但未明显编造数值，整体较为保守。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "compare_003",
+      "question_type": "compare",
+      "query": "千禾味业 vs 神农集团，哪家公司的26Q1营收 更高",
+      "expected_answer": "神农集团。在26Q1，千禾味业实现营收 8.2 亿元，神农集团实现营收 13.22 亿元",
+      "generated_answer": "- 对象A：千禾味业，26Q1 实现营收 **8.2亿元**，口径为“26Q1公司实现营收”，引用：[资料1]\n- 对象B：神农集团，**根据现有资料无法确定**其“26Q1营收”数值；当前可用资料中未提供神农集团26Q1营收这一同口径数据。引用：[资料2]\n\n结论：**根据现有资料无法判断千禾味业 vs 神农集团哪家公司的26Q1营收更高**，因为资料中只明确给出了千禾味业的26Q1营收，未提供神农集团对应的26Q1营收数据。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 0.5,
+      "reference_matched": 1,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "26",
+        "1",
+        "8.2",
+        "13.22"
+      ],
+      "matched_numbers": [
+        "26",
+        "1",
+        "8.2"
+      ],
+      "missing_numbers": [
+        "13.22"
+      ],
+      "numeric_coverage": 0.75,
+      "sources": [
+        "data/raw/consumer/QHWY.pdf",
+        "data/raw/consumer/HTWY.pdf"
+      ],
+      "judge": {
+        "is_correct": false,
+        "score": 28.0,
+        "correctness": 1.0,
+        "completeness": 1.0,
+        "faithfulness": 3.0,
+        "reason": "生成答案未给出标准答案结论，反而称无法判断；且缺少神农集团26Q1营收13.22亿元这一关键数据，属于核心遗漏。",
+        "raw": "{\"is_correct\":false,\"score\":28,\"correctness\":1,\"completeness\":1,\"faithfulness\":3,\"reason\":\"生成答案未给出标准答案结论，反而称无法判断；且缺少神农集团26Q1营收13.22亿元这一关键数据，属于核心遗漏。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "compare_013",
+      "question_type": "compare",
+      "query": "中集集团 vs 中自科技，预计哪家公司2026年营业收入更高",
+      "expected_answer": "中集集团。中集集团2026E年营业收入168832百万元，中自科技2026E年营业收入2337百万元",
+      "generated_answer": "- 对象A（中集集团）：2026E 营业收入 **168,832 百万元**（即资料中的“主营收入/营业收入”，2026E）[资料1][资料3]\n- 对象B（中自科技）：2026E 营业收入 **2,337 百万元**（资料中的“营业收入”，2026E）[资料2]\n\n结论：**预计中集集团2026年营业收入更高**。两者同为2026E营业收入口径对比，中集集团的 **168,832 百万元** 高于中自科技的 **2,337 百万元** [资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2026",
+        "168832",
+        "2337"
+      ],
+      "matched_numbers": [
+        "2026",
+        "168832",
+        "2337"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/ZJJT.pdf",
+        "data/raw/new_energy/ZZKJ.pdf"
+      ],
+      "judge": {
+        "is_correct": true,
+        "score": 100.0,
+        "correctness": 5.0,
+        "completeness": 5.0,
+        "faithfulness": 5.0,
+        "reason": "生成答案与标准答案完全一致，明确给出中集集团2026E营收更高，并正确包含两家公司对应数值，无明显编造或遗漏。",
+        "raw": "{\"is_correct\": true,\"score\": 100,\"correctness\": 5,\"completeness\": 5,\"faithfulness\": 5,\"reason\":\"生成答案与标准答案完全一致，明确给出中集集团2026E营收更高，并正确包含两家公司对应数值，无明显编造或遗漏。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "compare_029",
+      "question_type": "compare",
+      "query": "保利发展 vs 华发股份，哪家公司2025年实现营收更高",
+      "expected_answer": "保利发展。保利发展2025年公司实现营业收入308144百万元，华发股份2025年实现收入834.3亿元",
+      "generated_answer": "- 对象A（保利发展）：**2025A 营业总收入 308,144 百万元**，口径为“营业总收入”，时间为“2025A” [资料1]\n- 对象B（华发股份）：**2025 年营业收入 512.4 亿元**，口径为“营业收入”，时间为“2025” [资料4]\n\n结论：**根据现有资料，保利发展和华发股份都提供了 2025 年营收数据，但两者口径不完全一致（“营业总收入” vs “营业收入”），且单位也不同，无法直接判断哪家公司 2025 年实现营收更高。**",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料4]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "308144",
+        "834.3"
+      ],
+      "matched_numbers": [
+        "2025",
+        "308144"
+      ],
+      "missing_numbers": [
+        "834.3"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/real_estate/BLFZ.pdf",
+        "data/raw/real_estate/HFGF.pdf"
+      ],
+      "judge": {
+        "is_correct": false,
+        "score": 22.0,
+        "correctness": 1.0,
+        "completeness": 1.0,
+        "faithfulness": 3.0,
+        "reason": "标准答案明确为保利发展营收更高；生成答案却因口径/单位不同而给出“无法直接判断”，结论错误。虽提到保利发展营收数值，但华发股份数字与标准答案不一致，且未给出正确比较结论。",
+        "raw": "{\"is_correct\":false,\"score\":22,\"correctness\":1,\"completeness\":1,\"faithfulness\":3,\"reason\":\"标准答案明确为保利发展营收更高；生成答案却因口径/单位不同而给出“无法直接判断”，结论错误。虽提到保利发展营收数值，但华发股份数字与标准答案不一致，且未给出正确比较结论。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "summary_001",
+      "question_type": "summary",
+      "query": "结合相关政策，新能源消纳与新型电力系统建设主要从哪些方向推进？",
+      "expected_answer": "主要方向包括：坚持清洁低碳、安全充裕、经济高效、供需协同、灵活智能的基本原则，2024—2027年重点开展9项专项行动，提升电网对清洁能源的接纳、配置、调控能力；健全煤电、抽水蓄能、新型储能等调节性资源容量电价机制，完善体现分时价值差异的零售市场价格机制；突破新能源高效发电利用、系统灵活调节、电网高效仿真和稳定运行控制、智能化调控等技术；通过调节能力建设优化，支撑2025—2027年年均新增2亿千瓦以上新能源合理消纳利用，全国新能源利用率不低于90%；推动新型储能到2027年基本实现规模化、市场化发展，全国装机规模达到1.8亿千瓦以上。",
+      "generated_answer": "结合相关政策，新能源消纳与新型电力系统建设主要从以下方向推进：\n\n1. 统筹电源与电网、可再生能源与传统化石能源、可再生能源开发与消纳的关系，加快构建新型电力系统，提升可再生能源消纳和存储能力，实现能源绿色低碳转型与安全可靠供应相统一。[资料1]\n\n2. 通过实施可再生能源替代行动，提高可再生能源消纳和存储能力，巩固提升可再生能源产业核心竞争力，促进可再生能源大规模、高比例、市场化、高质量发展。[资料1]\n\n3. 通过建设共享储能电站、探索应用液流电池、飞轮、压缩空气储能、重力储能、二氧化碳储能、液态空气储能、钠离子电池、铅炭电池等新型储能技术，完善调用和市场化运行机制，提升系统层面的电力保供和新能源消纳能力。[资料2]\n\n4. 通过加强电动汽车与电网融合互动，推广智能有序充电，推动车、桩、站、网融合互动，研究完善分时电价政策和放电价格机制，推动电动汽车参与电力系统互动。[资料2]\n\n5. 通过开展高比例需求侧响应、建立需求侧灵活调节资源库、完善市场和价格机制，以及建设虚拟电厂，提升电力保供和新能源就地消纳能力。[资料2]\n\n6. 通过推进新型储能规模化建设，在电源侧、电网侧拓展应用场景，推动构网型储能在高比例新能源电网、弱电网及孤岛电网示范应用，推广配电网新型储能应用，提升新型储能对电力系统稳定运行的支持能力。[资料5]\n\n结论：相关政策主要围绕“源网荷储”协同、储能建设与市场机制、需求侧响应、电动汽车与电网互动等方向，系统提升新能源消纳能力并加快新型电力系统建设。[资料1][资料2][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料5]"
+      ],
+      "reference_coverage": 0.25,
+      "reference_matched": 1,
+      "reference_total": 4,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2024",
+        "2027",
+        "9",
+        "2025",
+        "2",
+        "90%",
+        "1.8"
+      ],
+      "matched_numbers": [
+        "2"
+      ],
+      "missing_numbers": [
+        "2024",
+        "2027",
+        "9",
+        "2025",
+        "90%",
+        "1.8"
+      ],
+      "numeric_coverage": 0.14285714285714285,
+      "sources": [
+        "data/raw/policy/P020220602315650388122.pdf",
+        "data/raw/policy/ndrc_2024_new_power_system_action_plan.pdf",
+        "data/raw/policy/P020210421528000000606.pdf",
+        "data/raw/policy/P020240806534738672970.pdf",
+        "data/raw/policy/P020250912338143145278.pdf"
+      ],
+      "judge": {
+        "is_correct": false,
+        "score": 48.0,
+        "correctness": 2.0,
+        "completeness": 2.0,
+        "faithfulness": 2.0,
+        "reason": "生成答案只部分覆盖了源网荷储协同、储能、需求侧响应等方向，但遗漏了标准答案中的关键政策要点，如基本原则、2024—2027年9项专项行动、容量电价和分时电价机制、关键技术突破，以及2025—2027年新能源利用率和2027年储能装机目标；同时加入了较多标准答案未明确列出的扩展内容，整体不够贴合。",
+        "raw": "{\"is_correct\": false,\"score\": 48,\"correctness\": 2,\"completeness\": 2,\"faithfulness\": 2,\"reason\":\"生成答案只部分覆盖了源网荷储协同、储能、需求侧响应等方向，但遗漏了标准答案中的关键政策要点，如基本原则、2024—2027年9项专项行动、容量电价和分时电价机制、关键技术突破，以及2025—2027年新能源利用率和2027年储能装机目标；同时加入了较多标准答案未明确列出的扩展内容，整体不够贴合。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "summary_002",
+      "question_type": "summary",
+      "query": "新型储能政策对发展目标、应用场景、技术路线和市场机制是如何安排的？",
+      "expected_answer": "新型储能被定位为支撑新型电力系统的重要技术和基础装备。目标上，到2025年实现从商业化初期向规模化发展转变、装机规模达3000万千瓦以上，到2030年实现全面市场化发展；专项行动进一步提出到2027年基本实现规模化、市场化发展。应用场景上，鼓励电源侧、电网侧、用户侧多元发展，拓展“新能源+储能”、智能微电网、虚拟电厂等场景。技术上，坚持多元化路线，推动锂离子电池规模化应用，推动压缩空气、液流电池、钠离子电池、飞轮、氢储能、热储能等试点示范和商业化发展。市场机制上，推动储能作为独立主体参与电力市场、辅助服务市场，完善容量电价、分时电价和成本疏导机制，并健全标准体系、并网流程和安全监管。",
+      "generated_answer": "1. 要点：发展目标上，政策明确新型储能“由商业化初期步入规模化发展阶段”，到2025年“具备大规模商业化应用条件”，技术创新能力、核心技术装备自主可控水平、标准体系、产业体系、市场环境和商业模式都要提升；到2030年则要“实现新型储能全面市场化发展”，标准体系、市场机制、商业模式“成熟健全”，与电力系统各环节深度融合。[资料1][资料2]\n\n2. 要点：应用场景上，政策围绕电源侧、电网侧、用户侧及更多多场景应用推进；包括电源侧配置储能的系统友好型新能源电站、煤电与电化学储能/飞轮储能/热储能联合运行，电网侧独立储能电站、构网型储能、配电网新型储能，以及工业园区、算力设施、商业综合体、光储充放一体化充电站、分布式光伏、通信基站等场景，并拓展绿电直连、虚拟电厂、智能微电网、源网荷储一体化、车网互动等模式。[资料3][资料4][资料5]\n\n3. 要点：技术路线和试点示范上，政策强调“多元化发展”，开展不同技术路线分类试点示范，重点包括液流电池、飞轮、压缩空气、火电机组抽汽蓄能、钠离子电池、固态锂离子电池、氢（氨）储能、热（冷）储能、复合型储能等；同时推动短时高频储能、大容量中长时间尺度储能、日到周/周到季/更长周期储能示范，明确“新型储能技术路线仍以锂离子电池储能为主”，并鼓励多技术混合式新型储能、长时储能等。[资料3][资料4][资料5]\n\n4. 要点：市场机制上，政策提出“市场主导”，明确新型储能独立市场地位，完善市场化交易机制，丰富参与交易品种，健全配套市场规则和监督规范；同时在政策驱动下推动储能市场主体地位、加快商业模式和体制机制创新，在重点地区先行先试，并推动新型储能作为独立主体或通过负荷聚合商等形式参与需求响应。[资料1][资料2][资料5]\n\n结论：整体上，政策把新型储能安排为“2025年规模化、2030年全面市场化”的发展路径，按电源侧、电网侧、用户侧及多场景拓展应用，以锂离子电池为主、其他技术路线分类示范，并通过完善市场机制和交易规则推动商业化落地。[资料1][资料2][资料3][资料4][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料3]",
+        "[资料4]",
+        "[资料5]"
+      ],
+      "reference_coverage": 0.6,
+      "reference_matched": 3,
+      "reference_total": 5,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2025",
+        "3000",
+        "2030",
+        "2027"
+      ],
+      "matched_numbers": [
+        "2025",
+        "2030"
+      ],
+      "missing_numbers": [
+        "3000",
+        "2027"
+      ],
+      "numeric_coverage": 0.5,
+      "sources": [
+        "data/raw/policy/P020220321550104020921.pdf",
+        "data/raw/policy/202210114475091.pdf",
+        "data/raw/policy/P020250912338143145278.pdf"
+      ],
+      "judge": {
+        "is_correct": false,
+        "score": 78.0,
+        "correctness": 4.0,
+        "completeness": 3.0,
+        "faithfulness": 3.0,
+        "reason": "答案整体方向基本一致，覆盖了目标、场景、技术路线和市场机制，但遗漏了标准答案中的关键数字“3000万千瓦以上”和“2027年基本实现规模化、市场化发展”。同时加入了较多标准答案未明确提到的细化场景与表述，存在一定扩展。",
+        "raw": "{\"is_correct\": false, \"score\": 78, \"correctness\": 4, \"completeness\": 3, \"faithfulness\": 3, \"reason\": \"答案整体方向基本一致，覆盖了目标、场景、技术路线和市场机制，但遗漏了标准答案中的关键数字“3000万千瓦以上”和“2027年基本实现规模化、市场化发展”。同时加入了较多标准答案未明确提到的细化场景与表述，存在一定扩展。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    },
+    {
+      "question_id": "summary_005",
+      "question_type": "summary",
+      "query": "大规模设备更新和消费品以旧换新政策主要支持哪些领域，资金和补贴如何安排？",
+      "expected_answer": "政策统筹安排3000亿元左右超长期特别国债资金，加力支持大规模设备更新和消费品以旧换新。设备更新方面，支持范围从工业、环境基础设施、交通运输、物流、教育、文旅、医疗、回收循环利用，扩大到能源电力、老旧电梯等领域设备更新以及重点行业节能降碳和安全改造，并降低申报门槛、支持中小企业设备更新。具体补贴包括老旧营运船舶报废更新、老旧营运货车报废更新、农业机械报废更新、新能源公交车及动力电池更新等。消费品方面，重点支持汽车报废更新和乘用车置换更新、家电产品和电动自行车以旧换新、旧房装修和厨卫局部改造、居家适老化改造、智能家居消费等，要求真金白银优惠直达消费者。能源设备更新另提出到2027年能源重点领域设备投资规模较2023年增长25%以上。",
+      "generated_answer": "1. 要点：政策主要支持的领域包括工业、环境基础设施、交通运输、物流、教育、文旅、医疗等领域设备更新，以及回收循环利用；在此基础上，还将支持范围扩大到能源电力、老旧电梯等领域设备更新，以及重点行业节能降碳和安全改造。[资料1]\n2. 要点：在消费品以旧换新方面，支持老旧营运船舶报废更新、老旧营运货车报废更新、农业机械报废更新、新能源公交车及动力电池更新、汽车报废更新和个人消费者乘用车置换更新、家电产品以旧换新；其中家电补贴为“产品销售价格的15%”，购买1级及以上能效或水效标准产品“额外再给予产品销售价格5%的补贴”，每位消费者每类产品可补贴1件、每件不超过2000元。[资料1][资料4]\n3. 要点：资金上，统筹安排“3000亿元左右超长期特别国债资金”加力支持；国家发展改革委负责相关项目，采取投资补助等方式，财政部通过原有渠道安排“275亿元中央财政资金”落实废弃电器电子产品回收处理等支持政策。[资料1][资料3]\n4. 要点：补贴安排上，老旧营运船舶按船舶类型“1500—3200元/总吨”或“1000—2200元/总吨”补贴，提前报废平均按“1000元/总吨”补贴；老旧营运货车报废并更新购置平均每辆车补贴“8万元”，无报废只更新购置平均每辆车补贴“3.5万元”，只提前报废平均每辆车补贴“3万元”；农业机械中，20马力以下拖拉机单台最高报废补贴额由“1000元提高到1500元”，采棉机由“3万元提高到6万元”。[资料1]\n5. 要点：资金分担上，第（三）、（五）、（七）、（八）、（九）条涉及的支持资金按照总体“9:1”的原则实行央地共担，东部、中部、西部地区中央承担比例分别为“85%、90%、95%”，若某地区用完中央下达资金额度，超出部分由地方资金支持，中央不再负担。[资料3][资料4]\n\n结论：该政策主要面向设备更新和消费品以旧换新两大方向，覆盖多类重点行业设备、老旧运输工具、农业机械、新能源公交和家电等，资金由超长期特别国债和中央财政资金统筹安排，并通过中央与地方共担及差异化补贴标准落实。[资料1][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料4]",
+        "[资料3]"
+      ],
+      "reference_coverage": 0.75,
+      "reference_matched": 3,
+      "reference_total": 4,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "3000",
+        "2027",
+        "2023",
+        "25%"
+      ],
+      "matched_numbers": [
+        "3000"
+      ],
+      "missing_numbers": [
+        "2027",
+        "2023",
+        "25%"
+      ],
+      "numeric_coverage": 0.25,
+      "sources": [
+        "data/raw/policy/ndrc_2024_equipment_update_consumer_trade_in.pdf",
+        "data/raw/policy/P020240726413585348997.pdf",
+        "data/raw/policy/ndrc_2024_energy_equipment_update_plan.pdf"
+      ],
+      "judge": {
+        "is_correct": false,
+        "score": 62.0,
+        "correctness": 3.0,
+        "completeness": 3.0,
+        "faithfulness": 1.0,
+        "reason": "覆盖了设备更新和部分消费品以旧换新的方向，也提到3000亿元超长期特别国债资金，但偏离标准答案较多：加入了大量标准答案未提及的具体补贴金额、中央财政275亿元、央地分担比例等内容；同时遗漏了旧房装修、厨卫改造、适老化改造、智能家居消费，以及能源设备更新到2027年投资增长25%以上等关键点。",
+        "raw": "{\"is_correct\":false,\"score\":62,\"correctness\":3,\"completeness\":3,\"faithfulness\":1,\"reason\":\"覆盖了设备更新和部分消费品以旧换新的方向，也提到3000亿元超长期特别国债资金，但偏离标准答案较多：加入了大量标准答案未提及的具体补贴金额、中央财政275亿元、央地分担比例等内容；同时遗漏了旧房装修、厨卫改造、适老化改造、智能家居消费，以及能源设备更新到2027年投资增长25%以上等关键点。\"}",
+        "model": "gpt-5.4-mini"
+      }
+    }
+  ],
+  "summary": {
+    "count": 12,
+    "generated_rate": 1.0,
+    "answer_rate": 1.0,
+    "citation_rate": 1.0,
+    "reference_recall": 0.7999999999999999,
+    "reference_hit_any": 1.0,
+    "reference_hit_all": 0.5833333333333334,
+    "numeric_coverage": 0.6646825396825398,
+    "numeric_count": 12
+  },
+  "judge_summary": {
+    "judged_count": 12.0,
+    "correct_rate": 0.4166666666666667,
+    "avg_score": 64.83333333333333,
+    "avg_correctness": 3.0833333333333335,
+    "avg_completeness": 3.0,
+    "avg_faithfulness": 3.75
+  },
+  "by_type": {
+    "compare": {
+      "count": 4,
+      "generated_rate": 1.0,
+      "answer_rate": 1.0,
+      "citation_rate": 1.0,
+      "reference_recall": 0.75,
+      "reference_hit_any": 1.0,
+      "reference_hit_all": 0.5,
+      "numeric_coverage": 0.7708333333333333,
+      "numeric_count": 4
+    },
+    "fact": {
+      "count": 5,
+      "generated_rate": 1.0,
+      "answer_rate": 1.0,
+      "citation_rate": 1.0,
+      "reference_recall": 1.0,
+      "reference_hit_any": 1.0,
+      "reference_hit_all": 1.0,
+      "numeric_coverage": 0.8,
+      "numeric_count": 5
+    },
+    "summary": {
+      "count": 3,
+      "generated_rate": 1.0,
+      "answer_rate": 1.0,
+      "citation_rate": 1.0,
+      "reference_recall": 0.5333333333333333,
+      "reference_hit_any": 1.0,
+      "reference_hit_all": 0.0,
+      "numeric_coverage": 0.2976190476190476,
+      "numeric_count": 3
+    }
+  },
+  "judge_by_type": {
+    "compare": {
+      "judged_count": 4.0,
+      "correct_rate": 0.25,
+      "avg_score": 43.5,
+      "avg_correctness": 2.0,
+      "avg_completeness": 2.0,
+      "avg_faithfulness": 3.75
+    },
+    "fact": {
+      "judged_count": 5.0,
+      "correct_rate": 0.8,
+      "avg_score": 83.2,
+      "avg_correctness": 4.0,
+      "avg_completeness": 4.0,
+      "avg_faithfulness": 4.8
+    },
+    "summary": {
+      "judged_count": 3.0,
+      "correct_rate": 0.0,
+      "avg_score": 62.666666666666664,
+      "avg_correctness": 3.0,
+      "avg_completeness": 2.6666666666666665,
+      "avg_faithfulness": 2.0
+    }
+  }
+}

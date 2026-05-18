@@ -112,6 +112,8 @@ FAISS 对比结果：
 | hybrid_top5_parent_window1 | 88.21% | 96.67% | 80.00% | 事实型表现最好。 |
 | hybrid_top20_rerank_top5_parent_window1 | 87.92% | 94.17% | 81.67% | 单一策略中的整体最佳，尤其适合对比题。 |
 | routed | 92.82% | 97.50% | 87.50% | 当前整体最佳，按问题类型分别选择策略。 |
+| routed + compare LLM rewrite | 93.24% | 98.33% | 87.50% | 子查询独立召回提升 compare Recall，但 HitAll 未超过 routed。 |
+| routed + compare entity prefer | 93.24% | 98.33% | 87.50% | 修复 `compare_024`，但 `compare_010` 回退，整体与 LLM rewrite 持平。 |
 
 按问题类型看当前最佳观察：
 
@@ -130,12 +132,14 @@ FAISS 对比结果：
 - `docs/experiments/rerank/04_hybrid_rerank_parent_page_after/report.md`
 - `docs/experiments/rerank/05_hybrid_rerank_parent_window1_after/report.md`
 - `docs/experiments/rerank/06_routed_retrieval/report.md`
+- `docs/experiments/rerank/08_compare_llm_query_rewrite/report.md`
+- `docs/experiments/rerank/09_compare_llm_entity_prefer/badcase_analysis.md`
 
 ## 当前问题
 
 1. 路由策略已经显著优于单一策略，但 summary 的 `HitAll@5` 仍然偏低。
 2. 汇总型问题需要更多政策来源，Top8 有明显改善，但会增加进入生成阶段的上下文长度。
-3. 对比型问题仍有单边命中的 badcase，可以考虑对 query 中的公司名做显式实体拆分。
+3. 对比型问题仍有单边命中的 badcase。LLM query rewrite 和子查询独立召回能修复部分样本，但还不够稳定；实体优先策略修复了 `compare_024`，同时导致 `compare_010` 回退。
 4. `parent_window1` 会显著增加上下文长度，进入回答生成阶段时需要做 token 控制。
 
 ## 下一步行动
@@ -146,7 +150,10 @@ FAISS 对比结果：
    - 按 source 去重
    - 保留多个政策文件
    - 再做窗口扩展
-3. 为 compare 增加实体感知召回，降低只命中一家公司证据的概率。
+3. 为 compare 继续改进实体感知召回：
+   - 保留 LLM 子查询改写。
+   - 将实体优先改为轻量 boost，而不是硬重排。
+   - 对 `SNJT.pdf`、`TCYL.pdf` 这类解析质量差或缺公司 alias 的文档补元数据或重解析。
 4. 进入生成阶段 baseline：
    - 拼接检索上下文
    - 调用 LLM 生成答案

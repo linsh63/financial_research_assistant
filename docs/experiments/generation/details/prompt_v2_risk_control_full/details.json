@@ -1,0 +1,4301 @@
+{
+  "scores": [
+    {
+      "question_id": "fact_001",
+      "question_type": "fact",
+      "query": "比亚迪2026 Q1 营收多少",
+      "expected_answer": "1502.25亿元",
+      "generated_answer": "直接答案：1502.25 亿元，2026年一季度营业收入。  \n依据：[资料1]“2026 年一季度公司实现营业收入1502.25 亿元，同比下降11.82%”",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "1502.25"
+      ],
+      "matched_numbers": [
+        "1502.25"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/BYD_202601.pdf",
+        "data/raw/new_energy/赛力斯_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_002",
+      "question_type": "fact",
+      "query": "恩捷股份2025A 的 P/E 是多少？",
+      "expected_answer": "514.94 倍。",
+      "generated_answer": "直接答案：2025A 的 P/E 为 **514.94 倍**。  \n依据：资料中“盈利预测与估值”表明确列示“P/E（现价&最新摊薄）”在 **2025A** 对应数值为 **514.94**。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "514.94"
+      ],
+      "matched_numbers": [
+        "514.94"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/EJGF.pdf",
+        "data/raw/real_estate/CJFZ.pdf",
+        "data/raw/new_energy/赛力斯_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_003",
+      "question_type": "fact",
+      "query": "格林美一季度公司回收钨资源销售收入是多少？",
+      "expected_answer": "14.19 亿元",
+      "generated_answer": "直接答案：14.19 亿元，2026 年第一季度。\n\n依据：资料中写明“2026年第一季度，公司回收钨资源出货量达到1,880吨，销售收入达到14.19亿元”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "14.19"
+      ],
+      "matched_numbers": [
+        "14.19"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/GLM.pdf",
+        "data/raw/semiconductor/ZXGJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_004",
+      "question_type": "fact",
+      "query": "国轩高科 2024A 的 PB 估值是多少倍",
+      "expected_answer": "2.7 倍。",
+      "generated_answer": "直接答案：2.7 倍，2024A PB 估值。  \n依据：[资料1] “PB*; 35,391.82: 2.7; 45,070.46: 2.4; 65,026.85: 2.2; 84,560.19: 1.9; 103,303.40: 1.7” 对应 2024A。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2.7"
+      ],
+      "matched_numbers": [
+        "2.7"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/GXGK.pdf",
+        "data/raw/consumer/WLY.pdf",
+        "data/raw/real_estate/XCKG.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_005",
+      "question_type": "fact",
+      "query": "隆基绿能 26Q1 费用率同比提升了多少？",
+      "expected_answer": "26Q1 费用率同比提升 8.3pct。",
+      "generated_answer": "直接答案：26Q1 费用率同比提升了 **8.3pct**。  \n依据：资料中写明“**26Q1 期间费用20.2亿元，同环比+51.9%/-7%，费用率18.1%，同环比+8.3/+6.9pct**” [资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "8.3"
+      ],
+      "matched_numbers": [
+        "8.3"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/healthcare/SYXY.pdf",
+        "data/raw/healthcare/YMKD.pdf",
+        "data/raw/new_energy/LJLN.pdf",
+        "data/raw/consumer/DPYL.pdf",
+        "data/raw/healthcare/KLY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_006",
+      "question_type": "fact",
+      "query": "朗信电气电子风扇及电机总成在 2025 年的产能是多少？",
+      "expected_answer": "695.64 万套",
+      "generated_answer": "直接答案：2025年产能为 695.64 万套。  \n依据：表7显示“电子风扇及电机总成”在“2025年”的“产能（万套）”为 695.64。[资料4]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料4]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "695.64"
+      ],
+      "matched_numbers": [
+        "695.64"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/LXDQ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_007",
+      "question_type": "fact",
+      "query": "林洋能源Q1毛利率是多少？",
+      "expected_answer": "20.72%",
+      "generated_answer": "直接答案：根据现有资料无法确定林洋能源 Q1 毛利率。\n\n依据：资料中只有林洋能源的业绩预测和主营收入信息，没有出现“Q1 毛利率”这一指标的直接数值；Q1 毛利率数值只在资料2中对应的是“新大正”而非林洋能源，不能替代。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "20.72%"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "20.72%"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/new_energy/LYNY.pdf",
+        "data/raw/real_estate/XDZ.pdf",
+        "data/raw/new_energy/LXDQ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_008",
+      "question_type": "fact",
+      "query": "麦加芯彩 2026E 归母净利润预计是多少",
+      "expected_answer": "272.43 百万元",
+      "generated_answer": "直接答案：2.72 亿元，2026E 归母净利润预计为 2.72 亿元。\n\n依据：资料1中“我们预测公司2026-2028 年…归母净利润分别为2.72/3.15/4.15 亿元”，以及盈利预测表中“归属母公司净利润（百万元）; 2026E: 272.43”，口径与问题“2026E 归母净利润”相匹配。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "272.43"
+      ],
+      "matched_numbers": [
+        "272.43"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/MJXC.pdf",
+        "data/raw/consumer/HXJD.pdf",
+        "data/raw/semiconductor/HWJ.pdf",
+        "data/raw/consumer/DPYL.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_009",
+      "question_type": "fact",
+      "query": "山高环能2025 年供暖业务实现营收多少",
+      "expected_answer": "3.12 亿元",
+      "generated_answer": "直接答案：2025 年供暖业务实现营收 3.12 亿元。\n\n依据：资料中明确写明“2025 年供暖业务实现营收3.12 亿元，占比为21.56%”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "3.12"
+      ],
+      "matched_numbers": [
+        "3.12"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/SGHN.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_010",
+      "question_type": "fact",
+      "query": "崧盛股份主业方面，2026Q1 营收为 多少",
+      "expected_answer": "2.75 亿元",
+      "generated_answer": "直接答案：2026Q1 营收为 **2.75 亿元**。  \n依据：资料中写明“**主业方面，公司2022-2026Q1 营收分别为7.44/7.63/8.84/9.56/2.75 亿元**”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2.75"
+      ],
+      "matched_numbers": [
+        "2.75"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/SSGF.pdf",
+        "data/raw/new_energy/赛力斯_202601.pdf",
+        "data/raw/new_energy/广汽集团_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_011",
+      "question_type": "fact",
+      "query": "威贸电子近 3 个月换手率是多少？",
+      "expected_answer": "69.24%",
+      "generated_answer": "直接答案：69.24%\n依据：资料中“近3个月换手率(%) 69.24”，对应威贸电子（920346.BJ）[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "69.24%"
+      ],
+      "matched_numbers": [
+        "69.24%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/WMDZ.pdf",
+        "data/raw/semiconductor/HGCY.pdf",
+        "data/raw/semiconductor/BDT.pdf",
+        "data/raw/semiconductor/ZWGS.pdf",
+        "data/raw/semiconductor/BFHC.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_012",
+      "question_type": "fact",
+      "query": "安井食品26Q1 公司毛利率为多少",
+      "expected_answer": "25%",
+      "generated_answer": "直接答案：26Q1 公司毛利率为 25%。\n\n依据：资料中明确写到“26Q1公司毛利率为25%”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "25%"
+      ],
+      "matched_numbers": [
+        "25%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/AJSP.pdf",
+        "data/raw/semiconductor/TJKJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_013",
+      "question_type": "fact",
+      "query": "安琪酵母2025A净利润为多少",
+      "expected_answer": "15.89亿元",
+      "generated_answer": "直接答案：2025A 净利润为 15.89 亿元。  \n依据：[资料1] 利润表（亿元）中“净利润”对应 2025A 为 15.89。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "15.89"
+      ],
+      "matched_numbers": [
+        "15.89"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/AQJM.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_014",
+      "question_type": "fact",
+      "query": "珀莱雅洗护品类中OR同比增长多少",
+      "expected_answer": "102.19%",
+      "generated_answer": "直接答案：OR同比增长102.19%，时间口径为2025年年报洗护品类收入。  \n依据：[资料1]“洗护品类中OR实现收入7.44亿元，同比+102.19%”。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "102.19%"
+      ],
+      "matched_numbers": [
+        "102.19%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/BLY.pdf",
+        "data/raw/real_estate/ZJGF.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_015",
+      "question_type": "fact",
+      "query": "东鹏饮料的“东鹏补水啦”电解质水在 2025 年营收同比增长多少",
+      "expected_answer": "118.99%",
+      "generated_answer": "直接答案：118.99%\n\n依据：资料中明确写到“‘东鹏补水啦’电解质水在2025 年营收同比增长 118.99%”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "118.99%"
+      ],
+      "matched_numbers": [
+        "118.99%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/DPYL.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_016",
+      "question_type": "fact",
+      "query": "格力电器2026年预计的营业收入为多少",
+      "expected_answer": "178,510.20百万元",
+      "generated_answer": "直接答案：178510.20 百万元，2026E\n\n依据：资料中“表1：分业务收入及毛利率”明确给出“合计; 营业收入; 171,118.16; 178,510.20; 187,150.66; 196,456.48”，对应2026E为178,510.20百万元，即2026年预计营业收入。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "178510.20"
+      ],
+      "matched_numbers": [
+        "178510.20"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/GLDQ.pdf",
+        "data/raw/semiconductor/HYKG.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_017",
+      "question_type": "fact",
+      "query": "贵州茅台26Q1 毛利率同比下降至多少？",
+      "expected_answer": "89.8%",
+      "generated_answer": "直接答案：26Q1 毛利率同比下降至 89.8%。\n\n依据：资料中明确写到“26Q1 毛利率同比下降2.1个百分点至89.8%”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "89.8%"
+      ],
+      "matched_numbers": [
+        "89.8%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/GZMT.pdf",
+        "data/raw/new_energy/SGHN.pdf",
+        "data/raw/semiconductor/TJKJ.pdf",
+        "data/raw/new_energy/ZZKJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_018",
+      "question_type": "fact",
+      "query": "海尔智家2026Q1 欧洲冰箱销额份额分别同比提高多少",
+      "expected_answer": "1.3pct",
+      "generated_answer": "直接答案：欧洲冰箱销额份额2026Q1同比提高 **1.3pct**。\n\n依据：资料中明确写到“**2026Q1 公司欧洲冰箱/洗衣机销额份额分别同比提高 1.3/0.2pct**”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "1.3"
+      ],
+      "matched_numbers": [
+        "1.3"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/HEZJ.pdf",
+        "data/raw/consumer/TCL.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_019",
+      "question_type": "fact",
+      "query": "海天味业26Q1 净利率同比增长多少",
+      "expected_answer": "0.5pp",
+      "generated_answer": "直接答案：26Q1 净利率同比增长 **+0.5pp**。  \n依据：资料中明确写到“**26Q1 公司净利率同比+0.5pp 至27.1%**”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "0.5"
+      ],
+      "matched_numbers": [
+        "0.5"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/HTWY.pdf",
+        "data/raw/consumer/AJSP.pdf",
+        "data/raw/consumer/JZSP.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_020",
+      "question_type": "fact",
+      "query": "海信家电北美区家电收入同比增长多少",
+      "expected_answer": "13%",
+      "generated_answer": "直接答案：北美区家电收入同比增长 **13%**，时间口径为 **2025 年**。\n\n依据：资料中明确写到“**北美区家电收入同比增长13%**”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "13%"
+      ],
+      "matched_numbers": [
+        "13%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/HXJD.pdf",
+        "data/raw/new_energy/SSGF.pdf",
+        "data/raw/semiconductor/ZXGJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_021",
+      "question_type": "fact",
+      "query": "爱尔眼科归属母公司净利润是多少",
+      "expected_answer": "11.81 亿元",
+      "generated_answer": "直接答案：32.40 亿元，2025 年[资料1]\n\n依据：2025 年公司实现归母净利润 32.40 亿元；资料中未提供其他与问题更完全匹配的“归属母公司净利润”口径。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "11.81"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "11.81"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/healthcare/AEYK.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_022",
+      "question_type": "fact",
+      "query": "百奥赛图成立于哪一年",
+      "expected_answer": "2009",
+      "generated_answer": "直接答案：百奥赛图自2009年成立。[资料1]\n\n依据：资料中明确写到“自2009年成立以来，公司便专注于提供基于动物与细胞的定制化基因编辑服务”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/healthcare/BAST.pdf",
+        "data/raw/healthcare/YKSW.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_023",
+      "question_type": "fact",
+      "query": "截至 2025 年底，百诚医药的新药研发团队硕博比例达到多少",
+      "expected_answer": "65.29%",
+      "generated_answer": "直接答案：65.29%\n\n依据：截至 2025 年底，公司新药研发团队近 150 人，硕博比例达 65.29%。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "65.29%"
+      ],
+      "matched_numbers": [
+        "65.29%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/healthcare/BCYY.pdf",
+        "data/raw/semiconductor/HYKG.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_024",
+      "question_type": "fact",
+      "query": "毕得医药2024A 营业收入同比增速是多少",
+      "expected_answer": "0.9%",
+      "generated_answer": "直接答案：2024A 营业收入同比增速为 **0.9%**。  \n依据：财务摘要和估值指标中“营业收入(百万元) 1,102”对应“YOY(%) 0.9”这一行，口径为 **2024A**。[资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "0.9%"
+      ],
+      "matched_numbers": [
+        "0.9%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/HFGF.pdf",
+        "data/raw/healthcare/BDYY.pdf",
+        "data/raw/healthcare/TGYY.pdf",
+        "data/raw/consumer/DPYL.pdf",
+        "data/raw/semiconductor/BDT.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_025",
+      "question_type": "fact",
+      "query": "博腾股份2025年小分子原料药业务收入是多少",
+      "expected_answer": "30.92 亿元",
+      "generated_answer": "直接答案：30.92亿元，2025年小分子原料药业务收入。  \n依据：资料中明确写明“2025 年小分子原料药业务收入30.92 亿元”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "30.92"
+      ],
+      "matched_numbers": [
+        "30.92"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/healthcare/BTGF.pdf",
+        "data/raw/healthcare/YMKD.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_026",
+      "question_type": "fact",
+      "query": "国际医学公司2025年营收是多少",
+      "expected_answer": "40.7 亿元",
+      "generated_answer": "直接答案：2025年营收40.7亿元。  \n依据：资料中明确写明“公司发布2025年&2026Q1业绩报告。2025年公司实现营收40.7亿元”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "40.7"
+      ],
+      "matched_numbers": [
+        "40.7"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/healthcare/GJYX.pdf",
+        "data/raw/healthcare/TGYY.pdf",
+        "data/raw/healthcare/YMKD.pdf",
+        "data/raw/healthcare/KLY.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_027",
+      "question_type": "fact",
+      "query": "华厦眼科2025年营业收入为多少",
+      "expected_answer": "41.39 亿元",
+      "generated_answer": "直接答案：2025年营业收入为41.39亿元。  \n依据：[资料1] 事件描述中明确写到“2025 年，公司实现营业收入41.39 亿元，同比增长2.78%”】【。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "41.39"
+      ],
+      "matched_numbers": [
+        "41.39"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/healthcare/HXYK.pdf",
+        "data/raw/healthcare/AEYK.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_028",
+      "question_type": "fact",
+      "query": "皓元医药2025年实现营收多少",
+      "expected_answer": "28.77亿元",
+      "generated_answer": "直接答案：2025年实现营收66.70亿元。  \n依据：资料中明确写明“2025 年公司实现营收66.70 亿元（+14.91%）”。[资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "28.77"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "28.77"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/healthcare/HYYY.pdf",
+        "data/raw/healthcare/KLY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_029",
+      "question_type": "fact",
+      "query": "金域医学2026Q1实现归母净利润多少",
+      "expected_answer": "0.43 亿元",
+      "generated_answer": "直接答案：0.43 亿元，2026Q1 归母净利润。[资料2]\n\n依据：资料中写明“2026Q1 公司实现营业收入13.51亿元（同比-7.88%），实现归母净利润0.43亿元（同比+254.00%）”。[资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "0.43"
+      ],
+      "matched_numbers": [
+        "0.43"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/赛力斯_202601.pdf",
+        "data/raw/healthcare/JYYX.pdf",
+        "data/raw/healthcare/AEYK.pdf",
+        "data/raw/new_energy/广汽集团_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_030",
+      "question_type": "fact",
+      "query": "九洲药业特色原料药及中间体业务实现收入多少",
+      "expected_answer": "11.59 亿元",
+      "generated_answer": "直接答案：11.59 亿元，2025 年公司特色原料药及中间体业务实现收入。[资料1]\n\n依据：资料中明确写到“2025 年，公司特色原料药及中间体业务盈利能力逐步修复，实现收入11.59 亿元，同比基本持平”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "11.59"
+      ],
+      "matched_numbers": [
+        "11.59"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/healthcare/JZYY.pdf",
+        "data/raw/healthcare/HYYY.pdf",
+        "data/raw/healthcare/YMKD.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_031",
+      "question_type": "fact",
+      "query": "滨江集团销售额在克而瑞行业中排名多少",
+      "expected_answer": "10",
+      "generated_answer": "直接答案：克而瑞行业销售排名第10名，时间为2025年。[资料1]\n\n依据：资料中明确写到“2025 年公司实现销售额1017 亿元……位列克而瑞行业销售排名第10 名”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "10"
+      ],
+      "matched_numbers": [
+        "10"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/BJJT.pdf",
+        "data/raw/semiconductor/BDT.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_032",
+      "question_type": "fact",
+      "query": "保利发展26Q1实现签约金额为多少",
+      "expected_answer": "517.82亿元",
+      "generated_answer": "直接答案：517.82 亿元，26Q1 实现签约金额。  \n依据：资料中明确写到“26Q1 公司实现签约金额517.82 亿元，同比-17.84%”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "517.82"
+      ],
+      "matched_numbers": [
+        "517.82"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/BLFZ.pdf",
+        "data/raw/real_estate/XCKG.pdf",
+        "data/raw/real_estate/ZSSK.pdf",
+        "data/raw/real_estate/ZSJY.pdf",
+        "data/raw/healthcare/YKSW.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_033",
+      "question_type": "fact",
+      "query": "城建发展公司资产负债率为多少",
+      "expected_answer": "75.89%",
+      "generated_answer": "直接答案：75.89%，截至2025年末。\n\n依据：资料中明确写明“截至2025年末，公司资产负债率为75.89%”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "75.89%"
+      ],
+      "matched_numbers": [
+        "75.89%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/CJFZ.pdf",
+        "data/raw/semiconductor/BKXC.pdf",
+        "data/raw/real_estate/BJJT.pdf",
+        "data/raw/real_estate/ZGGM.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_034",
+      "question_type": "fact",
+      "query": "大悦城2025 年实现营业收入多少",
+      "expected_answer": "308.92 亿元",
+      "generated_answer": "直接答案：2025年大悦城实现营业收入308.92亿元。[资料1]\n\n依据：资料中明确写明“2025年公司实现营业收入308.92亿元”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "308.92"
+      ],
+      "matched_numbers": [
+        "308.92"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/DYC.pdf",
+        "data/raw/real_estate/ZGGM.pdf",
+        "data/raw/new_energy/LXDQ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_035",
+      "question_type": "fact",
+      "query": "华发股份2025年营业收入同比增长多少",
+      "expected_answer": "38.8%",
+      "generated_answer": "直接答案：2025年营业收入同比增长**19.4%**。\n\n依据：资料中“营业收入及增速”显示，**2025年**华发股份营业收入对应增速为**19.4%**。[资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "38.8%"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "38.8%"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/real_estate/HFGF.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_036",
+      "question_type": "fact",
+      "query": "截至 2025 年末，金地集团有息负债多少",
+      "expected_answer": "672亿元",
+      "generated_answer": "直接答案：根据现有资料无法确定“截至 2025 年末，金地集团有息负债”的具体金额；资料仅明确给出了“截至 2025 年末，金地集团有息负债中短期有息负债占比为 61%，长期有息负债占比为 39%”，但未直接给出有息负债总额。[资料1]\n\n依据：图表12 仅显示“截至2025年末，金地集团有息负债中短期有息负债占比为61%（长期为39%）”，未见有息负债总额数字；资料中出现的“有息负债（亿元）”仅对应 2021-2024 年数值，未显示 2025 年总额。[资料1][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "672"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "672"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/real_estate/JDJT.pdf",
+        "data/raw/real_estate/HFGF.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_037",
+      "question_type": "fact",
+      "query": "2025年，陆家嘴公司的归母净利润为多少",
+      "expected_answer": "12.3 亿元",
+      "generated_answer": "直接答案：2025年归母净利润为12.3亿元。  \n依据：资料中明确写到“公司2025年实现营业收入181.7亿元，同比+24.0%；归母净利润12.3亿元，同比-18.7%”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "12.3"
+      ],
+      "matched_numbers": [
+        "12.3"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/LJZ.pdf",
+        "data/raw/real_estate/ZGGM.pdf",
+        "data/raw/healthcare/YMKD.pdf",
+        "data/raw/semiconductor/DLGF.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_038",
+      "question_type": "fact",
+      "query": "南都物业截至 2025 年末，总签约项目多少个",
+      "expected_answer": "681",
+      "generated_answer": "直接答案：681个，时间口径为截至2025年末。  \n依据：资料中明确写到“截至 2025 年末，公司总签约项目 681 个”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "681"
+      ],
+      "matched_numbers": [
+        "681"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/NDWY.pdf",
+        "data/raw/real_estate/XDZ.pdf",
+        "data/raw/real_estate/ZSJY.pdf",
+        "data/raw/real_estate/ZJGF.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_039",
+      "question_type": "fact",
+      "query": "南京高科2025年销售金额为多少",
+      "expected_answer": "13.6 亿元",
+      "generated_answer": "直接答案：2025年销售金额为13.6亿元。  \n依据：资料中明确写到“2025年销售面积8.4万方，销售金额13.6亿元，同比分别+348%、+119%”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "13.6"
+      ],
+      "matched_numbers": [
+        "13.6"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/NJGK.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/real_estate/HFGF.pdf",
+        "data/raw/healthcare/TGYY.pdf",
+        "data/raw/healthcare/YMKD.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_040",
+      "question_type": "fact",
+      "query": "浦东金桥2025年实现归母净利润多少",
+      "expected_answer": "10.74 亿元",
+      "generated_answer": "直接答案：10.74亿元，2025年。[资料1]\n\n依据：资料中明确写到“公司2025年实现归母净利润10.74亿元”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "10.74"
+      ],
+      "matched_numbers": [
+        "10.74"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/PDXQ.pdf",
+        "data/raw/real_estate/ZGGM.pdf",
+        "data/raw/semiconductor/DLGF.pdf",
+        "data/raw/healthcare/YMKD.pdf",
+        "data/raw/healthcare/JZYY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_041",
+      "question_type": "fact",
+      "query": "北方华创25Q4营收为多少",
+      "expected_answer": "120.5亿元",
+      "generated_answer": "直接答案：北方华创25Q4营收为120.5亿元。\n\n依据：资料中明确写到“4Q25/1Q26 营收分别达120.5/103.2 亿元（人民币，下同）”，其中4Q25对应25Q4营收。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "120.5"
+      ],
+      "matched_numbers": [
+        "120.5"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/BFHC.pdf",
+        "data/raw/semiconductor/BDT.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_042",
+      "question_type": "fact",
+      "query": "铂科新材2025年度归母净利润为多少",
+      "expected_answer": "4.18 亿元",
+      "generated_answer": "直接答案：4.18 亿元，2025年度归母净利润。[资料1]\n\n依据：资料中明确写明“25 年度实现营收18.02 亿元；归母净利润4.18 亿元；扣非归母净利润4.08 亿元”。因此，铂科新材2025年度归母净利润为4.18亿元。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "4.18"
+      ],
+      "matched_numbers": [
+        "4.18"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/BKXC.pdf",
+        "data/raw/real_estate/ZGGM.pdf",
+        "data/raw/semiconductor/DLGF.pdf",
+        "data/raw/semiconductor/HYKG.pdf",
+        "data/raw/new_energy/LXDQ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_043",
+      "question_type": "fact",
+      "query": "深圳皓飞新材2026年Q1实现产品销售收入多少",
+      "expected_answer": "1.57亿元",
+      "generated_answer": "直接答案：1.57亿元，2026年Q1实现产品销售收入。\n\n依据：公司控股子公司深圳皓飞新材2026年Q1实现产品销售收入1.57亿元。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "1.57"
+      ],
+      "matched_numbers": [
+        "1.57"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/DLGF.pdf",
+        "data/raw/new_energy/SSGF.pdf",
+        "data/raw/real_estate/ZSSK.pdf",
+        "data/raw/new_energy/赛力斯_202601.pdf",
+        "data/raw/new_energy/广汽集团_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_044",
+      "question_type": "fact",
+      "query": "鼎智科技的子公司东莞赛仑特2025年主营业务收入多少",
+      "expected_answer": "7367 万元",
+      "generated_answer": "直接答案：根据现有资料无法确定“东莞赛仑特”2025年主营业务收入的具体数字，资料中未披露该子公司该口径的收入。\n\n依据：资料中仅披露了鼎智科技2025年整体营收、海外营收和机器人项目收入等信息，未找到“东莞赛仑特”2025年主营业务收入的明确数值。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "7367"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "7367"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/semiconductor/DZKJ.pdf",
+        "data/raw/healthcare/YKSW.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/consumer/GLDQ.pdf",
+        "data/raw/semiconductor/HYKG.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_045",
+      "question_type": "fact",
+      "query": "飞荣达公司2025主营收入为多少",
+      "expected_answer": "6527百万元",
+      "generated_answer": "直接答案：2025年主营收入为14.11亿元。  \n依据：资料中写明“2025 年实现营收14.11 亿元”，对应飞荣达公司2025年营收口径。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "6527"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "6527"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/semiconductor/FRD.pdf",
+        "data/raw/healthcare/SYXY.pdf",
+        "data/raw/healthcare/YKSW.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_046",
+      "question_type": "fact",
+      "query": "工业富联26Q1公司毛利率是多少",
+      "expected_answer": "7.35%",
+      "generated_answer": "直接答案：26Q1公司毛利率为 7.35%。\n\n依据：资料中明确写到“26Q1 公司毛利率7.35%”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "7.35%"
+      ],
+      "matched_numbers": [
+        "7.35%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/GYFL.pdf",
+        "data/raw/semiconductor/TJKJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_047",
+      "question_type": "fact",
+      "query": "2025 年，海达尔公司研发费用为多少",
+      "expected_answer": "1401万元",
+      "generated_answer": "直接答案：4,410.76 万元\n\n依据：资料中明确写明“2023-2025 年，公司研发费用分别达3,548.04 万元、4,139.42 万元和4,410.76 万元”，因此 2025 年海达尔公司研发费用为 4,410.76 万元。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 0.0,
+      "reference_matched": 0,
+      "reference_total": 1,
+      "reference_hit_any": false,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "1401"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "1401"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/semiconductor/DLGF.pdf",
+        "data/raw/healthcare/KLY.pdf",
+        "data/raw/healthcare/YMKD.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_048",
+      "question_type": "fact",
+      "query": "2025年，沪硅产业公司在300mm半导体硅片板块的主营收入为多少",
+      "expected_answer": "24.39亿元",
+      "generated_answer": "直接答案：2025年，300mm半导体硅片板块主营收入为24.39亿元。  \n依据：资料显示“2025年该板块主营收入达24.39亿元”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "24.39"
+      ],
+      "matched_numbers": [
+        "24.39"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/HGCY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_049",
+      "question_type": "fact",
+      "query": "海光信息公司2024A销售毛利率为多少",
+      "expected_answer": "63.7%",
+      "generated_answer": "直接答案：根据现有资料无法确定海光信息公司 **2024A 销售毛利率**。\n\n依据：可用资料中仅找到 **2025 年** 的公司整体销售毛利率 **20.71%**，以及其他公司/其他年份的毛利率信息，未见海光信息公司 **2024A** 销售毛利率的直接对应数值。[资料1][资料2][资料3][资料4]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料3]",
+        "[资料4]"
+      ],
+      "reference_coverage": 0.0,
+      "reference_matched": 0,
+      "reference_total": 1,
+      "reference_hit_any": false,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "63.7%"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "63.7%"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/healthcare/SYXY.pdf",
+        "data/raw/healthcare/YMKD.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/new_energy/SGHN.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_050",
+      "question_type": "fact",
+      "query": "寒武纪-U公司2023A营业收入为多少",
+      "expected_answer": "709百万元",
+      "generated_answer": "直接答案：709 百万元，2023A。\n\n依据：资料中“盈利预测简表/公司财务预测表”明确列示寒武纪-U 2023A 营业收入为“709”（单位：百万元）[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "709"
+      ],
+      "matched_numbers": [
+        "709"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/HWJ.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/consumer/QHWY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_051",
+      "question_type": "fact",
+      "query": "为了推动新能源公交车及动力电池更新，平均每辆车收到了多少补贴",
+      "expected_answer": "6万元",
+      "generated_answer": "直接答案：平均每辆车补贴 6 万元，适用于“更新车龄8年及以上的新能源公交车及动力电池”。  \n依据：资料中明确写明“更新车龄8年及以上的新能源公交车及动力电池，平均每辆车补贴6万元”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "6"
+      ],
+      "matched_numbers": [
+        "6"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020240726413585348997.pdf",
+        "data/raw/policy/ndrc_2024_equipment_update_consumer_trade_in.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_052",
+      "question_type": "fact",
+      "query": "预计到 2025 年底，算力电力双向协同机制初步形成，国家枢纽节点新建数据中心绿电占比将超过多少",
+      "expected_answer": "80%",
+      "generated_answer": "直接答案：超过 **80%**，时间口径为 **到2025年底**，针对 **国家枢纽节点新建数据中心绿电占比**。\n\n依据：资料中明确写明“**到2025 年底，算力电力双向协同机制初步形成，国家枢纽节点新建数据中心绿电占比超过80%**”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "80%"
+      ],
+      "matched_numbers": [
+        "80%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/ndrc_2024_green_low_carbon_data_center_action_plan.pdf",
+        "data/raw/policy/P020240806534738672970.pdf",
+        "data/raw/policy/ndrc_2024_new_power_system_action_plan.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_053",
+      "question_type": "fact",
+      "query": "2025年全国⾼校毕业⽣人数再创历史新⾼，达到了多少",
+      "expected_answer": "1222万",
+      "generated_answer": "直接答案：1222万人，2025年。\n\n依据：资料中明确写道“2025年，全国高校毕业生达1222万人，再创历史新高”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "1222"
+      ],
+      "matched_numbers": [
+        "1222"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/ndrc_ai_high_quality_employment_article.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/healthcare/KLY.pdf",
+        "data/raw/semiconductor/HYKG.pdf",
+        "data/raw/real_estate/JDJT.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_054",
+      "question_type": "fact",
+      "query": "2024年我国全部⼯业增加值为多少",
+      "expected_answer": "40.5万亿元",
+      "generated_answer": "直接答案：2024年我国全部工业增加值为40.5万亿元。  \n依据：资料中明确表述“2024年我国全部工业增加值40.5万亿元”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "40.5"
+      ],
+      "matched_numbers": [
+        "40.5"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/ndrc_ai_manufacturing_power_article.pdf",
+        "data/raw/real_estate/HFGF.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/policy/ndrc_2024_distribution_grid_high_quality_development.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_055",
+      "question_type": "fact",
+      "query": "到2030年，基本建成全国统⼀电⼒市场体系，各类型电源和除保障性⽤户外的电⼒⽤户全部直接参与电⼒市场，市场化交易电量在全社会⽤电量的占比大概是多少",
+      "expected_answer": "70%",
+      "generated_answer": "直接答案：市场化交易电量占全社会用电量的70%左右。  \n依据：资料中明确写到“到2030年……市场化交易电量占全社会用电量的70%左右” [资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "70%"
+      ],
+      "matched_numbers": [
+        "70%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/ndrc_unified_power_market_interview.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_056",
+      "question_type": "fact",
+      "query": "2018年1—11月，基础设施业新增意向投资额同比下降多少",
+      "expected_answer": "29.8%",
+      "generated_answer": "直接答案：同比下降29.8%。\n\n依据：2018年1—11月，基础设施业新增意向投资额同比下降29.8%[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "29.8%"
+      ],
+      "matched_numbers": [
+        "29.8%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020191031776387313331.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_057",
+      "question_type": "fact",
+      "query": "2018年1—11月，制造业新增意向投资额同比增长多少",
+      "expected_answer": "4.2%",
+      "generated_answer": "直接答案：2018年1—11月，制造业新增意向投资额同比增长4.2%。\n\n依据：资料中明确写明“1—11 月，制造业新增意向投资额同比增长4.2%”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "4.2%"
+      ],
+      "matched_numbers": [
+        "4.2%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020191031776387313331.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_058",
+      "question_type": "fact",
+      "query": "2018年1—11月，房地产业新增意向投资额同比增长了多少",
+      "expected_answer": "29.1%",
+      "generated_answer": "直接答案：同比增长 29.1%。\n\n依据：2018 年 1—11 月，房地产业新增意向投资额同比增长 29.1% [资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "29.1%"
+      ],
+      "matched_numbers": [
+        "29.1%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020191031776387313331.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_059",
+      "question_type": "fact",
+      "query": "2018年1—11月份，高新技术产业新增意向投资额同比增长多少",
+      "expected_answer": "48.2%",
+      "generated_answer": "直接答案：48.2%\n\n依据：2018年1—11月份，高新技术产业新增意向投资额同比增长48.2%。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "48.2%"
+      ],
+      "matched_numbers": [
+        "48.2%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020191031776387313331.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_060",
+      "question_type": "fact",
+      "query": "长三角生态绿色一体化发展示范区面积约为多少",
+      "expected_answer": "2300平方公里",
+      "generated_answer": "直接答案：面积约2300平方公里，含水域面积约350平方公里。[资料1]\n\n依据：一体化示范区范围包括上海市青浦区、江苏省苏州市吴江区、浙江省嘉兴市嘉善县，“面积约2300平方公里（含水域面积约350平方公里）”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2300"
+      ],
+      "matched_numbers": [
+        "2300"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020200728576152165824.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_061",
+      "question_type": "fact",
+      "query": "到2025年，实现新型储能从商业化初期向规模化发展转变，低成本、高可靠、长寿命等方面取得长足进步，新型储能装机规模达到多少以上",
+      "expected_answer": "3000万千瓦",
+      "generated_answer": "直接答案：3000 万千瓦以上\n\n依据：到2025年，实现新型储能从商业化初期向规模化发展转变……装机规模达3000万千瓦以上。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "3000"
+      ],
+      "matched_numbers": [
+        "3000"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020210421528000000606.pdf",
+        "data/raw/policy/P020210421528000346108.pdf",
+        "data/raw/policy/202210114475091.pdf",
+        "data/raw/policy/P020220321550104020921.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_062",
+      "question_type": "fact",
+      "query": "我国是世界上最大的制氢国，年制氢产量约多少吨",
+      "expected_answer": "3300万吨",
+      "generated_answer": "直接答案：约3300万吨/年\n\n依据：资料中明确写道“我国是世界上最大的制氢国，年制氢产量约3300万吨”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "3300"
+      ],
+      "matched_numbers": [
+        "3300"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020220323314396580505.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_063",
+      "question_type": "fact",
+      "query": "截至 2020 年底，我国可再生能源发电装机达到多少",
+      "expected_answer": "9.34 亿千瓦",
+      "generated_answer": "直接答案：9.34 亿千瓦，截至 2020 年底。\n\n依据：资料中明确写到“截至2020 年底，我国可再生能源发电装机达到9.34 亿千瓦”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "9.34"
+      ],
+      "matched_numbers": [
+        "9.34"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020220602315650388122.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_064",
+      "question_type": "fact",
+      "query": "2020 年我国可再生能源利用总量达多少吨标准煤",
+      "expected_answer": "6.8亿",
+      "generated_answer": "直接答案：2020 年我国可再生能源利用总量达 **6.8 亿吨标准煤**。  \n依据：资料中明确写明“2020 年我国可再生能源利用总量达6.8 亿吨标准煤”[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "6.8"
+      ],
+      "matched_numbers": [
+        "6.8"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020220602315650388122.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_065",
+      "question_type": "fact",
+      "query": "截至2020年底，我国风电发电装机达到多少",
+      "expected_answer": "2.8亿千瓦",
+      "generated_answer": "直接答案：截至2020年底，我国风电发电装机达到**2.8 亿千瓦**。  \n依据：资料中明确写明“截至2020年底，我国可再生能源发电装机达到9.34亿千瓦……**风电**、光伏发电、水电、生物质发电装机分别达到**2.8、2.5、3.4、0.3 亿千瓦**”[资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2.8"
+      ],
+      "matched_numbers": [
+        "2.8"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020220602315650388122.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_066",
+      "question_type": "fact",
+      "query": "预计到2027年，能源重点领域设备投资规模较2023年增长多少",
+      "expected_answer": "25%以上",
+      "generated_answer": "直接答案：25%以上，时间口径为到2027年、较2023年增长。[资料1]\n\n依据：到2027 年，能源重点领域设备投资规模较2023 年增长25%以上。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "25%"
+      ],
+      "matched_numbers": [
+        "25%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/ndrc_2024_energy_equipment_update_plan.pdf",
+        "data/raw/policy/P020240821593575195639.pdf",
+        "data/raw/semiconductor/HYKG.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_067",
+      "question_type": "fact",
+      "query": "预计2027年，全国新型储能装机规模可以达到多少",
+      "expected_answer": " 1.8亿千瓦以上",
+      "generated_answer": "直接答案：全国新型储能装机规模达到1.8亿千瓦以上，时间口径为2027年。[资料1]\n\n依据：资料1中明确写明“2027年……全国新型储能装机规模达到1.8亿千瓦以上”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "1.8"
+      ],
+      "matched_numbers": [
+        "1.8"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/P020250912338143145278.pdf",
+        "data/raw/policy/P020220321550104020921.pdf",
+        "data/raw/policy/202210114475091.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_068",
+      "question_type": "fact",
+      "query": "2026年4月，申万电子行业涨跌幅为多少",
+      "expected_answer": "23.36%",
+      "generated_answer": "直接答案：23.36%\n\n依据：资料中明确写明“申万电子行业2026 年4 月涨跌幅为23.36%”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "23.36%"
+      ],
+      "matched_numbers": [
+        "23.36%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/BDT.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_069",
+      "question_type": "fact",
+      "query": "2026年4月，半导体行业涨幅最高的个股的名字是什么",
+      "expected_answer": "中船特气",
+      "generated_answer": "直接答案：中船特气\n\n依据：资料中明确写到“半导体行业涨幅最高的个股是中船特气（+83.28%）”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/semiconductor/BDT.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "fact_070",
+      "question_type": "fact",
+      "query": "全球半导体2026年3月份销售额同比为多少",
+      "expected_answer": "79.19%",
+      "generated_answer": "直接答案：79.19%\n\n依据：资料中明确写明“全球半导体2026年3月份销售额同比为79.19%”。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "79.19%"
+      ],
+      "matched_numbers": [
+        "79.19%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/BDT.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_001",
+      "question_type": "compare",
+      "query": "劲仔食品 vs 青岛啤酒，2026Q1营业总收入哪个高",
+      "expected_answer": "青岛啤酒营业总收入更高。劲仔食品26Q1实现收入7.39 亿元，青岛啤酒2026Q1 营业总收入 102.9 亿元。",
+      "generated_answer": "- 对象A（劲仔食品）：根据现有资料，**未检索到劲仔食品 2026Q1 营业总收入**的直接数字；资料中仅有**2025A 营业收入 24.43 亿元**、**2026E 营业收入 30.09 亿元**等预测/年度数据，不能替代 2026Q1 实际值。[资料3]\n- 对象B（青岛啤酒）：**2026Q1 营业总收入 102.9 亿元**，口径为“营业总收入”，时间为 2026Q1。[资料1][资料2]\n\n结论：**根据现有资料无法直接比较谁更高**，因为资料中缺少**劲仔食品 2026Q1 营业总收入**这一同口径数据；已知的青岛啤酒 2026Q1 营业总收入为 102.9 亿元。[资料1][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]",
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "26",
+        "1",
+        "7.39",
+        "2026",
+        "102.9"
+      ],
+      "matched_numbers": [
+        "26",
+        "1",
+        "2026",
+        "102.9"
+      ],
+      "missing_numbers": [
+        "7.39"
+      ],
+      "numeric_coverage": 0.8,
+      "sources": [
+        "data/raw/consumer/QDPJ.pdf",
+        "data/raw/consumer/JZSP.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_002",
+      "question_type": "compare",
+      "query": "泸州老窖 vs 五粮液，哪家公司的2025年营业总收入更高？",
+      "expected_answer": "五粮液。泸州老窖2025年公司实现营业总收入 257.3 亿元，五粮液2025年公司实现营收 405.29亿元。",
+      "generated_answer": "- 对象A：泸州老窖，2025A 营业总收入为 **25,731 百万元**（即资料原文口径的“营业总收入（百万元）”），引用见 **[资料2]**。  \n- 对象B：五粮液，**根据现有资料无法确定其 2025 年“营业总收入”**。现有资料仅给出了五粮液在可比公司估值表中的数值，但未明确对应“营业总收入（2025A）”这一指标口径，因此不能直接用于与泸州老窖比较，引用见 **[资料1]、[资料2]**。  \n\n结论：**根据现有资料无法确定哪家公司的 2025 年营业总收入更高**，因为资料中只有泸州老窖明确给出了“2025A 营业总收入”，而五粮液缺少同口径的“2025 年营业总收入”明确数值。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 0.5,
+      "reference_matched": 1,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2025",
+        "257.3",
+        "405.29"
+      ],
+      "matched_numbers": [
+        "2025"
+      ],
+      "missing_numbers": [
+        "257.3",
+        "405.29"
+      ],
+      "numeric_coverage": 0.3333333333333333,
+      "sources": [
+        "data/raw/consumer/SXFJ.pdf",
+        "data/raw/consumer/LZLJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_003",
+      "question_type": "compare",
+      "query": "千禾味业 vs 神农集团，哪家公司的26Q1营收 更高",
+      "expected_answer": "神农集团。在26Q1，千禾味业实现营收 8.2 亿元，神农集团实现营收 13.22 亿元",
+      "generated_answer": "- 对象A：千禾味业 26Q1 营收 **8.2 亿元**，口径为“26Q1公司实现营收”，引用：[资料1]\n- 对象B：神农集团 **根据现有资料无法确定** 26Q1 营收。当前提供的资料中未出现神农集团26Q1营收的直接数据，且可用资料主要为千禾味业与海天味业相关内容，没有神农集团对应口径的营收数字引用。\n\n结论：**根据现有资料无法比较千禾味业与神农集团哪家26Q1营收更高**，因为缺少神农集团26Q1营收这一同口径数据。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 0.5,
+      "reference_matched": 1,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "26",
+        "1",
+        "8.2",
+        "13.22"
+      ],
+      "matched_numbers": [
+        "26",
+        "1",
+        "8.2"
+      ],
+      "missing_numbers": [
+        "13.22"
+      ],
+      "numeric_coverage": 0.75,
+      "sources": [
+        "data/raw/consumer/QHWY.pdf",
+        "data/raw/consumer/HTWY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_004",
+      "question_type": "compare",
+      "query": "山西汾酒 vs TCL 智家，哪家公司的26Q1营收 更高",
+      "expected_answer": "山西汾酒。2026Q1 山西汾酒营业总收入149.2 亿元，TCL 智家2026 年 Q1 公司营业收入 48.86 亿元",
+      "generated_answer": "- 对象A（山西汾酒）：2026Q1 营业总收入 **149.2 亿元**，口径为“**营业总收入**”；引用：[资料1]、[资料2]\n- 对象B（TCL 智家）：2026Q1 营业收入 **48.86 亿元**，口径为“**营业收入**”；引用：[资料4]\n\n结论：在上述同为 **2026Q1 收入** 口径下，**山西汾酒更高**（149.2 亿元 > 48.86 亿元）。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料4]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "149.2",
+        "2026",
+        "48.86"
+      ],
+      "matched_numbers": [
+        "149.2",
+        "2026",
+        "48.86"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/SXFJ.pdf",
+        "data/raw/consumer/LZLJ.pdf",
+        "data/raw/consumer/TCL.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_005",
+      "question_type": "compare",
+      "query": "珀莱雅 vs 伊利股份，哪家公司2025年的毛利率更高",
+      "expected_answer": "珀莱雅。25 年珀莱雅毛利率为 73.26%，2025/2026Q1 伊利股份毛利率为 34.58%/38.37%",
+      "generated_answer": "- 对象A：珀莱雅，2025 年毛利率为 **73.26%**；口径为“2025 年公司毛利率”；引用：[资料2]\n- 对象B：伊利股份，2025 年毛利率为 **34.58%**；口径为“2025/2026Q1 公司毛利率”中的 2025 年值；引用：[资料1]\n\n结论：**珀莱雅 2025 年的毛利率更高**，因为 **73.26% > 34.58%**。[资料2][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "25",
+        "73.26%",
+        "34.58%",
+        "38.37%"
+      ],
+      "matched_numbers": [
+        "25",
+        "73.26%",
+        "34.58%"
+      ],
+      "missing_numbers": [
+        "38.37%"
+      ],
+      "numeric_coverage": 0.75,
+      "sources": [
+        "data/raw/consumer/YLGF.pdf",
+        "data/raw/consumer/BLY.pdf",
+        "data/raw/healthcare/KLY.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_006",
+      "question_type": "compare",
+      "query": "凯莱英 vs 美年健康，哪家公司2025年的归母净利润更高",
+      "expected_answer": "凯莱英。凯莱英2025年归母净利润 11.33 亿元，美年健康2025年归母净利润2.85 亿元。",
+      "generated_answer": "- 对象A（凯莱英）：2025 年归母净利润 **11.33 亿元**，口径为“归母净利润”，时间为 2025 年；依据资料中“2025 年公司实现营收66.70 亿元（+14.91%），归母净利润11.33 亿元（+19.35%）”以及预测表“归母净利润亿元 | 25A: 11.33” [资料2]\n- 对象B（美年健康）：2025 年归母净利润 **285.33 百万元**，口径为“归母净利润”，时间为 2025A；依据资料中“盈利预测与估值: 归母净利润（百万元）; 2025A: 285.33” [资料4]\n\n结论：**凯莱英 2025 年的归母净利润更高**。按资料原始表述，凯莱英为 **11.33 亿元**，美年健康为 **285.33 百万元** [资料2][资料4]。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料4]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "11.33",
+        "2.85"
+      ],
+      "matched_numbers": [
+        "2025",
+        "11.33"
+      ],
+      "missing_numbers": [
+        "2.85"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/healthcare/KLY.pdf",
+        "data/raw/real_estate/ZGGM.pdf",
+        "data/raw/healthcare/MNJK.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_007",
+      "question_type": "compare",
+      "query": "普蕊斯 vs 普瑞眼科，预计哪家公司在2026年的营收更高",
+      "expected_answer": "普瑞眼科。普蕊斯2026E营收为931.69百万元，普瑞眼科2026E营收为3136百万元",
+      "generated_answer": "- 对象A：**普蕊斯**，根据现有资料**无法确定其2026年营收预测**。资料2中仅给出了“2026-2028年EPS分别为0.66元、0.76元、0.89元”，以及“营业收入（百万元）: PB; 4139.16: 2.80; 4451.57: 2.64; 4856.68: 2.48; 5351.50: 2.32”，但未明确对应公司为“普蕊斯”，且没有直接给出普蕊斯2026年营业收入数字。[资料2]\n\n- 对象B：**普瑞眼科**，2026E营业收入为**44.5亿元**，口径为“营业收入 / 合计收入”，对应2026E。[资料1]\n\n结论：**根据现有资料，无法直接比较普蕊斯与普瑞眼科谁在2026年的营收更高**，因为资料中**普蕊斯的2026年营收预测缺失**；仅能确认普瑞眼科2026E营收为**44.5亿元**。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 0.5,
+      "reference_matched": 1,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2026",
+        "931.69",
+        "3136"
+      ],
+      "matched_numbers": [
+        "2026"
+      ],
+      "missing_numbers": [
+        "931.69",
+        "3136"
+      ],
+      "numeric_coverage": 0.3333333333333333,
+      "sources": [
+        "data/raw/healthcare/PRYK.pdf",
+        "data/raw/healthcare/HXYK.pdf",
+        "data/raw/healthcare/AEYK.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_008",
+      "question_type": "compare",
+      "query": "昭衍新药 vs 通策医疗，预计哪家公司在2026年的营收更高",
+      "expected_answer": "通策医疗。昭衍新药2026E营收为2141百万元，通策医疗2026E主营业务收入为3591百万元",
+      "generated_answer": "- 对象A（昭衍新药）：资料中可直接匹配到的是 **2026E 营业收入 1,943 百万元**，口径为“营业收入(百万元)”；但该数值只出现在 [资料5] 中，而且对应的是昭衍新药的预测表述。**引用**：[资料5]\n- 对象B（通策医疗）：**根据现有资料无法确定**通策医疗 **2026 年营业收入** 的同口径数字；提供的资料中未出现通策医疗的 2026E 营业收入预测。**引用**：无\n\n结论：**根据现有资料无法判断昭衍新药 vs 通策医疗谁在 2026 年营收更高**，因为资料中只有昭衍新药的 2026E 营业收入信息，缺少通策医疗的同口径 2026 年营收数据。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料5]"
+      ],
+      "reference_coverage": 0.0,
+      "reference_matched": 0,
+      "reference_total": 2,
+      "reference_hit_any": false,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2026",
+        "2141",
+        "3591"
+      ],
+      "matched_numbers": [
+        "2026"
+      ],
+      "missing_numbers": [
+        "2141",
+        "3591"
+      ],
+      "numeric_coverage": 0.3333333333333333,
+      "sources": [
+        "data/raw/healthcare/YKSW.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_009",
+      "question_type": "compare",
+      "query": "泰格医药 vs 阳光诺和，哪家公司2025年的全年营业收入同比增长更多",
+      "expected_answer": "阳光诺和。泰格医药2025年的全年营业收入同比增长3.48%，阳光诺和2025年的全年营业收入同比增长13.33%%",
+      "generated_answer": "- 对象A：泰格医药，2025年全年营业收入同比增长 **3.48%**，口径为“全年营业收入同比增长”，引用：[资料1]\n- 对象B：阳光诺和，2025年全年营业收入同比增长 **13.33%**，口径为“公司2025年收入同比增长”，引用：[资料2]\n\n结论：**阳光诺和** 2025年全年营业收入同比增长更多，**13.33% > 3.48%**。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "3.48%",
+        "13.33%"
+      ],
+      "matched_numbers": [
+        "2025",
+        "3.48%",
+        "13.33%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/healthcare/TGYY.pdf",
+        "data/raw/healthcare/YGNH.pdf",
+        "data/raw/healthcare/BTGF.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_010",
+      "question_type": "compare",
+      "query": "药康生物 vs 药明康德，哪家公司2025年的全年营业收入同比增长更多",
+      "expected_answer": "药明康德。药康生物2025年的全年营业收入同比增长15.51%，药明康德2025年的全年营业收入同比增长15.8%",
+      "generated_answer": "- 对象A：药康生物 2025年全年营业收入同比增长率为 **10.39%**，口径为“营业收入同比增长率（%）/2025”；引用：[资料5]\n- 对象B：药明康德 2025年全年营业收入同比增长率为 **15.8%**，口径为“营业收入(+/-%)/2025”；引用：[资料1]\n\n结论：**药明康德**2025年的全年营业收入同比增长更多，因为 **15.8% > 10.39%**。[资料1][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料5]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "15.51%",
+        "15.8%"
+      ],
+      "matched_numbers": [
+        "2025",
+        "15.8%"
+      ],
+      "missing_numbers": [
+        "15.51%"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/healthcare/YMKD.pdf",
+        "data/raw/healthcare/TGYY.pdf",
+        "data/raw/healthcare/BTGF.pdf",
+        "data/raw/healthcare/YKSW.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_011",
+      "question_type": "compare",
+      "query": "威贸电子 vs 欣旺达，哪家公司2025 年营收更高",
+      "expected_answer": "欣旺达。威贸电子2025 年公司实现营业收入 2.88 亿元，欣旺达公司 25 年营收 632 亿元",
+      "generated_answer": "- 对象A：威贸电子 2025 年营收 **2.88 亿元**，口径为“2025 年实现营业收入/营收”，引用：[资料1]\n- 对象B：欣旺达 2025 年营收 **根据现有资料无法确定**。资料2仅给出的是 2025A/2026E/2027E/2028E 的“营业总收入”预测表项，但命中片段未直接清晰给出 2025 年实际营收数值；现有摘录中可确认的只是预测口径信息，不能替代 2025 年实际营收引用。[资料2]\n\n结论：根据现有资料，**无法直接比较威贸电子与欣旺达 2025 年营收高低**，因为威贸电子的 2025 年营收已明确为 2.88 亿元，而欣旺达的 2025 年实际营收在当前可用摘录中**缺失**，无法确定哪家公司更高。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "2.88",
+        "25",
+        "632"
+      ],
+      "matched_numbers": [
+        "2025",
+        "2.88",
+        "25"
+      ],
+      "missing_numbers": [
+        "632"
+      ],
+      "numeric_coverage": 0.75,
+      "sources": [
+        "data/raw/new_energy/WMDZ.pdf",
+        "data/raw/new_energy/XWD.pdf",
+        "data/raw/healthcare/SYXY.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/consumer/WLY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_012",
+      "question_type": "compare",
+      "query": "亿纬锂能 vs 中国核电，哪家公司2025年的全年营业收入同比增长更多",
+      "expected_answer": "亿纬锂能。亿纬锂能2025年的全年营业收入同比增长26%，中国核电2025年的全年营业收入同比增长6.22%",
+      "generated_answer": "- 对象A：亿纬锂能，2025年营业收入同比增长率为 **26.44%**，口径为“营业收入增长率”，对应2025年全年预测/报表数据中的公司收入同比增长。[资料3]\n- 对象B：中国核电，2025年营业收入同比增长率为 **6.22%**，口径为“实现营业收入同比增加”。[资料1]\n\n结论：**亿纬锂能2025年的全年营业收入同比增长更多**，因为其同比增长率 **26.44%** 高于中国核电的 **6.22%**。[资料3][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "26%",
+        "6.22%"
+      ],
+      "matched_numbers": [
+        "2025",
+        "26%",
+        "6.22%"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/ZGHD.pdf",
+        "data/raw/new_energy/YWLN_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_013",
+      "question_type": "compare",
+      "query": "中集集团 vs 中自科技，预计哪家公司2026年营业收入更高",
+      "expected_answer": "中集集团。中集集团2026E年营业收入168832百万元，中自科技2026E年营业收入2337百万元",
+      "generated_answer": "- 对象A（中集集团）：2026E 营业收入 **168,832 百万元**，口径为 **主营收入/营业收入**，引用：[资料1]、[资料3]  \n  - 资料原文：`预测公司2026-2028 年收入分别为1688.32、1811.69、1945.23 亿元`；`主营收入（百万元） | 2025A | 2026E | 2027E | 2028E ... 168,832`\n- 对象B（中自科技）：2026E 营业收入 **2,337 百万元**，口径为 **营业收入**，引用：[资料2]  \n  - 资料原文：`我们预计公司2026-2028 年营收分别为23.37、28.42、34.05 亿元`；`会计年度: 营业收入(百万元); 2026E: 2,337`\n\n结论：**预计中集集团2026年营业收入更高**。两者同为2026E营业收入口径，中集集团的 **168,832 百万元** 高于中自科技的 **2,337 百万元**。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2026",
+        "168832",
+        "2337"
+      ],
+      "matched_numbers": [
+        "2026",
+        "168832",
+        "2337"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/ZJJT.pdf",
+        "data/raw/new_energy/ZZKJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_014",
+      "question_type": "compare",
+      "query": "宁德时代 vs 广汽集团，哪家公司2026年Q1实现营收更高",
+      "expected_answer": "宁德时代。宁德时代2026年Q1实现营收1291.31亿元，广汽集团2026Q1公司营收 202.3 亿元",
+      "generated_answer": "- 对象A（宁德时代）：2026年Q1实现营收 **1291.31亿元**，口径为“2026年Q1营收”；引用：[资料3]\n- 对象B（广汽集团）：2026年Q1实现营收 **202.3亿元**，口径为“2026Q1公司营收”；引用：[资料2]\n\n结论：**宁德时代2026年Q1实现营收更高**。依据列出的同口径营收数字，1291.31亿元高于202.3亿元。[资料3][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2026",
+        "1",
+        "1291.31",
+        "202.3"
+      ],
+      "matched_numbers": [
+        "2026",
+        "1",
+        "1291.31",
+        "202.3"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/长安汽车_202601.pdf",
+        "data/raw/new_energy/广汽集团_202601.pdf",
+        "data/raw/new_energy/宁德时代_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_015",
+      "question_type": "compare",
+      "query": "赛力斯 vs 长安汽车，哪家公司2026年Q1实现营收更高",
+      "expected_answer": "长安汽车。赛力斯2026Q1 单季度实现营收为 257.5 亿元，长安汽车2026Q1 实现营收 327.1 亿元",
+      "generated_answer": "- 对象A（赛力斯）：2026Q1 实现营收 **257.5 亿元**，口径为“**2026Q1 单季度实现营收**” [资料3]\n- 对象B（长安汽车）：2026Q1 实现营收 **327.1 亿元**，口径为“**2026Q1 实现营收**” [资料1]\n\n结论：**长安汽车2026年Q1实现营收更高**，其 **327.1 亿元** 高于赛力斯的 **257.5 亿元** [资料1][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2026",
+        "1",
+        "257.5",
+        "327.1"
+      ],
+      "matched_numbers": [
+        "2026",
+        "1",
+        "257.5",
+        "327.1"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/new_energy/长安汽车_202601.pdf",
+        "data/raw/new_energy/BYD_202601.pdf",
+        "data/raw/new_energy/赛力斯_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_016",
+      "question_type": "compare",
+      "query": "上海临港 vs 苏州高新，哪家公司2025年实现营收更高",
+      "expected_answer": "上海临港。上海临港公司 2025 年实现总营业收入 79.4 亿元，苏州高新2025 年实现营业收入 54.69亿元",
+      "generated_answer": "- 对象A：上海临港，2025年实现**总营业收入79.4亿元**，口径为“总营业收入”，引用：[资料2]\n- 对象B：苏州高新，2025年实现**营业总收入5,469**，口径为“营业总收入”，引用：[资料1]\n\n结论：**上海临港2025年实现营收更高**。  \n补充说明：两家公司资料中的营收口径分别为“总营业收入”和“营业总收入”，但均为2025年营收指标；按列示数字比较，上海临港高于苏州高新。[资料2][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "79.4",
+        "2025",
+        "54.69"
+      ],
+      "matched_numbers": [
+        "79.4",
+        "2025"
+      ],
+      "missing_numbers": [
+        "54.69"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/real_estate/SZGX.pdf",
+        "data/raw/real_estate/SHLG.pdf",
+        "data/raw/healthcare/TGYY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_017",
+      "question_type": "compare",
+      "query": "我爱我家 vs 新城控股，哪家公司2025年实现营收更高",
+      "expected_answer": "新城控股。我爱我家2025年实现营业收入 105 亿元，新城控股2025年实现营业收入53012百万元。",
+      "generated_answer": "- 对象A：我爱我家 2025年实现营业收入105亿元，口径为“营业收入”，时间为2025年 [资料1]\n- 对象B：新城控股 2025A 营业收入12,536百万元，口径为“营业收入(百万元)”，时间为2025A [资料3]\n\n结论：按资料中的同口径“营业收入”比较，**我爱我家2025年实现营收更高**。  \n说明：我爱我家的105亿元对应的量级高于新城控股的12,536百万元；两者均为2025年营业收入口径 [资料1][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "105",
+        "53012"
+      ],
+      "matched_numbers": [
+        "2025",
+        "105"
+      ],
+      "missing_numbers": [
+        "53012"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/real_estate/WAWJ.pdf",
+        "data/raw/real_estate/XCKG.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_018",
+      "question_type": "compare",
+      "query": "新大正 vs 中国国贸，哪家公司2025年实现营收更高",
+      "expected_answer": "中国国贸。新大正2025年实现营业收入30.13亿元，中国国贸2025年实现营业收入38亿元。",
+      "generated_answer": "- 对象A：新大正，2025年实现营业收入 **30.13亿元**，口径为“2025年实现营业收入”，引用：[资料2]\n- 对象B：中国国贸，2025年实现营业收入 **38亿元**，口径为“2025年，公司实现营业收入”，引用：[资料1]\n\n结论：**中国国贸2025年实现营收更高**，其 **38亿元** 高于新大正的 **30.13亿元**。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "30.13",
+        "38"
+      ],
+      "matched_numbers": [
+        "2025",
+        "30.13",
+        "38"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/ZGGM.pdf",
+        "data/raw/real_estate/XDZ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_019",
+      "question_type": "compare",
+      "query": "珠江股份 vs 中新集团，哪家公司2024年实现营收更高",
+      "expected_answer": "中新集团。珠江股份2024年实现营业收入1558百万元，中新集团2024年实现营业收入2685百万元。",
+      "generated_answer": "- 对象A（珠江股份）：2024A 营业收入 **1,558 百万元**，即 **15.58 亿元**；口径为“营业收入（百万元）/2024A” [资料2]\n- 对象B（中新集团）：公司 **2024 年实现营收的直接数值在现有资料中未列出**；资料中只给出了 **2025 年营收 32.14 亿元**，并未提供 2024 年营收原始数字 [资料1]\n\n结论：**根据现有资料无法确定珠江股份 vs 中新集团哪家公司2024年实现营收更高**，因为珠江股份有 2024A 营业收入数据，但中新集团缺少 2024 年同口径营收数据，无法进行同口径比较。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2024",
+        "1558",
+        "2685"
+      ],
+      "matched_numbers": [
+        "2024",
+        "1558"
+      ],
+      "missing_numbers": [
+        "2685"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/real_estate/ZXJT.pdf",
+        "data/raw/real_estate/ZJGF.pdf",
+        "data/raw/healthcare/BTGF.pdf",
+        "data/raw/new_energy/SGHN.pdf",
+        "data/raw/healthcare/SYXY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_020",
+      "question_type": "compare",
+      "query": "招商积余2025年的营业收入和招商蛇口2026年一季度的营业收入相比，哪个更高",
+      "expected_answer": "招商蛇口。招商积余2025 年公司实现营业收入 192.73 亿元，招商蛇口2026 年一季度公司实现营业收入236.67 亿元",
+      "generated_answer": "- 对象A：招商积余2025年营业收入 **192.73亿元**，口径为 **2025A营业收入**；引用：[资料4]\n- 对象B：招商蛇口2026年一季度营业收入 **236.67亿元**，口径为 **2026年一季度营业收入**；引用：[资料1]\n\n结论：**招商蛇口2026年一季度的营业收入更高**，因为 **236.67亿元 > 192.73亿元**。[资料1][资料4]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料4]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "192.73",
+        "2026",
+        "236.67"
+      ],
+      "matched_numbers": [
+        "2025",
+        "192.73",
+        "2026",
+        "236.67"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/ZSSK.pdf",
+        "data/raw/semiconductor/HGXX.pdf",
+        "data/raw/healthcare/KLY.pdf",
+        "data/raw/real_estate/ZSJY.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_021",
+      "question_type": "compare",
+      "query": "华源控股 vs 海光信息，哪家公司2026年Q1实现营收更高",
+      "expected_answer": "海光信息。华源控股2026Q1 公司实现营收 5.85 亿元，海光信息2026 年一季度公司实现收入 40.34 亿元",
+      "generated_answer": "- 对象A：华源控股 2026年Q1营收根据现有资料**无法确定**。资料中仅看到其**2025年**营业收入为**23.11亿元**，以及**2026年全年/预测**收入为**27.21亿元**等信息，未提供“2026年Q1”营收数据。引用：[资料2]、[资料4]\n- 对象B：海光信息 2026年Q1实现收入**40.34亿元**，口径为**2026年一季度公司实现收入**。引用：[资料1]\n\n结论：根据现有资料，**无法直接比较两家公司2026年Q1营收高低**，因为华源控股的2026年Q1营收数据缺失；已知海光信息2026年Q1营收为**40.34亿元**。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料4]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2026",
+        "1",
+        "5.85",
+        "40.34"
+      ],
+      "matched_numbers": [
+        "2026",
+        "1",
+        "40.34"
+      ],
+      "missing_numbers": [
+        "5.85"
+      ],
+      "numeric_coverage": 0.75,
+      "sources": [
+        "data/raw/semiconductor/HGXX.pdf",
+        "data/raw/semiconductor/HYKG.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_022",
+      "question_type": "compare",
+      "query": "快克智能 vs 浪潮信息，哪家公司2025年营收更多",
+      "expected_answer": "浪潮信息。快克智能2025年营收1081百万元，浪潮信息2025年实现营业收入1647.82亿元",
+      "generated_answer": "- 对象A：快克智能 2025 年营业收入 **1,081 百万元**，口径为**2026 年预测的 2025A 营业收入**，引用为“营业收入（百万元） | 1,081 | 1,328 | 1,650 | 2,140”中的 **2025A** 列；以及“营业收入 | 945 | 1,081 | 1,328 | 1,650 | 2,140”中的 **2025A** 列。[资料1]\n- 对象B：浪潮信息 2025 年营业收入 **1,647.82 亿元**，口径为**2025 年全年实现营业收入**，引用为“2025 年，公司实现营业收入1,647.82 亿元，同比增长43.25%”。[资料2]\n\n结论：**浪潮信息 2025 年营收更多**。但需要注意，两家公司资料中的营收单位不同，快克智能为**百万元**口径、浪潮信息为**亿元**口径，无法直接用原文单位做严格同口径数值比较；若按原文披露口径看，浪潮信息披露的营收金额显著更大。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "1081",
+        "1647.82"
+      ],
+      "matched_numbers": [
+        "2025",
+        "1081",
+        "1647.82"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/KKZN.pdf",
+        "data/raw/semiconductor/LCXX.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_023",
+      "question_type": "compare",
+      "query": "蓝思科技 vs 润建股份，哪家公司2025年归母净利润更高",
+      "expected_answer": "蓝思科技。蓝思科技2025年归母净利润40.18 亿元，润建股份2025年归母净利润3791.62万元。",
+      "generated_answer": "- 对象A：蓝思科技，2025年归母净利润 **40.18亿元**，口径为“归母净利润”[资料1]\n- 对象B：润建股份，2025年归母净利润 **3791.62万元**（即资料中写明的“归母净利润3791.62万元”），口径为“归母净利润”[资料2]\n\n结论：**蓝思科技2025年归母净利润更高**。根据现有资料，蓝思科技为40.18亿元，润建股份为3791.62万元，前者高于后者。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "40.18",
+        "3791.62"
+      ],
+      "matched_numbers": [
+        "2025",
+        "40.18",
+        "3791.62"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/LSKJ.pdf",
+        "data/raw/semiconductor/RJGF.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_024",
+      "question_type": "compare",
+      "query": "拓荆科技 vs 中科曙光，哪家公司2026年Q1实现营收更高",
+      "expected_answer": "中科曙光。拓荆科技2026年Q1实现营收11.12 亿元，中科曙光2026年Q1实现营收30.72 亿元",
+      "generated_answer": "- 对象A（拓荆科技）：2026年Q1实现营收 **51.42亿元**，口径为“2026Q1营收”，引用见[资料3]：**“26Q1，公司实现营收51.42亿元，同比增加75.27%”**。\n- 对象B（中科曙光）：2026年Q1实现营收 **30.72亿元**，口径为“2026Q1公司营业收入”，引用见[资料1]：**“2026Q1 公司营业收入30.72 亿元，同比+18.80%”**。\n\n结论：在**2026年Q1营收**这一同口径下，**拓荆科技高于中科曙光**，分别为**51.42亿元**和**30.72亿元**。[资料3][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2026",
+        "1",
+        "11.12",
+        "30.72"
+      ],
+      "matched_numbers": [
+        "2026",
+        "1",
+        "30.72"
+      ],
+      "missing_numbers": [
+        "11.12"
+      ],
+      "numeric_coverage": 0.75,
+      "sources": [
+        "data/raw/semiconductor/ZKSG.pdf",
+        "data/raw/new_energy/宁德时代_202601.pdf",
+        "data/raw/semiconductor/TJKJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_025",
+      "question_type": "compare",
+      "query": "中微公司 vs 中芯国际，哪家公司2024年营收更高",
+      "expected_answer": "中芯国际。中微公司2024年营收9065百万人民币，中芯国际2024年营收57796百万元",
+      "generated_answer": "- 对象A（中微公司）：2024年营收为 **9,065 百万元人民币**，口径为“年结12月31日：收入(百万人民币)”；引用：[资料2]\n- 对象B（中芯国际）：2024A 营业收入为 **57,796 百万元**，口径为“营业收入（百万元）”；引用：[资料1]\n\n结论：**中芯国际2024年营收更高**，因为 57,796 百万元高于中微公司的 9,065 百万元。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2024",
+        "9065",
+        "57796"
+      ],
+      "matched_numbers": [
+        "2024",
+        "9065",
+        "57796"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/semiconductor/ZXGJ.pdf",
+        "data/raw/semiconductor/ZWGS.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_026",
+      "question_type": "compare",
+      "query": "安井食品 vs 安琪酵母，哪家公司2026年Q1实现营收更高",
+      "expected_answer": "安井食品。安井食品26Q1 实现收入 47.1 亿元，安琪酵母26Q1实现营业收入 45.3亿元。",
+      "generated_answer": "- 对象A：安井食品，2026年Q1实现营收 **47.1亿元**，口径为“26Q1 实现收入/营业收入”，引用见[资料2]\n- 对象B：安琪酵母，2026年Q1实现营业收入 **45.3亿元**，口径为“26Q1 实现营业收入”，引用见[资料1]\n\n结论：**安井食品**在2026年Q1实现营收更高，**47.1亿元 > 45.3亿元**。[资料2][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "26",
+        "1",
+        "47.1",
+        "45.3"
+      ],
+      "matched_numbers": [
+        "26",
+        "1",
+        "47.1",
+        "45.3"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/consumer/AQJM.pdf",
+        "data/raw/consumer/AJSP.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_027",
+      "question_type": "compare",
+      "query": "爱尔眼科 vs 百诚医药，哪家公司2025年实现营收更高",
+      "expected_answer": "爱尔眼科。爱尔眼科2025 年公司实现营业收入 223.53 亿元，百诚医药2025 年实现收入 6.78亿元",
+      "generated_answer": "- 对象A（爱尔眼科）：**2025 年实现营业收入 223.53 亿元**，口径为“营业收入”，引用：**“2025 年公司实现营业收入223.53 亿元”** [资料3]\n- 对象B（百诚医药）：**根据现有资料无法确定 2025 年实现营收的直接数值**。资料中仅看到 2025A/2026E 等预测/指标表述，以及“营业总收入”相关表格片段，但未明确给出“2025 年实现营业收入”的完整可核对数值；可见片段为“营业总收入 | 678 | 821 | 973 | 1,082”及“2025A”标识，但缺少与“2025 年实现营收”一一对应的完整原文说明 [资料1]\n\n结论：**就现有资料可直接确认的口径下，爱尔眼科 2025 年实现营业收入为 223.53 亿元；百诚医药的 2025 年实现营收无法从现有资料中明确确定，因此不能据此判断哪家公司更高。** [资料3][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料3]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "223.53",
+        "6.78"
+      ],
+      "matched_numbers": [
+        "2025",
+        "223.53"
+      ],
+      "missing_numbers": [
+        "6.78"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/healthcare/BCYY.pdf",
+        "data/raw/healthcare/AEYK.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_028",
+      "question_type": "compare",
+      "query": "隆基绿能 vs 格林美，哪家公司2026年Q1实现营收更高",
+      "expected_answer": "隆基绿能。隆基绿能26Q1 营收 111.9 亿，格林美2026年Q1实现营收99.82 亿元",
+      "generated_answer": "- 对象A：隆基绿能，2026年Q1实现**营业总收入 104,390 百万元**，口径为“营业总收入”，时间为2026E对应季度/期内披露口径；依据见[资料2]。\n- 对象B：格林美，2026年Q1实现**营业收入 99.82 亿元**，口径为“营业收入”，时间为2026年第一季度；依据见[资料1]。\n\n结论：**隆基绿能2026年Q1实现营收更高**。按资料中披露的同口径收入数据，隆基绿能的“营业总收入 104,390 百万元”高于格林美的“营业收入 99.82 亿元”[资料2][资料1]。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "26",
+        "1",
+        "111.9",
+        "2026",
+        "99.82"
+      ],
+      "matched_numbers": [
+        "26",
+        "1",
+        "2026",
+        "99.82"
+      ],
+      "missing_numbers": [
+        "111.9"
+      ],
+      "numeric_coverage": 0.8,
+      "sources": [
+        "data/raw/new_energy/GLM.pdf",
+        "data/raw/new_energy/LJLN.pdf",
+        "data/raw/new_energy/宁德时代_202601.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_029",
+      "question_type": "compare",
+      "query": "保利发展 vs 华发股份，哪家公司2025年实现营收更高",
+      "expected_answer": "保利发展。保利发展2025年公司实现营业收入308144百万元，华发股份2025年实现收入834.3亿元",
+      "generated_answer": "- 对象A：保利发展，2025A 营业总收入为 **308,144**，口径为“营业总收入”，引用见 **[资料1]**\n- 对象B：华发股份，2025 年营业收入为 **834.3 亿元**，口径为“营业收入”，引用见 **[资料4]**\n\n结论：**根据现有资料，无法直接确定哪家公司 2025 年实现营收更高**。原因是两家公司披露的口径不完全一致：保利发展给出的是“营业总收入”，华发股份给出的是“营业收入”，资料中未提供两家公司同口径、可直接对比的 2025 年营收数字。",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料4]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "308144",
+        "834.3"
+      ],
+      "matched_numbers": [
+        "2025",
+        "308144",
+        "834.3"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/real_estate/BLFZ.pdf",
+        "data/raw/real_estate/HFGF.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "compare_030",
+      "question_type": "compare",
+      "query": "鼎龙股份 vs 鼎智科技，哪家公司2025年实现营收更高",
+      "expected_answer": "鼎龙股份。鼎龙股份2025年营业总收入为36.60亿元，鼎智科技2025 年公司实现营收 2.68 亿元",
+      "generated_answer": "- 对象A：鼎龙股份，**2025年营收 38.?? 亿元**？——根据现有资料，资料1仅明确给出其**2025年分业务营收**，如半导体板块业务营收**20.86亿元**、CMP抛光垫**10.91亿元**、CMP抛光液及清洗液**2.94亿元**、半导体显示材料**5.44亿元**、先进封装材料**1176万元**；但**未直接给出鼎龙股份2025年公司整体营收总额**。引用：[资料1]\n- 对象B：鼎智科技，**2025年营收 2.68亿元**，口径为公司**实现营收**。引用：[资料2]\n\n结论：**根据现有资料，无法直接确定“鼎龙股份 vs 鼎智科技”哪家公司2025年实现营收更高**，因为资料中**鼎龙股份缺少2025年公司整体营收总额**；已知鼎智科技2025年营收为**2.68亿元**。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "36.60",
+        "2.68"
+      ],
+      "matched_numbers": [
+        "2025",
+        "2.68"
+      ],
+      "missing_numbers": [
+        "36.60"
+      ],
+      "numeric_coverage": 0.6666666666666666,
+      "sources": [
+        "data/raw/semiconductor/DLGF.pdf",
+        "data/raw/semiconductor/DZKJ.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_001",
+      "question_type": "summary",
+      "query": "结合相关政策，新能源消纳与新型电力系统建设主要从哪些方向推进？",
+      "expected_answer": "主要方向包括：坚持清洁低碳、安全充裕、经济高效、供需协同、灵活智能的基本原则，2024—2027年重点开展9项专项行动，提升电网对清洁能源的接纳、配置、调控能力；健全煤电、抽水蓄能、新型储能等调节性资源容量电价机制，完善体现分时价值差异的零售市场价格机制；突破新能源高效发电利用、系统灵活调节、电网高效仿真和稳定运行控制、智能化调控等技术；通过调节能力建设优化，支撑2025—2027年年均新增2亿千瓦以上新能源合理消纳利用，全国新能源利用率不低于90%；推动新型储能到2027年基本实现规模化、市场化发展，全国装机规模达到1.8亿千瓦以上。",
+      "generated_answer": "结合相关政策，新能源消纳与新型电力系统建设主要从以下方向推进：\n\n1. 要点：坚持系统观念，统筹“电源与电网、可再生能源与传统化石能源、可再生能源开发与消纳”的关系，加快构建新型电力系统，提升可再生能源消纳和存储能力，实现能源绿色低碳转型与安全可靠供应相统一。[资料1]\n2. 要点：以提高消纳和存储能力为重点，实施可再生能源替代行动，促进可再生能源大规模、高比例、市场化、高质量发展，并“以区域布局优化发展、以重大基地支撑发展、以示范工程引领发展、以行动计划落实发展”。[资料1]\n3. 要点：通过电力系统调节能力优化行动，建设一批共享储能电站，完善调用和市场化运行机制；探索多种新型储能技术路线，推动新型储能电站市场化投资运营，提升系统层面的电力保供和新能源消纳能力。[资料2][资料4]\n4. 要点：通过需求侧协同能力提升行动，在新能源消纳困难地区实施高比例需求侧响应，建立需求侧灵活调节资源库，完善市场和价格机制；同时建设一批虚拟电厂，常态化参与系统调节，提升电力保供和新能源就地消纳能力。[资料2][资料4]\n5. 要点：通过电动汽车充电设施网络拓展行动，完善充电基础设施网络布局，加强电动汽车与电网融合互动，推广智能有序充电，研究完善分时电价政策和放电价格机制，推动电动汽车参与电力系统互动。[资料2][资料4]\n6. 要点：通过多场景应用与组织实施，推进“绿电直连、虚拟电厂、智能微电网、源网荷储一体化、车网互动”等模式，建立健全工作机制，统筹推进全国新型电力系统建设，明确推进路径和重点工作，有序推进任务落实落地。[资料5][资料2][资料4]\n\n结论：相关政策主要从“系统统筹、储能支撑、需求侧响应、车网互动、多场景协同和机制完善”几个方向，推进新能源消纳和新型电力系统建设。[资料1][资料2][资料4][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料4]",
+        "[资料5]"
+      ],
+      "reference_coverage": 0.5,
+      "reference_matched": 2,
+      "reference_total": 4,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2024",
+        "2027",
+        "9",
+        "2025",
+        "2",
+        "90%",
+        "1.8"
+      ],
+      "matched_numbers": [
+        "2"
+      ],
+      "missing_numbers": [
+        "2024",
+        "2027",
+        "9",
+        "2025",
+        "90%",
+        "1.8"
+      ],
+      "numeric_coverage": 0.14285714285714285,
+      "sources": [
+        "data/raw/policy/P020220602315650388122.pdf",
+        "data/raw/policy/ndrc_2024_new_power_system_action_plan.pdf",
+        "data/raw/policy/P020210421528000000606.pdf",
+        "data/raw/policy/P020240806534738672970.pdf",
+        "data/raw/policy/P020250912338143145278.pdf",
+        "data/raw/policy/ndrc_2025_new_energy_consumption_guidance_qna.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_002",
+      "question_type": "summary",
+      "query": "新型储能政策对发展目标、应用场景、技术路线和市场机制是如何安排的？",
+      "expected_answer": "新型储能被定位为支撑新型电力系统的重要技术和基础装备。目标上，到2025年实现从商业化初期向规模化发展转变、装机规模达3000万千瓦以上，到2030年实现全面市场化发展；专项行动进一步提出到2027年基本实现规模化、市场化发展。应用场景上，鼓励电源侧、电网侧、用户侧多元发展，拓展“新能源+储能”、智能微电网、虚拟电厂等场景。技术上，坚持多元化路线，推动锂离子电池规模化应用，推动压缩空气、液流电池、钠离子电池、飞轮、氢储能、热储能等试点示范和商业化发展。市场机制上，推动储能作为独立主体参与电力市场、辅助服务市场，完善容量电价、分时电价和成本疏导机制，并健全标准体系、并网流程和安全监管。",
+      "generated_answer": "1. 要点：以“碳达峰碳中和”为目标，推动新型储能由“商业化初期”步入“规模化发展”，到2025年“具备大规模商业化应用条件”；到2030年“实现新型储能全面市场化发展”，标准体系、市场机制、商业模式成熟健全，装机规模基本满足新型电力系统相应需求。[资料1][资料2]\n2. 要点：应用场景上，重点围绕电源侧、电网侧、用户侧以及工业园区、算力设施、商业综合体、光储充放一体化充电站、分布式光伏、通信基站等多场景拓展，推进电源协同运行、电网稳定支撑、智能微电网、虚拟电厂、源网荷储一体化、车网互动等应用模式，并开展区域性和重点场景试点示范。[资料3][资料4][资料5]\n3. 要点：技术路线安排上，坚持“技术多元化发展”，重点推进锂离子电池、压缩空气储能、液流电池、钠离子电池、飞轮储能等商业化/示范应用，同时布局固态电池、重力储能、热储能、氢储能等创新技术示范，开展多技术混合式和长时储能应用探索，并按不同时间尺度开展试点示范。[资料3][资料4]\n4. 要点：市场机制上，明确新型储能市场主体地位，强调“市场机制为根本依托、政策环境为有力保障”，提出参与电能量市场、辅助服务市场和中长期市场；推动“新能源+储能”作为联合报价主体，一体化参与交易，符合条件的储能项目可作为独立主体参与电能量市场，并通过完善市场化交易机制、交易品种和配套规则促进有序发展。[资料1][资料2][资料5][资料6]\n\n结论：整体上，政策以2025年规模化、2030年全面市场化为主线，围绕多场景应用、多元技术路线和市场机制完善，推动新型储能从示范探索走向规模化、市场化发展。[资料1][资料2][资料4][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料3]",
+        "[资料4]",
+        "[资料5]",
+        "[资料6]"
+      ],
+      "reference_coverage": 0.8,
+      "reference_matched": 4,
+      "reference_total": 5,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2025",
+        "3000",
+        "2030",
+        "2027"
+      ],
+      "matched_numbers": [
+        "2025",
+        "2030"
+      ],
+      "missing_numbers": [
+        "3000",
+        "2027"
+      ],
+      "numeric_coverage": 0.5,
+      "sources": [
+        "data/raw/policy/P020220321550104020921.pdf",
+        "data/raw/policy/202210114475091.pdf",
+        "data/raw/policy/P020250912338143145278.pdf",
+        "data/raw/policy/P020210421528000346108.pdf",
+        "data/raw/policy/P020250106570227369979.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_003",
+      "question_type": "summary",
+      "query": "“十四五”可再生能源规划和氢能规划分别怎样服务能源绿色低碳转型？",
+      "expected_answer": "可再生能源规划提出，加快发展可再生能源、实施可再生能源替代行动，是推进能源革命和构建清洁低碳、安全高效能源体系的重大举措；到2025年，可再生能源消费总量达到10亿吨标准煤左右，年发电量达到3.3万亿千瓦时左右，全国可再生能源电力总量消纳责任权重达到33%左右，非水电消纳责任权重达到18%左右。规划还要求推动绿色直供电、可再生能源供暖、非电直接利用和高比例可再生能源应用示范，健全消纳责任权重和长效机制。氢能规划将氢能界定为来源丰富、绿色低碳、应用广泛的二次能源，要求构建清洁化、低碳化、低成本的多元制氢体系，开展可再生能源制氢示范，构建安全、稳定、高效的氢能供应网络，并形成“1+N”政策体系。",
+      "generated_answer": "1. 要点：“十四五”可再生能源发展规划把“加快发展可再生能源、实施可再生能源替代行动”作为“推进能源革命和构建清洁低碳、安全高效能源体系”的重大举措，并明确在“十四五”时期“推动能源绿色低碳转型、落实应对气候变化国家自主贡献目标”；具体通过“大规模开发可再生能源”和“高比例利用可再生能源”，包括风电和光伏基地化开发、分布式开发、水风光综合基地一体化开发，以及提升存储能力、促进就地就近消纳和外送消纳来服务转型。[资料2][资料1]\n\n2. 要点：氢能产业发展中长期规划将氢能定位为“未来国家能源体系的重要组成部分”和“用能终端实现绿色低碳转型的重要载体”，强调发挥其“可再生能源规模化高效利用的重要载体作用”与“大规模、长周期储能优势”，以“绿色低碳为方针”加强绿色供应，推动交通、工业等用能终端能源消费转型和高耗能、高排放行业绿色发展，减少温室气体排放；同时通过制氢、储运、加氢网络和多元化示范应用，探索氢能在储能、分布式发电、工业等领域的规模化路径。[资料4][资料3]\n\n结论：两项规划都服务于能源绿色低碳转型，但可再生能源规划侧重“源头替代”和“大规模开发、消纳”，氢能规划侧重把氢能作为可再生能源高效利用与终端转型的载体，推动多领域绿色替代。[资料2][资料4]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料2]",
+        "[资料1]",
+        "[资料4]",
+        "[资料3]"
+      ],
+      "reference_coverage": 0.6666666666666666,
+      "reference_matched": 2,
+      "reference_total": 3,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2025",
+        "10",
+        "3.3",
+        "33%",
+        "18%",
+        "1"
+      ],
+      "matched_numbers": [
+        "1"
+      ],
+      "missing_numbers": [
+        "2025",
+        "10",
+        "3.3",
+        "33%",
+        "18%"
+      ],
+      "numeric_coverage": 0.16666666666666666,
+      "sources": [
+        "data/raw/policy/P020220602315650388122.pdf",
+        "data/raw/policy/P020220323314396580505.pdf",
+        "data/raw/policy/P020220321550104020921.pdf",
+        "data/raw/policy/P020210421528000346108.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_004",
+      "question_type": "summary",
+      "query": "电网建设、电力市场和容量电价政策如何支撑新能源消纳与系统可靠运行？",
+      "expected_answer": "配电网政策要求适度超前建设配电网，提升承载力，满足分布式新能源和电动汽车充电基础设施发展。全国统一电力市场提出到2030年基本建成全国统一电力市场体系，市场化交易电量占全社会用电量的70%左右，并推动跨省跨区和省内联合交易。容量机制方面，煤电、抽水蓄能、新型储能等支撑性、调节性资源在高比例新能源消纳和新型电力系统中发挥重要作用，政策通过可靠容量补偿、容量市场探索和发电侧容量电价机制，保障其收益、增强电力安全保供能力。新能源报价政策则要求规范集中报价、价格预警和数字化监管，防范市场力滥用，维护市场公平竞争。",
+      "generated_answer": "1. 要点：通过“坚持系统观念”统筹电源与电网、可再生能源与传统化石能源、可再生能源开发与消纳，加快构建新型电力系统，提升可再生能源消纳和存储能力，实现能源绿色低碳转型与安全可靠供应相统一。[资料1]\n\n2. 要点：通过“坚持市场主导”，健全市场机制、破除市场壁垒、营造公平开放充分竞争的市场环境，落实“放管服”改革，提升可再生能源自我发展、自主发展能力；并提出到2030年“电力市场促进新能源消纳的机制更加健全，跨省跨区新能源交易更加顺畅”，到2035年“全国统一电力市场在新能源资源配置中发挥基础作用”。[资料1][资料2]\n\n3. 要点：通过电网建设和调度能力提升，组织编制配电网建设改造实施方案，健全配电网全过程管理，开展新能源接网影响分析、建立可开放容量定期发布和预警机制；同时加强智慧化调度体系总体设计，做好调度与电力市场的衔接，创新有源配电网调度模式，提升配电网层面就地平衡能力和对主网的主动支撑能力。[资料5]\n\n4. 要点：通过建设调节性电源和容量电价机制，保障电力系统安全稳定运行、促进新能源消纳利用。资料显示，容量电价机制通过“发放‘保底工资’”推动相关电源“顶峰时发电保供、平时为新能源让路”；《通知》还完善煤电、气电、抽水蓄能容量电价机制，并首次在国家层面明确建立电网侧独立新型储能容量电价机制，以支持调节性电源合理建设和更好发挥调节作用。[资料4]\n\n结论：电网建设负责增强接网、调度和就地平衡能力，电力市场负责提高新能源优化配置和跨区交易效率，容量电价则通过保障调节性电源收益来支撑顶峰保供、平时让路，从而共同促进新能源消纳并维护系统可靠运行。[资料1][资料2][资料4][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料5]",
+        "[资料4]"
+      ],
+      "reference_coverage": 0.2,
+      "reference_matched": 1,
+      "reference_total": 5,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [
+        "2030",
+        "70%"
+      ],
+      "matched_numbers": [
+        "2030"
+      ],
+      "missing_numbers": [
+        "70%"
+      ],
+      "numeric_coverage": 0.5,
+      "sources": [
+        "data/raw/policy/P020220602315650388122.pdf",
+        "data/raw/policy/ndrc_2025_new_energy_consumption_guidance_qna.pdf",
+        "data/raw/policy/ndrc_generation_capacity_price_qna.pdf",
+        "data/raw/policy/ndrc_2024_new_power_system_action_plan.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_005",
+      "question_type": "summary",
+      "query": "大规模设备更新和消费品以旧换新政策主要支持哪些领域，资金和补贴如何安排？",
+      "expected_answer": "政策统筹安排3000亿元左右超长期特别国债资金，加力支持大规模设备更新和消费品以旧换新。设备更新方面，支持范围从工业、环境基础设施、交通运输、物流、教育、文旅、医疗、回收循环利用，扩大到能源电力、老旧电梯等领域设备更新以及重点行业节能降碳和安全改造，并降低申报门槛、支持中小企业设备更新。具体补贴包括老旧营运船舶报废更新、老旧营运货车报废更新、农业机械报废更新、新能源公交车及动力电池更新等。消费品方面，重点支持汽车报废更新和乘用车置换更新、家电产品和电动自行车以旧换新、旧房装修和厨卫局部改造、居家适老化改造、智能家居消费等，要求真金白银优惠直达消费者。能源设备更新另提出到2027年能源重点领域设备投资规模较2023年增长25%以上。",
+      "generated_answer": "1. 要点：政策主要支持“工业、环境基础设施、交通运输、物流、教育、文旅、医疗”等领域设备更新，并将支持范围扩大到“能源电力、老旧电梯”等领域设备更新，以及“重点行业节能降碳和安全改造”；同时支持“回收循环利用”。[资料1]\n2. 要点：在交通和民生相关领域，支持“老旧营运船舶报废更新”“老旧营运货车报废更新”“农业机械报废更新”“新能源公交车及动力电池更新”，以及“汽车报废更新和个人消费者乘用车置换更新”“家电产品以旧换新”。[资料1][资料3][资料4]\n3. 要点：资金方面，统筹安排“3000亿元左右超长期特别国债资金”；其中“1480亿元左右”由国家发展改革委牵头安排用于第（一）、（二）条，“1500亿元左右”直接向地方安排用于第（三）、（四）、（五）、（七）、（八）、（九）条，“275亿元中央财政资金”用于第（六）、（十）条。[资料1][资料3][资料4]\n4. 要点：补贴安排上，老旧船舶按“1500—3200元/总吨”“1000—2200元/总吨”或“平均按1000元/总吨”补贴；老旧营运货车报废并更新购置平均每辆“8万元”，无报废只更新购置平均每辆“3.5万元”，只提前报废平均每辆“3万元”；农机方面，20马力以下拖拉机单台最高报废补贴额由“1000元提高到1500元”，采棉机单台最高报废补贴额由“3万元提高到6万元”。[资料1][资料2]\n5. 要点：消费品以旧换新中，家电产品对购买“2级及以上能效或水效标准”的8类家电给予“产品销售价格的15%”补贴，购买“1级及以上能效或水效标准”的产品额外再给“5%”，每位消费者每类产品可补贴1件、每件不超过“2000元”；废弃电器电子产品回收处理方面，2024年中央财政安排“75亿元”，采取“以奖代补”方式支持。[资料3][资料4]\n\n结论：这项政策主要覆盖工业和基础设施设备更新、交通运输和农业机械更新，以及汽车、家电等消费品以旧换新，并通过超长期特别国债和中央财政资金分渠道安排，配套明确的按吨、按车、按台和按销售价格比例补贴。[资料1][资料3][资料4]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]",
+        "[资料4]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 4,
+      "reference_total": 4,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "3000",
+        "2027",
+        "2023",
+        "25%"
+      ],
+      "matched_numbers": [
+        "3000"
+      ],
+      "missing_numbers": [
+        "2027",
+        "2023",
+        "25%"
+      ],
+      "numeric_coverage": 0.25,
+      "sources": [
+        "data/raw/policy/ndrc_2024_equipment_update_consumer_trade_in.pdf",
+        "data/raw/policy/P020240726413585348997.pdf",
+        "data/raw/policy/ndrc_2024_energy_equipment_update_plan.pdf",
+        "data/raw/policy/P020240821593575195639.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_006",
+      "question_type": "summary",
+      "query": "培育消费新场景和新型消费的政策重点有哪些？",
+      "expected_answer": "消费新场景政策要求围绕居民吃穿住用行等传统消费和服务消费，培育一批带动性广、显示度高的消费新场景，推广特色鲜明、市场引领突出的典型案例，推动消费新业态、新模式、新产品不断涌现。重点包括餐饮消费细分领域、文旅体育消费、购物消费多元融合、利用人工智能大模型、虚拟现实和数字人等技术拓展购物体验、健康消费、银发消费、育幼消费等。新型消费政策强调线上线下消费有机融合，培育壮大零售新业态，拓展“互联网+”医疗、教育、体育等服务产品，推动数字化、网络化、智能化消费发展。",
+      "generated_answer": "培育消费新场景和新型消费的政策重点主要集中在以下几方面：\n\n1. 围绕居民吃穿住用行等传统消费和服务消费，培育一批“带动性广、显示度高”的消费新场景，推广特色鲜明、市场引领突出的典型案例，支持创新能力强、成长性好的消费端领军企业加快发展，推动消费新业态、新模式、新产品不断涌现。[资料1]\n\n2. 在餐饮消费领域，重点发展地方特色美食、县域餐饮和细分人群高适配用餐服务，推动预制菜、乳制品等标准完善，推进餐饮与文旅、会展、研学等多业态融合，并支持餐饮经营主体数字化改造、外卖点单和配送智能化升级。[资料1]\n\n3. 在文旅体育消费领域，重点深化旅游业态融合创新，发展冰雪旅游、海洋旅游、自驾露营旅游、红色旅游、研学旅游、康养旅游等，推广“音乐+旅游”“演出+旅游”“赛事+旅游”等业态，打造主题旅游精品线路，并推进数字赋能文旅场景建设，发展数字艺术、沉浸式体验等新业态。[资料1]\n\n4. 在社区消费场景上，重点推进完整社区建设和一刻钟便民生活圈，支持养老育幼、邻里助餐、体育健身、健康服务、家政便民等服务进社区，探索发展智慧社区，推动社区生活服务数字化、智能化发展；同时优化农村社区消费环境，补齐基础设施短板，完善县乡村三级快递物流配送体系，支持新能源汽车、绿色智能家电下乡，以及电影、体育赛事、图书等下乡活动。[资料3]\n\n5. 在机制保障上，强调加强统筹协调和跨部门协作，支持政策性试点示范和实践探索，并加强对大宗消费、服务消费的综合金融支持，依法依规合理降低消费领域企业用地成本和制度性交易成本。[资料3]\n\n结论：政策重点就是通过场景创新、业态融合、数字智能升级和社区城乡消费环境改善，培育餐饮、文旅体育、社区等领域的新型消费增长点。[资料1][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 4,
+      "reference_total": 4,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/ndrc_2024_consumer_new_scenarios.pdf",
+        "data/raw/policy/P020240624569333510920.pdf",
+        "data/raw/policy/P020210325504120315428.pdf",
+        "data/raw/policy/P020201029597065666501.pdf",
+        "data/raw/policy/W020190905514280441190.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_007",
+      "question_type": "summary",
+      "query": "绿色消费、汽车消费和电子产品消费政策分别提出了哪些重点措施？",
+      "expected_answer": "绿色消费政策要求促进绿色产品消费、扩大绿色低碳产品供给、完善绿色消费制度保障，围绕衣食住行用等领域推动消费方式绿色转型。汽车消费政策强调优化汽车限购管理、支持老旧汽车更新消费、加快培育二手车市场、加强新能源汽车配套设施建设、降低新能源汽车购置使用成本。电子产品消费政策提出加快推动电子产品升级换代，支持可穿戴设备、智能产品、虚拟现实设备等消费，完善电子产品回收体系，促进绿色智能电子产品消费。",
+      "generated_answer": "1. 绿色消费政策：提出要“全面促进重点领域消费绿色转型”，重点包括“加快提升食品消费绿色化水平”，完善农产品生产、储存、运输、加工标准，加强节约减损管理，推广绿色有机食品，推动餐饮反食品浪费、机关企事业单位和学校食堂用餐管理、“光盘”等粮食节约行动，以及厨余垃圾回收处置和资源化利用。[资料6]\n\n2. 汽车消费政策：提出要“优化汽车限购管理政策”，鼓励限购地区尽早下达全年购车指标、实施城区和郊区指标差异化政策、因地制宜增加年度购车指标投放；同时“支持老旧汽车更新消费”，鼓励各地加快国三及以下排放标准乘用车等更新。[资料7]\n\n3. 电子产品消费政策：提出要加快推动电子产品升级换代、支持电子产品下乡、打通回收渠道、优化消费环境。具体包括技术创新和新场景打造，消除使用障碍；对绿色智能家电下乡和以旧换新予以适当补贴；完善销售配送体系、开展绿色智能电子产品展销活动；落实生产者责任延伸制度、推动“互联网+回收”；加强隐私保护、完善标准体系、营造绿色消费氛围。[资料2][资料1]\n\n结论：三类政策分别围绕绿色转型、限购与更新、升级换代与回收优化等方向提出了促消费措施。[资料6][资料7][资料2][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料6]",
+        "[资料7]",
+        "[资料2]",
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 3,
+      "reference_total": 3,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/P020230721357059106134.pdf",
+        "data/raw/policy/P020220121303052384813.pdf",
+        "data/raw/policy/ndrc_2024_consumer_new_scenarios.pdf",
+        "data/raw/policy/P020240624569333510920.pdf",
+        "data/raw/policy/P020230721360399538898.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_008",
+      "question_type": "summary",
+      "query": "早期扩内需促消费政策如何通过优化供给、提升服务和改善环境来形成强大国内市场？",
+      "expected_answer": "政策要求顺应居民消费升级大趋势，加快转型升级提升供给质量和水平，以高质量供给催生创造新的市场需求，促进形成强大国内市场。具体包括促进汽车消费、家电和电子产品消费、农村网购和乡村旅游消费、养老托育和家政服务供给、信息消费和超高清视频产品消费；同时提出“十大扩消费行动”，围绕城镇消费、农村消费、住房租赁、汽车消费、旅游休闲、文化体育、智慧家庭、分享经济等方向，增加高品质商品和服务供给，完善商贸物流、信息网络等基础设施，打通物流和信息障碍，加强消费市场信用体系建设。",
+      "generated_answer": "1. 要点：通过“着力引导企业顺应居民消费升级大趋势，加快转型升级提升供给质量和水平”，以“高质量的供给催生创造新的市场需求”，从而“促进形成强大国内市场，推动消费平稳增长”。[资料1]\n2. 要点：围绕“多措并举促进汽车消费”“补足城镇消费供给短板”等，优化供给结构：有序推进老旧汽车报废更新、持续优化新能源汽车补贴结构、促进农村汽车更新换代、加快繁荣二手车市场，并推进老旧小区和老年家庭适老化改造，以更好满足居民出行、城镇化和老龄化需求。[资料1]\n3. 要点：通过提升服务供给，推动线下服务消费加速“触网”和开辟服务消费新模式，包括完善“互联网+”医保支付、丰富线上体育智能赛事供给、拓展互联网教育服务产品类型、推动线上博物馆发展、降低个人线上创业就业成本、推动物业服务线上线下融合发展，以及支持餐饮恢复发展、加大旅游年票和一卡通发行力度、加强旅游宣传推广。[资料2]\n4. 要点：通过改善消费环境，完善商贸物流、信息网络等基础设施，打通物流、信息障碍，加强消费市场信用体系建设；同时持续完善消费基础设施、加强质量认证体系建设、持续深化收入分配改革、进一步加大消费者权益保护力度，营造“居民愿消费、敢消费”的良好环境。[资料3][资料5]\n5. 要点：在农村和城乡联动方面，持续畅通城乡双向联动销售渠道、优化农村消费市场环境，开展电商和物流企业向乡镇农村延伸，发展连锁化、品牌化便利店，推进农村流通产品监督抽查和消费领域大数据打击假冒伪劣，提升食品农产品供给质量。[资料5]\n\n结论：这些早期扩内需促消费政策主要是通过提升高品质商品和服务供给、推进线上线下服务融合、补齐基础设施和信用监管短板，来营造愿消费、敢消费的环境，从而形成强大国内市场。[资料1][资料3][资料5][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料3]",
+        "[资料5]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 3,
+      "reference_total": 3,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/W020190905514280441190.pdf",
+        "data/raw/policy/P020201029597065666501.pdf",
+        "data/raw/policy/W020190906340655425738.pdf",
+        "data/raw/policy/P020220121303052384813.pdf",
+        "data/raw/policy/P020240726413585348997.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_009",
+      "question_type": "summary",
+      "query": "绿色低碳转型产业指导目录覆盖了哪些主要产业方向？",
+      "expected_answer": "目录覆盖节能降碳产业、环境保护产业、资源循环利用产业、能源绿色低碳转型、生态保护修复和利用、基础设施绿色升级、绿色服务等方向。具体包括高效节能装备制造、温室气体控制、大气水土壤和固体废弃物治理、可再生能源和清洁能源相关领域、生态农林牧渔业、绿色数据中心建设和节能改造，以及绿色低碳项目咨询设计、合同能源管理、资源循环利用第三方服务、环境污染第三方治理、能耗和温室气体监测、绿色电力交易等。",
+      "generated_answer": "绿色低碳转型产业指导目录主要覆盖以下产业方向：\n\n1. 节能降碳产业，包括高效节能装备制造、先进交通装备制造、节能降碳改造、重点工业行业绿色低碳转型。[资料1]\n2. 环境保护产业，包括水污染治理、大气污染治理、固体废弃物处置、土壤及场地污染修复、生态保护修复、环境服务、环境监测检测、环保设备制造等。[资料1]\n3. 资源循环利用产业，包括再生资源回收利用、废旧装备再制造、废弃物综合利用等。[资料1]\n4. 能源绿色低碳转型产业，包括可再生能源、新型储能、氢能、智能电网等。[资料1]\n5. 生态环保产业相关基础设施与绿色服务，包括绿色基础设施、绿色服务、绿色技术产品研发认证推广、资源环境权益交易等。[资料2]\n\n结论：该目录覆盖了从节能降碳、环境保护、资源循环利用到能源绿色低碳转型，以及绿色基础设施和绿色服务等主要方向。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/ndrc_2024_green_low_carbon_industry_catalog.pdf",
+        "data/raw/policy/P020220602315650388122.pdf",
+        "data/raw/policy/ndrc_changzhutan_green_transition_interpretation.pdf",
+        "data/raw/policy/P020220323314396580505.pdf",
+        "data/raw/policy/P020220121303052384813.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_010",
+      "question_type": "summary",
+      "query": "数据中心绿色低碳发展专项行动计划提出了哪些目标和重点任务？",
+      "expected_answer": "目标是到2025年底，全国数据中心布局更加合理，整体上架率不低于60%，平均电能利用效率降至1.5以下，可再生能源利用率年均增长10%；到2030年底，平均电能利用效率、单位算力能效和碳效达到国际先进水平。重点任务包括完善“东数西算”布局，推动小规模、低效率存量分散数据中心向集约化、高效率转变；严格新上项目能效水效要求，新建及改扩建大型和超大型数据中心电能利用效率降至1.25以内，国家枢纽节点项目不得高于1.2；推进存量项目节能降碳改造；推广液冷、蒸发冷却、热管、氟泵、人工智能节能、高效供配电和高效存储等技术装备；通过激励约束、项目清单、监督管理和宣传引导推动落实。",
+      "generated_answer": "数据中心绿色低碳发展专项行动计划的目标和重点任务主要包括：\n\n1. 主要目标：到2025年底，全国数据中心布局更加合理，整体上架率不低于60%，平均电能利用效率降至1.5以下，可再生能源利用率年均增长10%，平均单位算力能效和碳效显著提高；到2030年底，全国数据中心平均电能利用效率、单位算力能效和碳效达到国际先进水平，可再生能源利用率进一步提升，北方采暖地区新建大型及以上数据中心余热利用率明显提升。[资料1]\n\n2. 重点任务之一是完善数据中心建设布局：强化“东数西算”规划布局刚性约束，新建大型和超大型数据中心优先布局在全国一体化算力网络国家枢纽节点数据中心集群范围内，梯次有序布局国家枢纽节点、省内数据中心、边缘数据中心；支持非实时算力设施向西部枢纽节点迁移，促进小规模、低效率存量分散数据中心向集约化、高效率转变；到2025年底，国家枢纽节点地区各类新增算力占全国新增算力的60%以上。[资料1]\n\n3. 重点任务之二是严格新上项目能效水效要求：严格数据中心项目节能审查，稳步提升新建数据中心单位算力能效水平；新建及改扩建数据中心应采用能效达到节能水平及以上的服务器产品；加强新建及改扩建数据中心项目节水评价工作；到2025年底，新建及改扩建大型和超大型数据中心电能利用效率降至1.25以内，国家枢纽节点数据中心项目电能利用效率不得高于1.2。[资料1]\n\n4. 重点任务之三是推进存量项目节能降碳改造：加快推进低效数据中心节能降碳改造和“老旧小散”数据中心整合改造，推进设备布局、制冷架构、气流组织、外围护结构、供配电方式、单机柜功率密度等方面优化，提升存量数据中心能效。[资料1]\n\n5. 此外还包括加强组织实施：开展数据中心能效诊断，形成节能降碳改造和用能设备更新项目清单，压茬推进项目建设；加强节能监察和监督管理，严肃处理违规新建项目、节能降碳量造假等行为，持续打击利用数据中心开展虚拟货币“挖矿”活动；加强宣传引导，推广先进经验，营造绿色低碳高质量发展氛围。[资料2]\n\n结论：该专项行动计划围绕“到2025年和2030年的绿色低碳目标”，重点推进数据中心布局优化、新上项目能效水效约束、存量项目节能改造，以及组织实施、监督管理和宣传引导等任务。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 1,
+      "reference_total": 1,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "60%",
+        "1.5",
+        "10%",
+        "2030",
+        "1.25",
+        "1.2"
+      ],
+      "matched_numbers": [
+        "2025",
+        "60%",
+        "1.5",
+        "10%",
+        "2030",
+        "1.25",
+        "1.2"
+      ],
+      "missing_numbers": [],
+      "numeric_coverage": 1.0,
+      "sources": [
+        "data/raw/policy/ndrc_2024_green_low_carbon_data_center_action_plan.pdf",
+        "data/raw/policy/ndrc_2024_green_low_carbon_industry_catalog.pdf",
+        "data/raw/policy/P020240806534738672970.pdf",
+        "data/raw/policy/ndrc_2024_new_power_system_action_plan.pdf",
+        "data/raw/policy/ndrc_unified_power_market_interview.pdf",
+        "data/raw/policy/P020220602315650388122.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_011",
+      "question_type": "summary",
+      "query": "长三角一体化示范区和长株潭生态绿心政策如何推进区域绿色转型？",
+      "expected_answer": "长三角生态绿色一体化发展示范区把保护和修复生态环境摆在优先位置，要求探索生态友好型高质量发展新模式，到2025年先行启动区在生态环境保护和建设、生态友好型产业创新发展、人与自然和谐宜居等方面显示度明显提升，到2035年形成更加成熟有效的绿色一体化发展制度体系。具体包括统一国土空间规划体系、统一饮用水水源保护和主要水体生态管控制度、统一公共信用管理制度、重大改革系统集成和经验共享共用。长株潭生态绿心政策解读强调以产业结构优化为主线，构建绿色低碳经济体系，推进高耗能、高排放产能整合与退出，培育绿色智能计算、生命科技、生物制造、大健康、航空航天和时空信息等产业，并以园区绿色化、数字化、协同化转型作为载体。",
+      "generated_answer": "1. 要点：长三角一体化示范区强调“生态筑底、绿色发展”，锚固生态基底、厚植生态优势、发展生态经济，率先将生态优势转化为经济社会发展优势，探索“生态友好型发展模式”；同时通过“改革创新、共建共享”，在跨省级行政区框架下探索一体化推进的共同行为准则，形成制度新供给，注入发展新动能，实现绿色经济、高品质生活、可持续发展有机统一。[资料1]\n\n2. 要点：长三角一体化示范区还强调“远近结合、联动发展”，加强与周边区域联动发展，以点上集中突破带动面上更大发展；目标是“不破行政隶属、打破行政边界”，实现“共商、共建、共管、共享、共赢”，进一步提升区域一体化发展水平。[资料1]\n\n3. 要点：长株潭生态绿心政策把绿心作为都市圈核心生态资源，推进绿色转型发展的路径举措，重点通过“生态保护倒逼产业结构优化和能源结构升级”，构建“源头减碳、过程控碳、生态固碳”全链条管控体系，覆盖交通、市政能源、生态生活等关键领域，以实现生产、生活、生态“三生融合”。[资料2]\n\n4. 要点：长株潭生态绿心政策还突出以绿色智能交通为牵引、以绿色基础设施为支撑，推进低碳高效运输体系和城市低碳运行，并通过提升区域生态品质、保障生态安全、增进民生福祉，形成可复制、可推广的高质量发展经验。[资料2]\n\n结论：两项政策都以生态优先和制度创新为主线，通过跨区域协同、生态优势转化和重点领域减碳控碳，推动区域绿色转型与高质量发展。[资料1][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "2035"
+      ],
+      "matched_numbers": [],
+      "missing_numbers": [
+        "2025",
+        "2035"
+      ],
+      "numeric_coverage": 0.0,
+      "sources": [
+        "data/raw/policy/P020200728576152165824.pdf",
+        "data/raw/policy/ndrc_changzhutan_green_transition_interpretation.pdf",
+        "data/raw/policy/P020220602315650388122.pdf",
+        "data/raw/policy/P020240806534738672970.pdf",
+        "data/raw/policy/ndrc_2024_new_power_system_action_plan.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_012",
+      "question_type": "summary",
+      "query": "固体废物综合治理和绿色产业体系建设如何形成全链条治理？",
+      "expected_answer": "固体废物综合治理强调构建全链条治理体系：健全法律法规制度体系，推动生态环境法典编纂和循环经济促进法修订，完善废弃电器电子产品回收处理、危险废物经营许可、建筑垃圾等法规规章；发挥标准牵引作用，分类制修订固体废物污染控制标准，完善资源化利用技术和产品质量标准；加强循环利用、重金属污染治理关键技术研发和重大技术装备攻关；在用地、资金、价格机制上加强保障，并坚持“谁污染、谁治理”。绿色低碳转型产业目录也把固体废弃物收集、贮存、运输及处理处置装备制造、资源循环利用第三方服务等纳入绿色产业体系。",
+      "generated_answer": "固体废物综合治理和绿色产业体系建设，主要是通过“源头减量—过程管控—末端利用—全链条无害化管理”以及“装备制造—综合利用—循环化改造”来形成全链条治理。\n\n1. 要点：以减量化、资源化、无害化为原则，构建“源头减量、过程管控、末端利用和全链条无害化管理”的固体废物综合治理体系，并推动从“重点治理”向“系统治理”、从“单点突破”向“全面推进”转变。[资料1]\n\n2. 要点：在源头减量、收运贮存、资源化利用、无害化处置四个环节接续发力：源头上推进工业绿色设计、建筑装配式和绿色施工、农业地膜和包装管理；过程上完善工业固废台账、危险废物收集管理、生活垃圾“两网融合”、运输车辆动态监管；末端上提升冶炼渣、尾矿、建筑垃圾等综合利用能力，深入实施生产者责任延伸制度，发展“互联网+二手”和再制造产业；底线上加强大宗工业固体废物无害化预处理，降低填埋风险。[资料1]\n\n3. 要点：绿色产业体系建设围绕“环境保护产业”和“资源循环利用产业”展开，既包括固体废弃物收集、贮存、运输及处理处置装备制造、工业固体废弃物无害化处理处置和危险废物处理处置，也包括工业固体废弃物综合利用装备制造、废旧物资循环利用装备制造、垃圾资源化利用装备制造，以及工业固体废弃物综合利用、废旧物资循环利用、垃圾资源化利用和园区循环化改造等环节。[资料4][资料2]\n\n结论：两者通过源头、过程、末端和产业支撑的衔接，形成从“减量—收运—利用—处置”到“装备制造—资源循环—循环化改造”的全链条治理体系。[资料1][资料4][资料2]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料4]",
+        "[资料2]"
+      ],
+      "reference_coverage": 0.6666666666666666,
+      "reference_matched": 2,
+      "reference_total": 3,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/ndrc_solid_waste_governance_interpretation.pdf",
+        "data/raw/policy/ndrc_2024_green_low_carbon_industry_catalog.pdf",
+        "data/raw/policy/ndrc_changzhutan_green_transition_interpretation.pdf",
+        "data/raw/policy/P020220602315650388122.pdf",
+        "data/raw/policy/P020220121303052384813.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_013",
+      "question_type": "summary",
+      "query": "公共卫生防控救治能力和优质高效医疗卫生服务体系建设重点是什么？",
+      "expected_answer": "公共卫生防控救治能力建设要求聚焦重大疫情防控救治能力短板，调整优化医疗资源布局，提高平战结合能力，强化中西医结合，集中力量补齐短板弱项。重点包括县级医院发热门诊、急诊部、住院部、医技科室等业务用房和医疗装备，提升传染病检测和诊治能力，建设可转换病区并扩增ICU床位；县级医院传染病救治能力要做到“平战结合”、中西医并重。优质高效医疗卫生服务体系建设则围绕公共卫生体系、优质医疗资源扩容、基层能力、“一老一小”等重点人群服务和中医药传承创新，建设国家重大传染病防治基地、国家紧急医学救援基地、中医药传承创新中心和中医疫病防治基地，并通过全过程监管和评估优化提升。",
+      "generated_answer": "公共卫生防控救治能力和优质高效医疗卫生服务体系建设的重点，主要体现在以下几方面：\n\n1. 加快构建强大公共卫生体系，推动优质医疗资源扩容和区域均衡布局，提高全方位全周期健康服务与保障能力，促进中医药传承创新。[资料1][资料4]\n\n2. 坚持“早期预防和医防协同”“优质扩容和深度下沉”“质量提升和均衡布局”“中西医并重和优势互补”，集中力量解决全国性、跨区域的大事、急事和难事。[资料1][资料4]\n\n3. 公共卫生防控救治能力提升重点是：优先保障公共卫生投入，创新医防协同机制，提高早期监测预警、快速检测、应急处置和综合救治能力；健全以疾控机构和各类专科疾病防治机构为骨干、综合性医疗机构为依托、基层医疗卫生机构为网底、防治结合的强大公共卫生体系。[资料1]\n\n4. 疾病预防控制体系建设重点是：推进疾控机构基础设施达标建设、互联互通；提升国家和重点区域、省级、地市级、县级疾控机构的检测和应急处置能力；加强中国疾控中心、国家区域公共卫生中心等建设。[资料1][资料2]\n\n5. 优质高效医疗卫生服务体系建设重点是：基本建成体系完整、布局合理、分工明确、功能互补、密切协作、运行高效、富有韧性的优质高效整合型医疗卫生服务体系，推动国家医学中心、区域医疗中心等重大基地建设，提高人民群众就近享有公平可及、系统连续的高质量医疗卫生服务能力。[资料1][资料4]\n\n结论：两项建设都围绕“补短板、强弱项、优布局、提能力”展开，前者突出公共卫生防控救治和医防协同，后者突出优质医疗资源扩容下沉、区域均衡和整合型高质量服务体系建设。[资料1][资料4]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料4]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/P020210701531103755311.pdf",
+        "data/raw/policy/P020200522360052470224.pdf",
+        "data/raw/policy/P020220510324220702505.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_014",
+      "question_type": "summary",
+      "query": "国家区域医疗中心建设和健康产业高质量发展政策怎样扩大优质服务供给？",
+      "expected_answer": "国家区域医疗中心建设旨在推动优质医疗资源扩容和区域均衡布局，从医疗资源富集地区遴选输出医院，向患者流出多、医疗资源薄弱地区输出优质医疗资源，加快实现大病不出省。政策要求健全现代医院管理制度，建立输出医院、国家区域医疗中心、地方政府共同参与的理事会制度，探索人事薪酬、考核评价和退出机制。健康产业行动纲要提出发展健康服务、相关产品生产经营等全链条产业，补齐优质医疗资源不足、科技含量不高、跨界融合不充分、健康保险发展滞后、人才要素短缺等短板，推进中医药服务贸易、健康养老、长期照护、健康服务跨界融合、专业健康服务集群和健康产业人才提升工程。",
+      "generated_answer": "国家区域医疗中心建设和健康产业高质量发展，主要通过“扩容、下沉、协同、改革”来扩大优质服务供给：\n\n1. 通过扩大国家区域医疗中心建设，推动优质医疗资源向患者流出多、医疗资源薄弱地区输出，形成一批高水平临床诊疗中心、高层次人才培养基地和高水准科研创新与转化平台，努力实现“加快实现大病不出省”“群众危急重症、疑难病症基本在省域内得到解决”。[资料1][资料4]\n\n2. 通过“按重点病种选医院、按需求选地区，院地合作、省部共建”，以建设高水平医院分中心、分支机构、“一院多区”等方式，定向放大国家顶级优质医疗资源，并配套建设远程医疗和教育平台、信息化和科研平台，促进优质资源下沉和区域均衡布局。[资料4]\n\n3. 通过支持省域优质医疗资源扩容下沉，遴选建设“120个左右省级区域医疗中心”，引导省会城市和超（特）大城市中心城区医院向资源薄弱地区疏解，加强地市现有医院建设，并提升脱贫地区、三区三州、中央苏区、易地扶贫搬迁安置地区县级医院能力。[资料4]\n\n4. 通过健康产业优质医疗健康资源扩容工程，建设区域医疗中心，推进高水平医院与基层医院建立责任、利益、服务和管理共同体，组建专科联盟，提升基层医疗管理和服务质量，增强群众就近享有高水平医疗服务的供给能力。[资料5]\n\n5. 通过支持优质社会办医扩容和“互联网+医疗健康”提升工程，鼓励高水平民营医院跨区域办医、向基层延伸，支持全科、专科、中医药、康复、护理等机构发展，同时推进省统筹区域全民健康信息平台和医疗卫生机构互联互通，提高区域健康信息共享和服务可及性。[资料5]\n\n结论：两类政策都围绕优质医疗资源扩容、区域均衡布局和服务下沉，通过建设区域中心、强化协同联动与数字化平台、推动基层和薄弱地区能力提升，扩大优质服务供给。[资料1][资料4][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料4]",
+        "[资料5]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/P020220427327040309102.pdf",
+        "data/raw/policy/W020191024567304692452.pdf",
+        "data/raw/policy/P020210701531103755311.pdf",
+        "data/raw/policy/P020200728576152165824.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_015",
+      "question_type": "summary",
+      "query": "生物经济规划和高端医疗器械药品产业化政策如何推动生命健康产业发展？",
+      "expected_answer": "生物经济规划提出，生物经济以生命科学和生物技术发展进步为动力，以保护开发利用生物资源为基础，以深度融合医药、健康、农业、林业、能源、环保、材料等产业为特征；要求加强原创性、引领性基础研究，打好关键核心技术攻坚战，发展高通量基因测序、合成生物学、基因诊疗、干细胞治疗、免疫细胞治疗等前沿技术，并推动生物环保、生物能源等领域发展。高端医疗器械和药品产业化政策聚焦使用量大、应用面广、技术含量高的高端医疗器械，鼓励掌握核心技术的创新产品产业化，推动重点医疗器械升级换代和质量性能提升，同时支持重大创新药、中药新药、重大化学首仿药和首家生物类似药产业化。",
+      "generated_answer": "1. 要点：在“十四五”生物经济发展规划中，明确生物经济以生命科学和生物技术发展进步为动力，以“保护开发利用生物资源”为基础，并以“广泛深度融合医药、健康”等产业为特征；规划还提出推动生物技术广泛赋能健康产业，促进生物技术与信息技术深度融合，全面提升生物产业多样化水平，推动生物经济高质量发展。[资料4][资料3]\n\n2. 要点：规划从医疗健康产业发展入手，提出助力疾病早期预防、提升疾病诊断能力、提高临床医疗水平，具体包括推动基因检测、生物遗传等先进技术与疾病预防深度融合，开展重大疾病早期筛查；开发分子诊断、化学发光免疫诊断、即时即地检验等先进诊断技术和产品，发展高端医学影像等诊断装备；推动抗体药物、重组蛋白、多肽、细胞和基因治疗产品等生物药发展。[资料3]\n\n3. 要点：高端医疗器械和药品关键技术产业化实施方案围绕“健康中国建设要求”和医疗需求，聚焦使用量大、应用面广、技术含量高的高端医疗器械，鼓励掌握核心技术的创新产品产业化，推动科技成果转化、填补国内空白、重点产品升级换代和质量性能提升，并建设专业化技术服务平台，促进产品质量性能提升和行业全面转型升级。[资料1]\n\n4. 要点：该实施方案对高端药品强调落实健康中国建设战略任务，围绕人民群众健康需求，鼓励药品产业化与创新升级；配套政策中还提出对临床急需新药和罕见病用药予以优先审评审批、推进仿制药一致性评价、将具有重大临床价值的创新医疗器械注册申请列入特殊审评审批范围、继续推进高性能医疗器械创新产品应用示范，加大推广力度。[资料1][资料6]\n\n5. 要点：两类政策都把“创新”和“成果转化”作为抓手：一方面通过重大科技基础设施、临床医学研究中心、产业创新中心、技术创新中心等平台支撑关键共性技术创新和示范应用；另一方面通过研发、审评审批、应用示范、质量跟踪评价等机制，加快创新药和高端医疗器械产业化落地，服务疾病防治和临床应用需求。[资料3][资料6][资料1]\n\n结论：这些政策通过“技术创新—成果转化—产业化应用—审评示范支持”一体推进，重点提升诊断、治疗、药品和器械供给能力，从而推动生命健康产业高质量发展。[资料3][资料6][资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料4]",
+        "[资料3]",
+        "[资料1]",
+        "[资料6]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/W020190905503633747904.pdf",
+        "data/raw/policy/P020220510324220702505.pdf",
+        "data/raw/policy/W020191024567304692452.pdf",
+        "data/raw/policy/P020220427327040309102.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_016",
+      "question_type": "summary",
+      "query": "医疗服务价格和药品价格形成机制改革的核心思路是什么？",
+      "expected_answer": "医疗服务价格改革按照“总量控制、结构调整、有升有降、逐步到位”要求，积极稳妥推进，逐步建立分类管理、动态调整、多方参与的价格形成机制，确保医疗机构良性运行、医保基金可承受、群众负担总体不增加。改革重点是对公立医疗机构服务实行政府指导价与市场调节价分类管理，逐步理顺医疗服务比价关系，重点提高诊疗、手术、康复、护理、中医等体现医务人员技术劳务价值的价格，降低大型医用设备检查治疗和检验等价格。药品和医疗服务价格形成机制改革则强调政府调控和市场调节相结合，政府管理药品价格的重点是国家基本药物、国家基本医疗保障用药及垄断性特殊药品，其他药品实行市场调节价；医疗服务价格实行统一政策、分级管理，并探索按病种付费、按服务单元付费、总额预付和费用谈判机制。",
+      "generated_answer": "医疗服务价格和药品价格形成机制改革的核心思路，主要是围绕“政府调控和市场调节相结合”来推进，并与医药卫生体制改革同步协调。[资料1]\n\n1. 坚持政府调控和市场调节相结合，在强化政府对医药价格监管的同时，充分发挥市场机制作用，形成公开、公平、公正和有序竞争的药品和医疗服务市场。[资料1]\n2. 价格制定要鼓励研发创新与使用基本药物和适宜技术并重，既激发企业和医疗机构创新动力，也兼顾经济发展水平、基本医疗保障水平和群众承受能力，减轻不合理医药费用负担。[资料1]\n3. 政府制定药品和医疗服务价格要体现质量差别，促进企业提升产品质量、医疗机构改善服务条件和提高诊疗技术，满足群众多层次需求。[资料1]\n4. 医药价格改革要与医药卫生体制改革协调推进、同步推进，价格调整要统筹兼顾各方面利益和群众承受能力，逐步疏导矛盾。[资料1]\n\n结论：核心思路就是在政府调控下更好发挥市场作用，并通过与医改联动、兼顾创新、质量和群众承受能力，逐步建立更合理的价格形成机制。[资料1]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/W020190905518984480870.pdf",
+        "data/raw/policy/W020190905517087932598.pdf",
+        "data/raw/policy/ndrc_generation_capacity_price_qna.pdf",
+        "data/raw/policy/P020220427327040309102.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_017",
+      "question_type": "summary",
+      "query": "人工智能政策文章分别从就业、制造业和国际合作角度提出了哪些方向？",
+      "expected_answer": "就业方面，政策文章强调推动就业友好型人工智能技术研发和推广，推动人工智能在制造业、农业、服务业等传统领域深度应用，带动产业转型升级，激发新的就业增长点；同时完善技能培养体系，建设全国统一的就业信息资源平台和智能化就业服务体系，强化就业促进政策协同配套，构建弹性、安全的社会保障体系。制造业方面，强调构建自主可控技术底座，支持大模型架构创新与算法优化，降低推理成本，拓展工业适配性，推动人工智能在电子、汽车、机械、医药等十大行业的智能排产、人机协同、预测性维护等高价值场景规模化应用。国际合作方面，强调建设世界人工智能合作组织，落实人工智能能力建设普惠计划，促进开源开放，开展智慧教育、智慧医疗等应用合作，并加强规则标准对接，构建全球治理框架。",
+      "generated_answer": "1. 就业角度：提出要“以人工智能赋能高质量充分就业”，重点在于推动就业结构优化升级、培育发展智能代理等创新型工作形态、推动人工智能在劳动力紧缺和环境高危等岗位应用，并通过提升劳动生产率和劳动条件来提高就业质量。[资料1]\n\n2. 制造业角度：提出加快工业、制造业智能化发展，推动产业全要素智能化发展，促进生产制造系统从“人机料法环”静态配置向动态自组织的智能范式跃迁，支持大模型架构创新与算法优化，建设智能工厂、智能制造体系，助力传统产业改造升级、建设制造强国。[资料2]\n\n3. 国际合作角度：提出加快实施“人工智能+”全球合作行动，推动人工智能普惠共享，共建人工智能全球治理体系；通过技术生态和产业合作、强化技术开源、产业合作、标准对接和国际规则制定，推动发展中国家能力建设、弥合全球智能鸿沟。[资料3]\n\n结论：这三篇文章分别从“促就业、强制造、广合作”三个方向，强调人工智能在就业质量提升、制造业智能化升级和全球普惠治理合作中的作用。[资料1][资料2][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料3]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 3,
+      "reference_total": 3,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/ndrc_ai_high_quality_employment_article.pdf",
+        "data/raw/policy/ndrc_ai_manufacturing_power_article.pdf",
+        "data/raw/policy/ndrc_ai_international_cooperation_article.pdf",
+        "data/raw/policy/P020230613309060086035.pdf",
+        "data/raw/policy/ndrc_unified_power_market_interview.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_018",
+      "question_type": "summary",
+      "query": "职业教育产教融合和教育现代化工程怎样服务产业升级与人才培养？",
+      "expected_answer": "职业教育产教融合政策坚持以教促产、以产助教，延伸教育链、服务产业链、支撑供应链、打造人才链、提升价值链，到2025年国家产教融合试点城市达到50个左右，建设培育1万家以上产教融合型企业。重点包括扩容产教融合储备项目，新增200所左右高职院校和应用型本科院校；完善职业教育专业设置，优先发展先进制造、新能源、新材料、生物技术、人工智能等新兴专业，加快建设护理、康养、托育、家政等紧缺专业；建设100个高水平、专业化、开放型产教融合实训基地，并通过财税、土地、信用等政策支持产教融合型企业。教育现代化工程则强调推动基本公共教育均衡发展，深化职业教育产教融合，提升高校创新人才培养能力，支持一流大学和一流学科建设与产业互动。",
+      "generated_answer": "1. 要点：教育现代化推进工程把“深化职业教育产教融合”作为建设内容之一，强调“坚持服务发展、提高质量、促进公平”，并面向“产业转型升级和技术进步”深化人才培养模式改革，促进职业教育内涵发展，发挥人才对创新驱动和转型升级的牵引作用。[资料1]\n2. 要点：职业教育产教融合工程以“实习实验实训设施建设为重点”，支持职业院校、本科高校深化产教融合、校企合作，建设生产性实训基地、区域性和行业性公共实训中心，支持普通本科高校向应用型转变，从而“更好服务实体经济发展”。[资料3]\n3. 要点：产教融合赋能提升行动明确“以教促产、以产助教”，延伸教育链、服务产业链、支撑供应链、打造人才链、提升价值链；到2025年要形成教育和产业统筹融合、良性互动格局，并通过试点城市、产教融合型企业等机制，让“产业需求更好融入人才培养全过程”。[资料2]\n4. 要点：在重点行业深度推进产教融合，聚焦新一代信息技术、集成电路、人工智能、工业互联网、储能、智能制造、生物医药、新材料，以及养老、托育、家政等行业，培养“服务支撑产业重大需求的技能技术人才”。[资料2]\n\n结论：这些工程通过校企合作、实训基地、试点城市和产教融合型企业等机制，把产业需求嵌入人才培养全过程，既支撑产业转型升级，也提升职业教育和应用型人才培养质量。[资料1][资料2][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]",
+        "[资料2]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [
+        "2025",
+        "50",
+        "1",
+        "200",
+        "100"
+      ],
+      "matched_numbers": [
+        "2025",
+        "1"
+      ],
+      "missing_numbers": [
+        "50",
+        "200",
+        "100"
+      ],
+      "numeric_coverage": 0.4,
+      "sources": [
+        "data/raw/policy/W020190905516324668971.pdf",
+        "data/raw/policy/P020230613309060086035.pdf",
+        "data/raw/policy/W020191024567304692452.pdf",
+        "data/raw/policy/W020191104623864832390.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_019",
+      "question_type": "summary",
+      "query": "教育发展规划如何把教育优先发展、人才开发和教育信息化结合起来？",
+      "expected_answer": "教育发展规划把教育定位为国民经济和社会发展全局性、先导性、基础性的关键领域，提出实施以培养、吸引和用好人才为核心的人才开发战略，确立教育发展全面纳入社会主义现代化建设全局的主导思想。规划要求以面向现代化、面向世界、面向未来为根本指导方针，把沉重的人口负担转化为巨大的人力资源优势，最大程度满足国家建设需要和人民群众日益增长的教育需求。高等教育方面，把培养高素质创新人才置于核心地位，优化科类和专业结构，加强计算机、生物技术、电子通讯技术、医药、自动化等人才培养。教育信息化方面，建设和完善中国教育和科研信息网络、远程教育网络平台、校园网、数字图书馆、教育信息资源和应用系统，构建现代远程教育体系，实现教育资源最大限度共享。",
+      "generated_answer": "1. 要点：把教育发展放到“国民经济和社会发展全局性、先导性、基础性的关键领域”来定位，明确“确立教育发展全面纳入社会主义现代化建设全局的主导思想”，并强调实施教育发展专项规划要突出教育在国民经济和社会发展中的重要地位和作用。[资料1]\n\n2. 要点：把人才开发作为核心，把“以培养、吸引和用好人才为核心的人才开发战略”作为增强综合国力的根本保障，同时明确教育发展处于人才开发战略的基础性地位，要求“加速培养同现代化要求相适应的数以亿计的高素质劳动者和专门人才”。[资料1]\n\n3. 要点：把教育信息化作为教育发展的重要方向，提出“全面推进以计算机和网络通讯为基础的教育信息化建设”，并在高等教育部分要求“提高教育技术手段的现代化水平和教育信息化程度”，同时在在线教育中强调“推动教育信息化发展”，发展开放式、泛在式、个性化在线学习。[资料2][资料3]\n\n4. 要点：通过教育现代化推进工程，把“提升高校创新人才培养能力”“深化职业教育、高等教育产教融合”与“增强教育改革发展活力”结合起来，体现教育优先发展、人才培养和现代教育体系建设协同推进。[资料4][资料5]\n\n结论：教育发展规划是通过把教育纳入现代化建设全局、以人才开发为核心、以教育信息化和在线教育为支撑，并同步推进职业教育和高等教育改革，来实现教育优先发展与人才培养相互促进的。[资料1][资料2][资料3][资料4][资料5]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料2]",
+        "[资料3]",
+        "[资料4]",
+        "[资料5]"
+      ],
+      "reference_coverage": 1.0,
+      "reference_matched": 2,
+      "reference_total": 2,
+      "reference_hit_any": true,
+      "reference_hit_all": true,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/W020191104623864832390.pdf",
+        "data/raw/policy/P020210325504120315428.pdf",
+        "data/raw/policy/W020190905516324668971.pdf",
+        "data/raw/policy/P020230613309060086035.pdf"
+      ],
+      "judge": null
+    },
+    {
+      "question_id": "summary_020",
+      "question_type": "summary",
+      "query": "低空经济统计分类如何界定核心产业，相关教育和人工智能政策怎样支撑新兴产业发展？",
+      "expected_answer": "低空经济统计分类的目的，是界定低空经济及其核心产业统计范围，统计低空经济发展规模、速度、结构，满足统计需求；分类以党中央和国务院决策部署为依据，以国内外相关统计分类标准为参考，以《国民经济行业分类》为基础，低空经济核心产业用“★”标记，行业代码用“*”标记部分活动属于低空经济及其核心产业。分类覆盖低空飞行器相关制造、低空飞行服务、低空基础设施建设、低空综合保障和服务等活动，并涉及观光游览航空服务、通用航空生产服务、体育航空运动服务、道路桥梁工程建筑、架线及设备工程建筑、电气安装、保险和会展等配套服务。支撑新兴产业方面，职业教育政策要求优先发展先进制造、新能源、新材料、生物技术、人工智能等新兴专业和实训基地，人工智能制造政策则支持工业智能体、智能排产、人机协同、预测性维护等高价值场景规模化应用。",
+      "generated_answer": "1. 要点：低空经济统计分类先界定低空经济范围为“01 低空制造业、02 低空运营业、03 低空基建与信息服务业、04 低空配套业等4个大类”；其中“低空经济核心产业”是“为低空飞行活动提供产品、基础设施、服务保障，以及依托低空飞行为社会公众提供服务的各类经济活动”，并明确“01—03大类中的10个中类”为核心产业，核心产业共“10个中类、36个小类”。[资料1]\n\n2. 要点：分类目的和原则强调要“界定低空经济及其核心产业统计范围”“统计低空经济发展规模、速度、结构”，并以“满足低空经济统计监测”为目的，立足“统计核算需求”和“数据的可获得性”，力求“全面、准确反映低空经济及其核心产业发展状况”。[资料1]\n\n3. 要点：教育政策通过“拓展多元化的教育新场景”，面向不同群体教育需求“加快研发课程包、课件包、资源包以及共建共享课程”，实施“教育大资源共享计划”，形成“一批高质量在线教育课程”，扩大“名师名校网络课堂”等教学资源辐射，并“优先针对贫困地区开发在线教育资源”，为新兴产业发展提供人才与资源支撑。[资料3]\n\n4. 要点：人工智能相关政策通过“加快新一代信息基础设施建设”，包括“加快推动教育专网建设”“适度超前建设‘双千兆’网络”“有序推进5G的网络覆盖和共建共享”，以及“支持城市规划建设管理多场景应用”“完善智慧城市领域标准体系”等，强化数字底座和应用场景供给。[资料3]\n\n5. 要点：政策还提出“加快以新技术促进新装备新设备应用”，支持“智能家居、移动智能终端和可穿戴设备”“无人配送、无人驾驶”“5G+4K/8K、VR/AR技术产品融合应用”，并推进“智能化医疗装备研发设计和生产”等，体现以新技术、新场景带动新兴产业发展的政策支撑。[资料3]\n\n结论：低空经济统计分类通过明确“核心产业”的范围、口径和结构来支撑统计监测；教育与人工智能政策则通过在线教育资源共享、教育专网和5G等新基建、以及新技术新场景应用，为新兴产业发展提供人才、数字基础设施和应用支撑。[资料1][资料3]",
+      "generated": true,
+      "dry_run": false,
+      "has_answer": true,
+      "has_citation": true,
+      "used_citations": [
+        "[资料1]",
+        "[资料3]"
+      ],
+      "reference_coverage": 0.3333333333333333,
+      "reference_matched": 1,
+      "reference_total": 3,
+      "reference_hit_any": true,
+      "reference_hit_all": false,
+      "expected_numbers": [],
+      "matched_numbers": [],
+      "missing_numbers": [],
+      "numeric_coverage": null,
+      "sources": [
+        "data/raw/policy/ndrc_2025_low_altitude_economy_classification.pdf",
+        "data/raw/new_energy/LXDQ.pdf",
+        "data/raw/policy/P020210325504120315428.pdf",
+        "data/raw/policy/P020240624569333510920.pdf",
+        "data/raw/policy/ndrc_2024_consumer_new_scenarios.pdf"
+      ],
+      "judge": null
+    }
+  ],
+  "summary": {
+    "count": 120,
+    "generated_rate": 1.0,
+    "answer_rate": 1.0,
+    "citation_rate": 1.0,
+    "reference_recall": 0.9388888888888889,
+    "reference_hit_any": 0.975,
+    "reference_hit_all": 0.9,
+    "numeric_coverage": 0.811096136567835,
+    "numeric_count": 106
+  },
+  "judge_summary": {
+    "judged_count": 0.0,
+    "correct_rate": 0.0,
+    "avg_score": 0.0,
+    "avg_correctness": 0.0,
+    "avg_completeness": 0.0,
+    "avg_faithfulness": 0.0
+  },
+  "by_type": {
+    "compare": {
+      "count": 30,
+      "generated_rate": 1.0,
+      "answer_rate": 1.0,
+      "citation_rate": 1.0,
+      "reference_recall": 0.9166666666666666,
+      "reference_hit_any": 0.9666666666666667,
+      "reference_hit_all": 0.8666666666666667,
+      "numeric_coverage": 0.8005555555555557,
+      "numeric_count": 30
+    },
+    "fact": {
+      "count": 70,
+      "generated_rate": 1.0,
+      "answer_rate": 1.0,
+      "citation_rate": 1.0,
+      "reference_recall": 0.9714285714285714,
+      "reference_hit_any": 0.9714285714285714,
+      "reference_hit_all": 0.9714285714285714,
+      "numeric_coverage": 0.8676470588235294,
+      "numeric_count": 68
+    },
+    "summary": {
+      "count": 20,
+      "generated_rate": 1.0,
+      "answer_rate": 1.0,
+      "citation_rate": 1.0,
+      "reference_recall": 0.8583333333333334,
+      "reference_hit_any": 1.0,
+      "reference_hit_all": 0.7,
+      "numeric_coverage": 0.36994047619047615,
+      "numeric_count": 8
+    }
+  },
+  "judge_by_type": {
+    "compare": {
+      "judged_count": 0.0,
+      "correct_rate": 0.0,
+      "avg_score": 0.0,
+      "avg_correctness": 0.0,
+      "avg_completeness": 0.0,
+      "avg_faithfulness": 0.0
+    },
+    "fact": {
+      "judged_count": 0.0,
+      "correct_rate": 0.0,
+      "avg_score": 0.0,
+      "avg_correctness": 0.0,
+      "avg_completeness": 0.0,
+      "avg_faithfulness": 0.0
+    },
+    "summary": {
+      "judged_count": 0.0,
+      "correct_rate": 0.0,
+      "avg_score": 0.0,
+      "avg_correctness": 0.0,
+      "avg_completeness": 0.0,
+      "avg_faithfulness": 0.0
+    }
+  }
+}

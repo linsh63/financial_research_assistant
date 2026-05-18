@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from .bm25_store import BM25Store
 from .embeddings import EmbeddingConfig, FlagEmbeddingModel
 from .hybrid_retriever import HybridSearchResult
 from .hybrid_retriever import FusionMethod, fuse_results
+from .hybrid_retriever import result_key
 from .parent_document import ParentDocumentStore, SearchLikeResult, expand_results_to_parents
 from .reranker import CrossEncoderReranker, RerankConfig, RerankResult
 from .vector_store import SearchResult, load_chunk_metadata, load_faiss_index, search_index
@@ -23,6 +25,7 @@ class RoutedRetrievalConfig:
     parent_max_chars: int = 0
     fact_top_k: int = 5
     compare_candidate_top_k: int = 20
+    compare_entity_top_k: int = 8
     compare_top_k: int = 5
     summary_candidate_top_k: int = 50
     summary_top_k: int = 8
@@ -93,13 +96,16 @@ class RoutedRetriever:
 
     def retrieve(self, query: str, question_type: str = "fact") -> RoutedRetrievalOutput:
         """执行一次 routed 检索，返回最终结果和关键中间结果。"""
+        normalized_type = normalize_question_type(question_type)
         candidate_top_k = max_candidate_top_k(self.route_config)
         vector_results = self.vector_search(query, top_k=candidate_top_k)
         bm25_results = self.bm25_search(query, top_k=candidate_top_k)
         hybrid_results = self.hybrid_search(vector_results, bm25_results, top_k=candidate_top_k)
-        rerank_results = self.compare_rerank(query, question_type, hybrid_results)
+        if normalized_type == "compare":
+            hybrid_results = self.expand_compare_candidates(query, hybrid_results)
+        rerank_results = self.compare_rerank(query, normalized_type, hybrid_results)
         final_results = route_results(
-            question_type,
+            normalized_type,
             hybrid_results,
             rerank_results,
             parent_store=self.parent_store,
@@ -107,8 +113,8 @@ class RoutedRetriever:
         )
         return RoutedRetrievalOutput(
             query=query,
-            question_type=normalize_question_type(question_type),
-            strategy=strategy_name(question_type, self.route_config),
+            question_type=normalized_type,
+            strategy=strategy_name(normalized_type, self.route_config),
             results=final_results,
             hybrid_results=hybrid_results,
             rerank_results=rerank_results,
@@ -152,9 +158,34 @@ class RoutedRetriever:
             return []
         return self.reranker.rerank(
             query,
-            hybrid_results[: self.route_config.compare_candidate_top_k],
+            hybrid_results,
             top_k=self.route_config.compare_top_k,
         )
+
+    def expand_compare_candidates(
+        self,
+        query: str,
+        hybrid_results: list[HybridSearchResult],
+    ) -> list[HybridSearchResult]:
+        """为 compare 题按两个对比对象补充候选，避免只召回其中一方。"""
+        base_results = hybrid_results[: self.route_config.compare_candidate_top_k]
+        entities = extract_compare_entities(query)
+        if len(entities) < 2:
+            return base_results
+
+        supplemental: list[HybridSearchResult] = []
+        for entity in entities[:2]:
+            subquery = build_compare_entity_query(query, entity, entities)
+            vector_results = self.vector_search(subquery, top_k=self.route_config.compare_entity_top_k)
+            bm25_results = self.bm25_search(subquery, top_k=self.route_config.compare_entity_top_k)
+            supplemental.extend(
+                self.hybrid_search(
+                    vector_results,
+                    bm25_results,
+                    top_k=self.route_config.compare_entity_top_k,
+                )
+            )
+        return merge_compare_candidates(base_results, supplemental)
 
     @property
     def reranker(self) -> CrossEncoderReranker:
@@ -295,7 +326,11 @@ def strategy_name(question_type: str, config: RoutedRetrievalConfig) -> str:
     """给问题类型返回实际采用的 routed 策略名。"""
     question_type = normalize_question_type(question_type)
     if question_type == "compare":
-        return f"hybrid_top{config.compare_candidate_top_k}_rerank_top{config.compare_top_k}_parent_window{config.parent_window_pages}"
+        return (
+            f"hybrid_top{config.compare_candidate_top_k}"
+            f"_entity_top{config.compare_entity_top_k}"
+            f"_rerank_top{config.compare_top_k}_parent_window{config.parent_window_pages}"
+        )
     if question_type == "summary":
         return f"hybrid_top{config.summary_candidate_top_k}_source_diverse_top{config.summary_top_k}_parent_window{config.parent_window_pages}"
     return f"hybrid_top{config.fact_top_k}_parent_window{config.parent_window_pages}"
@@ -307,3 +342,65 @@ def load_index_manifest(index_dir: Path) -> dict:
     if not manifest_path.exists():
         return {}
     return json.loads(manifest_path.read_text(encoding="utf-8"))
+
+
+def extract_compare_entities(query: str) -> list[str]:
+    """从 compare 问题中抽取两个对比对象。"""
+    match = re.search(r"(.+?)\s+(?:vs|VS|Vs|v\.s\.)\s+(.+)", query)
+    if match:
+        left = cleanup_entity(match.group(1))
+        right = cleanup_entity(split_at_question_boundary(match.group(2))[0])
+        return [entity for entity in (left, right) if entity]
+
+    match = re.search(r"(.+?)\d{4}.*?[和与](.+?)\d{4}.*?(?:相比|比较)", query)
+    if match:
+        left = cleanup_entity(match.group(1))
+        right = cleanup_entity(match.group(2))
+        return [entity for entity in (left, right) if entity]
+    return []
+
+
+def split_at_question_boundary(text: str) -> tuple[str, str]:
+    """按中文问题常见分隔符切出实体名。"""
+    parts = re.split(r"[，,。?？]", text, maxsplit=1)
+    head = parts[0].strip()
+    tail = parts[1].strip() if len(parts) > 1 else ""
+    return head, tail
+
+
+def cleanup_entity(text: str) -> str:
+    """清理实体名两侧的连接词和标点。"""
+    text = text.strip(" \t\r\n，,。?？：:；;、")
+    text = re.sub(r"^(?:预计|根据|其中|以及|和|与)", "", text)
+    text = re.sub(r"(?:哪家|哪个|的).*$", "", text)
+    return text.strip(" \t\r\n，,。?？：:；;、")
+
+
+def build_compare_entity_query(query: str, entity: str, entities: list[str]) -> str:
+    """用单个对比对象和原问题指标构造补召回查询。"""
+    text = query
+    for other in entities:
+        if other != entity:
+            text = text.replace(other, " ")
+    text = re.sub(r"\b(?:vs|VS|Vs|v\.s\.)\b", " ", text)
+    text = re.sub(r"(哪家|哪个|公司|相比|比较|更高|更多|预计|实现|的)", " ", text)
+    text = " ".join(text.split())
+    return f"{entity} {text}".strip()
+
+
+def merge_compare_candidates(
+    base_results: list[HybridSearchResult],
+    supplemental_results: list[HybridSearchResult],
+) -> list[HybridSearchResult]:
+    """合并原始 compare 候选和实体补召回候选，按顺序去重。"""
+    merged: list[HybridSearchResult] = []
+    seen: set[str] = set()
+    for result in [*base_results, *supplemental_results]:
+        key = result_key(result.chunk)
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(result)
+    for rank, result in enumerate(merged, start=1):
+        result.rank = rank
+    return merged

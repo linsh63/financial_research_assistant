@@ -150,3 +150,30 @@ page-level 与 doc-level 的差距说明：当前很多样本已经召回了正�
 ## 当前阶段结论
 
 第一版混合召回已经跑通，并且 `weighted 0.6/0.4` 比默认 `0.5/0.5` 更适合作为当前默认实验参数。下一轮不建议继续只扫权重，应该开始做“查询拆解 + 父子文档/邻页扩展 + source 覆盖控制”，这些比继续微调融合权重更可能提升 badcase。
+
+## 后续 compare 专项处理记录
+
+后续在 rerank 阶段继续验证了 compare 专项优化：
+
+- `06_routed_retrieval`：稳定默认策略，compare 使用 `hybrid_top20 + rerank_top5 + parent_window1`。
+- `08_compare_llm_query_rewrite`：使用 LLM 将 compare 问题拆成两个子查询，并分别召回；修复了 `compare_002`、`compare_010`，但 `compare_024` 回退。
+- `09_compare_llm_entity_prefer`：在子查询 rerank 后优先保留包含对应实体名的候选；修复了 `compare_024`，但 `compare_010` 回退。
+
+当前观察：
+
+| 实验 | Compare Recall@8 | Compare HitAny@8 | Compare HitAll@8 | 结论 |
+|---|---:|---:|---:|---|
+| `06_routed_retrieval` | 91.67% | 96.67% | 86.67% | 仍作为默认稳定策略。 |
+| `08_compare_llm_query_rewrite` | 93.33% | 100.00% | 86.67% | 子查询独立召回提升 Recall，但 HitAll 未突破。 |
+| `09_compare_llm_entity_prefer` | 93.33% | 100.00% | 86.67% | 修复 `compare_024`，但 `compare_010` 回退。 |
+
+剩余问题分为两类：
+
+1. 检索策略问题：`compare_024` 说明目标候选已经进入召回池，但会被 reranker 中更像“2026Q1 营收”的非目标实体挤掉。实体优先可以修复，但硬重排会带来副作用。
+2. 数据处理问题：`compare_003` 的 `SNJT.pdf`、`compare_008` 的 `TCYL.pdf` 暴露出 PDF 解析文本和公司 alias 不足。`SNJT.pdf` 索引文本几乎只有符号和数字，缺少“神农集团”等可检索文本，仅靠 query rewrite 无法解决。
+
+下一步不建议直接采用 `09` 作为默认策略，而应继续做：
+
+- 将实体优先改成轻量 score boost，避免 `compare_010` 这类回退。
+- 给短文件名研报补充公司全称、简称、证券代码等 alias 元数据。
+- 对解析质量差的 PDF 重跑 OCR 或表格抽取，提升目标页文本可检索性。

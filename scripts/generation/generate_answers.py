@@ -205,7 +205,12 @@ def generate_one(
 ) -> dict:
     """完成一条问题的检索、prompt 构造和回答生成。"""
     routed = retriever.retrieve(question["query"], question_type=question["question_type"])
-    formatted = format_contexts(routed.results, context_config)
+    formatted = format_contexts(
+        routed.results,
+        context_config,
+        query=question["query"],
+        question_type=routed.question_type,
+    )
     messages = build_answer_messages(question["query"], routed.question_type, formatted.text)
     answer = "" if dry_run else client.generate(messages)
     return {

@@ -205,6 +205,9 @@ def child_hit_metadata(chunk: dict) -> dict:
         "chunk_id": chunk.get("chunk_id"),
         "source": chunk.get("source"),
         "pages": chunk.get("pages"),
+        "text": chunk.get("text"),
+        "chunk_type": chunk.get("chunk_type"),
+        "has_table": chunk.get("has_table"),
     }
 
 

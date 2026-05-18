@@ -16,6 +16,7 @@ class OpenAIChatConfig:
     temperature: float = 0.0
     max_tokens: int = 800
     timeout: float = 120.0
+    max_retries: int = 5
 
 
 class OpenAIChatClient:
@@ -30,7 +31,12 @@ class OpenAIChatClient:
             from openai import OpenAI
         except ImportError as exc:
             raise RuntimeError("未安装 openai，请先运行 `pip install openai` 或 `pip install -r requirements.txt`。") from exc
-        self.client = OpenAI(api_key=config.api_key, base_url=config.base_url, timeout=config.timeout)
+        self.client = OpenAI(
+            api_key=config.api_key,
+            base_url=config.base_url,
+            timeout=config.timeout,
+            max_retries=config.max_retries,
+        )
 
     @classmethod
     def from_env(
