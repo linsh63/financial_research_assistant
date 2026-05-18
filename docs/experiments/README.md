@@ -6,6 +6,7 @@
 
 - `chunking/`：切块实验记录。
 - `eval_set/`：评测集构造说明。
+- `generation/`：回答生成阶段的自动评测。
 - `rerank/`：第三周 reranker、阈值过滤、父子文档召回实验。
 - `retrieval/`：召回评测、混合召回调参和 badcase 分析。
 - `retrieval/details/`：逐样本评测详情 JSON。
@@ -22,4 +23,6 @@
 - 混合召回 + 父文档 + QAnything 阈值：`rerank/03_hybrid_parent_page_threshold/report.md`
 - Rerank 后展开页级父文档：`rerank/04_hybrid_rerank_parent_page_after/report.md`
 - Rerank 后展开邻页父文档：`rerank/05_hybrid_rerank_parent_window1_after/report.md`
+- 按问题类型路由检索：`rerank/06_routed_retrieval/report.md`
+- 生成效果评测：`generation/README.md`
 - badcase 分析：`retrieval/retrieval_badcase_and_hybrid_tuning.md`

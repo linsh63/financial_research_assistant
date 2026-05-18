@@ -3,6 +3,7 @@ fastapi
 flagembedding
 jieba
 numpy
+openai
 pandas
 pdfplumber
 pymupdf

@@ -4,25 +4,27 @@
 
 ## 当前结论
 
-目前最强的页码级检索策略是：
+目前最强的页码级检索策略是按问题类型路由：
 
 ```text
-混合召回 Top20 -> rerank Top5 -> 展开前后各 1 页父文档
+fact    -> 混合召回 Top5 -> 展开前后各 1 页父文档
+compare -> 混合召回 Top20 -> rerank Top5 -> 展开前后各 1 页父文档
+summary -> 混合召回 Top50 -> 按来源多样性保留 Top8 -> 展开前后各 1 页父文档
 ```
 
 它在 120 条评测集上的结果为：
 
-| scheme | Recall@5 | HitAny@5 | HitAll@5 |
-|---|---:|---:|---:|
-| hybrid_top20_rerank_top5_parent_window1 | 87.92% | 94.17% | 81.67% |
+| scheme | Recall@5 | Recall@8 | HitAny@5 | HitAny@8 | HitAll@5 | HitAll@8 |
+|---|---:|---:|---:|---:|---:|---:|
+| routed | 92.82% | 94.26% | 97.50% | 97.50% | 87.50% | 90.83% |
 
-但这个策略不是所有问题类型都最优。当前更合理的方向是按问题类型路由：
+按问题类型看，路由策略的结果为：
 
-| question_type | 当前推荐策略 | 原因 |
-|---|---|---|
-| fact | `hybrid_top5 + parent_window1` | 事实型直接召回已经很强，rerank 可能误排。 |
-| compare | `hybrid_top20 + rerank_top5 + parent_window1` | 对比型需要多对象证据，rerank 和邻页展开收益明显。 |
-| summary | 待单独设计跨文档聚合 | Top5 rerank 仍不足以覆盖多个政策文件和多页证据。 |
+| question_type | 当前推荐策略 | HitAll@5 | HitAll@8 | 说明 |
+|---|---|---:|---:|---|
+| fact | `hybrid_top5 + parent_window1` | 97.14% | 97.14% | 事实型直接混合召回已经足够强。 |
+| compare | `hybrid_top20 + rerank_top5 + parent_window1` | 86.67% | 86.67% | 对比型需要先扩大候选，再由 rerank 精排。 |
+| summary | `hybrid_top50 + source_diverse_top8 + parent_window1` | 55.00% | 75.00% | 汇总型需要更多来源文档，Top8 明显优于只看 Top5。 |
 
 ## 数据与评测集
 
@@ -108,15 +110,17 @@ FAISS 对比结果：
 | hybrid_top5_parent_page | 82.65% | 91.67% | 74.17% | 页级父文档能提升页码证据覆盖。 |
 | hybrid_top20_parent_page_threshold_rerank_top5 | 81.12% | 91.67% | 71.67% | QAnything 默认阈值过激进。 |
 | hybrid_top5_parent_window1 | 88.21% | 96.67% | 80.00% | 事实型表现最好。 |
-| hybrid_top20_rerank_top5_parent_window1 | 87.92% | 94.17% | 81.67% | 当前整体最佳，尤其适合对比题。 |
+| hybrid_top20_rerank_top5_parent_window1 | 87.92% | 94.17% | 81.67% | 单一策略中的整体最佳，尤其适合对比题。 |
+| routed | 92.82% | 97.50% | 87.50% | 当前整体最佳，按问题类型分别选择策略。 |
 
 按问题类型看当前最佳观察：
 
 | question_type | 最优观察 | 指标 |
 |---|---|---|
-| fact | `hybrid_top5_parent_window1` | HitAll@5 97.14% |
-| compare | `hybrid_top20_rerank_top5_parent_window1` | HitAll@5 83.33% |
-| summary | `hybrid_top5_parent_window1` | HitAll@5 50.00%，仍然偏低 |
+| fact | routed 中的 `hybrid_top5_parent_window1` | HitAll@5 97.14% |
+| compare | routed 中的 `hybrid_top20_rerank_top5_parent_window1` | HitAll@5 86.67% |
+| summary | routed 中的 `hybrid_top50_source_diverse_top8_parent_window1` | HitAll@5 55.00%，HitAll@8 75.00% |
+| all | `routed` | HitAll@5 87.50%，HitAll@8 90.83% |
 
 相关文档：
 
@@ -125,26 +129,25 @@ FAISS 对比结果：
 - `docs/experiments/rerank/03_hybrid_parent_page_threshold/report.md`
 - `docs/experiments/rerank/04_hybrid_rerank_parent_page_after/report.md`
 - `docs/experiments/rerank/05_hybrid_rerank_parent_window1_after/report.md`
+- `docs/experiments/rerank/06_routed_retrieval/report.md`
 
 ## 当前问题
 
-1. 事实型和对比型的最佳策略不同，不能再用单一策略硬套所有问题。
-2. 汇总型问题仍然弱，Top5 rerank 很难覆盖多个政策文件和多个非相邻页。
-3. `parent_window1` 会显著增加上下文长度，进入回答生成阶段时需要做 token 控制。
-4. QAnything 默认阈值不能直接照搬，需要结合金融文档评测集重新调参。
+1. 路由策略已经显著优于单一策略，但 summary 的 `HitAll@5` 仍然偏低。
+2. 汇总型问题需要更多政策来源，Top8 有明显改善，但会增加进入生成阶段的上下文长度。
+3. 对比型问题仍有单边命中的 badcase，可以考虑对 query 中的公司名做显式实体拆分。
+4. `parent_window1` 会显著增加上下文长度，进入回答生成阶段时需要做 token 控制。
 
 ## 下一步行动
 
-1. 实现按问题类型路由：
-   - fact：`hybrid_top5 + parent_window1`
-   - compare：`hybrid_top20 + rerank_top5 + parent_window1`
-   - summary：单独走跨文档聚合策略
-2. 为 summary 构造多文档召回策略：
+1. 将 `routed` 作为默认检索入口接入生成阶段 baseline。
+2. 为 summary 继续优化多文档召回策略：
    - 提高候选数量
    - 按 source 去重
    - 保留多个政策文件
    - 再做窗口扩展
-3. 进入生成阶段 baseline：
+3. 为 compare 增加实体感知召回，降低只命中一家公司证据的概率。
+4. 进入生成阶段 baseline：
    - 拼接检索上下文
    - 调用 LLM 生成答案
    - 用评测集观察引用覆盖与回答质量

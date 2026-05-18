@@ -13,6 +13,7 @@ env/
 data/raw/*
 data/processed/*
 data/external/*
+data/generated/*
 indexes/
 outputs/
 models/
