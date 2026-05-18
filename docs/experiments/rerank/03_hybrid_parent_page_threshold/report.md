@@ -23,7 +23,7 @@
 - 父文档展开阶段：`before-rerank`
 - 邻页窗口：0
 - 父文档最大字符数：不截断
-- 逐样本详情：`docs/experiments/rerank/hybrid_parent_page_threshold_rerank.details.json`
+- 逐样本详情：`docs/experiments/rerank/03_hybrid_parent_page_threshold/details.json`
 
 ## 实验设置
 

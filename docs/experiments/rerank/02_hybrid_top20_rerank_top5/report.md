@@ -17,7 +17,7 @@
 - 重排后保留数量：5
 - 分数阈值：未启用
 - 相对分差阈值：未启用
-- 逐样本详情：`docs/experiments/rerank/hybrid_top20_rerank_top5.details.json`
+- 逐样本详情：`docs/experiments/rerank/02_hybrid_top20_rerank_top5/details.json`
 
 ## 实验设置
 
