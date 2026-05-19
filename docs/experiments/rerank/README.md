@@ -50,9 +50,12 @@
 
 ## Compare 专项实验观察
 
-`08` 和 `09` 说明 LLM query rewrite 的方向是有效的，但当前还没有形成稳定默认策略：
+`08` 到 `17` 说明 compare 题不能只依赖一个原始 query。最终稳定方案是：
 
-- `08` 通过“每个子查询独立召回”修复了 `compare_002` 和 `compare_010`，但 `compare_024` 回退。
-- `09` 通过“实体优先”修复了 `compare_024`，但 `compare_010` 回退。
-- 下一步应把实体优先改为轻量 boost，而不是直接整体提前实体命中的候选。
-- `compare_003`、`compare_008` 暴露的是 PDF 解析/表格/公司 alias 问题，不能只靠查询改写解决。
+- 把原始问题拆成两侧实体的指标查询。
+- 使用不带单位的财务表字段 query rewrite。
+- 先定位文档，再定位页码。
+- 每个实体保留 raw coarse-to-fine 保障槽位。
+- rerank 后再用 parent fill 补齐上下文。
+
+当前 `17_routed_compare_raw_entity_slots` 已经把 compare 检索侧提升到 `Recall@8=100.00%`、`HitAll@8=100.00%`。剩余 compare 问题主要在生成阶段读取表格字段，而不是召回侧。

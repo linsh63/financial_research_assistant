@@ -29,3 +29,9 @@
 - 生成效果评测：`generation/README.md`
 - 检索 badcase 分析：`rerank/badcase_analysis.md`
 - 生成 badcase 分析：`generation/badcase_analysis/report.md`
+
+系统架构、Demo 和面试准备已经移到上一级正式文档：
+
+- `../architecture.md`
+- `../demo.md`
+- `../interview/high_frequency_questions.md`
