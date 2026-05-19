@@ -4,11 +4,18 @@
 
 ## 当前结论
 
-目前最强的页码级检索策略是按问题类型路由：
+当前正式路线分为检索和生成两部分：
+
+```text
+检索：17_routed_compare_raw_entity_slots
+生成：默认 prompt 约束 + DeepSeek deepseek-chat
+```
+
+其中，当前最强的页码级检索策略是按问题类型路由：
 
 ```text
 fact    -> 混合召回 Top5 -> 展开前后各 1 页父文档
-compare -> 混合召回 Top20 -> rerank Top5 -> 展开前后各 1 页父文档
+compare -> 混合召回 Top20 -> query rewrite -> raw coarse-to-fine entity slots -> rerank -> parent fill -> 展开前后各 1 页父文档
 summary -> 混合召回 Top50 -> 按来源多样性保留 Top8 -> 展开前后各 1 页父文档
 ```
 
@@ -16,15 +23,36 @@ summary -> 混合召回 Top50 -> 按来源多样性保留 Top8 -> 展开前后�
 
 | scheme | Recall@5 | Recall@8 | HitAny@5 | HitAny@8 | HitAll@5 | HitAll@8 |
 |---|---:|---:|---:|---:|---:|---:|
-| routed | 92.82% | 94.26% | 97.50% | 97.50% | 87.50% | 90.83% |
+| routed_v17 | 94.90% | 96.35% | 98.33% | 98.33% | 90.83% | 94.17% |
 
 按问题类型看，路由策略的结果为：
 
-| question_type | 当前推荐策略 | HitAll@5 | HitAll@8 | 说明 |
+| question_type | 当前推荐策略 | Recall@8 | HitAll@8 | 说明 |
 |---|---|---:|---:|---|
 | fact | `hybrid_top5 + parent_window1` | 97.14% | 97.14% | 事实型直接混合召回已经足够强。 |
-| compare | `hybrid_top20 + rerank_top5 + parent_window1` | 86.67% | 86.67% | 对比型需要先扩大候选，再由 rerank 精排。 |
-| summary | `hybrid_top50 + source_diverse_top8 + parent_window1` | 55.00% | 75.00% | 汇总型需要更多来源文档，Top8 明显优于只看 Top5。 |
+| compare | `query rewrite + raw coarse-to-fine entity slots + rerank + parent_fill` | 100.00% | 100.00% | 对比型检索侧已经基本跑通。 |
+| summary | `hybrid_top50 + source_diverse_top8 + parent_window1` | 88.08% | 75.00% | 汇总型需要更多来源文档，仍是后续重点。 |
+
+生成阶段当前正式结果为：
+
+| metric | value |
+|---|---:|
+| answer_rate | 100.00% |
+| citation_rate | 97.50% |
+| reference_hit_all | 93.33% |
+| numeric_coverage | 86.31% |
+| judge_correct_rate | 80.00% |
+| judge_avg_score | 86.62 |
+
+按问题类型看：
+
+| question_type | judge_correct_rate | judge_avg_score | reference_hit_all |
+|---|---:|---:|---:|
+| fact | 82.86% | 86.07 | 97.14% |
+| compare | 93.33% | 96.17 | 100.00% |
+| summary | 50.00% | 74.25 | 70.00% |
+
+结论：第三周主线已经跑通，可以进入第四周。下一阶段重点是固定正式配置、做最终评测闭环、Demo 和最终文档。
 
 ## 数据与评测集
 
@@ -111,18 +139,19 @@ FAISS 对比结果：
 | hybrid_top20_parent_page_threshold_rerank_top5 | 81.12% | 91.67% | 71.67% | QAnything 默认阈值过激进。 |
 | hybrid_top5_parent_window1 | 88.21% | 96.67% | 80.00% | 事实型表现最好。 |
 | hybrid_top20_rerank_top5_parent_window1 | 87.92% | 94.17% | 81.67% | 单一策略中的整体最佳，尤其适合对比题。 |
-| routed | 92.82% | 97.50% | 87.50% | 当前整体最佳，按问题类型分别选择策略。 |
+| routed | 92.82% | 97.50% | 87.50% | 早期路由策略，按问题类型分别选择策略。 |
 | routed + compare LLM rewrite | 93.24% | 98.33% | 87.50% | 子查询独立召回提升 compare Recall，但 HitAll 未超过 routed。 |
 | routed + compare entity prefer | 93.24% | 98.33% | 87.50% | 修复 `compare_024`，但 `compare_010` 回退，整体与 LLM rewrite 持平。 |
+| routed_v17_compare_raw_entity_slots | 94.90% | 98.33% | 90.83% | 当前最佳检索版本，compare 检索侧达到 100% HitAll@8。 |
 
 按问题类型看当前最佳观察：
 
 | question_type | 最优观察 | 指标 |
 |---|---|---|
 | fact | routed 中的 `hybrid_top5_parent_window1` | HitAll@5 97.14% |
-| compare | routed 中的 `hybrid_top20_rerank_top5_parent_window1` | HitAll@5 86.67% |
+| compare | `query rewrite + raw coarse-to-fine entity slots + rerank + parent_fill` | HitAll@8 100.00% |
 | summary | routed 中的 `hybrid_top50_source_diverse_top8_parent_window1` | HitAll@5 55.00%，HitAll@8 75.00% |
-| all | `routed` | HitAll@5 87.50%，HitAll@8 90.83% |
+| all | `routed_v17_compare_raw_entity_slots` | HitAll@5 90.83%，HitAll@8 94.17% |
 
 相关文档：
 
@@ -133,28 +162,27 @@ FAISS 对比结果：
 - `docs/experiments/rerank/05_hybrid_rerank_parent_window1_after/report.md`
 - `docs/experiments/rerank/06_routed_retrieval/report.md`
 - `docs/experiments/rerank/08_compare_llm_query_rewrite/report.md`
-- `docs/experiments/rerank/09_compare_llm_entity_prefer/badcase_analysis.md`
+- `docs/experiments/rerank/17_routed_compare_raw_entity_slots/report.md`
+- `docs/experiments/rerank/badcase_analysis.md`
 
 ## 当前问题
 
-1. 路由策略已经显著优于单一策略，但 summary 的 `HitAll@5` 仍然偏低。
-2. 汇总型问题需要更多政策来源，Top8 有明显改善，但会增加进入生成阶段的上下文长度。
-3. 对比型问题仍有单边命中的 badcase。LLM query rewrite 和子查询独立召回能修复部分样本，但还不够稳定；实体优先策略修复了 `compare_024`，同时导致 `compare_010` 回退。
-4. `parent_window1` 会显著增加上下文长度，进入回答生成阶段时需要做 token 控制。
+1. 检索侧 compare 已经基本跑通，剩余 compare 问题主要在生成端读取表格字段。
+2. fact 仍有两条真实漏召回和若干“证据已命中但模型拒答/取错数字”的生成问题。
+3. summary 的 `HitAll@8` 仍然偏低，生成 correct rate 只有 50.00%，是第四周主要优化对象。
+4. `parent_window1` 会显著增加上下文长度，生成阶段需要继续控制 token 和证据组织方式。
 
 ## 下一步行动
 
-1. 将 `routed` 作为默认检索入口接入生成阶段 baseline。
-2. 为 summary 继续优化多文档召回策略：
-   - 提高候选数量
-   - 按 source 去重
-   - 保留多个政策文件
-   - 再做窗口扩展
-3. 为 compare 继续改进实体感知召回：
-   - 保留 LLM 子查询改写。
-   - 将实体优先改为轻量 boost，而不是硬重排。
-   - 对 `SNJT.pdf`、`TCYL.pdf` 这类解析质量差或缺公司 alias 的文档补元数据或重解析。
-4. 进入生成阶段 baseline：
-   - 拼接检索上下文
-   - 调用 LLM 生成答案
-   - 用评测集观察引用覆盖与回答质量
+1. 固定正式路线：`routed_v17` 检索 + 默认生成 prompt。
+2. 进入第四周评测闭环：
+   - 跑最终全量生成。
+   - 跑规则评测和 LLM judge。
+   - 产出最终指标表。
+3. 小步修生成端：
+   - fact：减少证据已命中时的错误拒答。
+   - compare：增强双方表格字段抽取，不再改检索主流程。
+   - summary：继续做多文档覆盖和风格约束，但先不接入 `summary_evidence_pack`。
+4. 补 Demo 和最终文档：
+   - 展示问题、召回证据、答案、引用文档和页码。
+   - 汇总系统架构图和实验对比表。

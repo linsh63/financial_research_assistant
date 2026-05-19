@@ -18,13 +18,35 @@
 | `07_compare_entity_recall/` | compare 规则实体补召回 | 提升 HitAny，但 HitAll 下降，不能作为默认策略。 |
 | `08_compare_llm_query_rewrite/` | LLM 改写 compare 子查询并独立召回 | 修复部分单边召回，`Compare Recall@8=93.33%`，但 HitAll 仍与 06 打平。 |
 | `09_compare_llm_entity_prefer/` | compare 子查询召回后实体优先保留 | 修复 `compare_024`，但引入 `compare_010` 回退，整体指标与 08 持平。 |
+| `10_compare_parent_fill/` | compare 命中后用父文档补上下文 | 提高对比题上下文完整性，为后续粗到细实验铺路。 |
+| `11_snjt_single_pdf_repair/` | 神农集团单 PDF 修复 | 只修复 `SNJT.pdf`，不影响其他 PDF。 |
+| `12_financial_table_query_rewrite/` | 财务表格字段 query rewrite | 将“预计 2026 年营收”等问题改写得更贴近表格字段。 |
+| `13_financial_table_query_rewrite_no_unit/` | 财务表格字段 query rewrite，不带单位 | 避免“百万元”等单位词干扰召回。 |
+| `14_compare_coarse_to_fine/` | compare 粗到细定位实验 | 先定位文档，再定位具体页码，独立实验可修复难例。 |
+| `15_routed_with_compare_coarse_to_fine/` | 粗到细作为普通补候选接入 routed | 有提升，但正确候选仍可能被 rerank 挤掉。 |
+| `16_routed_compare_entity_slots/` | compare 实体保障槽位 | 保证每个实体有候选，但仍不够稳定。 |
+| `17_routed_compare_raw_entity_slots/` | raw 粗到细实体保障槽位 | 当前推荐版本，compare 达到 100% HitAll@8。 |
+| `18_routed_summary_subtopic_slots/` | summary 子主题分路召回 | 修复部分 summary，但整体不稳定，暂不默认启用。 |
+
+## Badcase 追踪
+
+- `badcase_analysis.md`：汇总 `09` 到 `18` 的 compare、summary 检索 badcase 处理记录。当前结论是 `17_routed_compare_raw_entity_slots` 为推荐检索版本，`18_routed_summary_subtopic_slots` 暂不作为默认策略。
 
 ## 当前推荐
 
-- 默认检索入口：优先使用 `06_routed_retrieval` 的路由策略。
+- 默认检索入口：优先使用 `17_routed_compare_raw_entity_slots` 的路由策略。
 - 事实型：`hybrid_top5 + parent_window1`。
-- 对比型：`hybrid_top20 + rerank_top5 + parent_window1`。
+- 对比型：`hybrid_top20 + query rewrite + raw coarse-to-fine entity slots + rerank + parent_fill + parent_window1`。
 - 汇总型：`hybrid_top50 + source_diverse_top8 + parent_window1`，后续仍需优化多文档覆盖和上下文长度。
+
+`17` 的全量 page-level 检索结果：
+
+| question_type | Recall@8 | HitAny@8 | HitAll@8 |
+|---|---:|---:|---:|
+| fact | 97.14% | 97.14% | 97.14% |
+| compare | 100.00% | 100.00% | 100.00% |
+| summary | 88.08% | 100.00% | 75.00% |
+| overall | 96.35% | 98.33% | 94.17% |
 
 ## Compare 专项实验观察
 

@@ -6,7 +6,47 @@
 
 - `smoke/`：单条问题的冒烟测试报告。
 - `details/`：逐样本评测详情 JSON。
-- 后续全量实验建议按实验名建立子目录，例如 `routed_gpt54mini_full/`。
+- `routed_gpt54mini_full/`：GPT-5.4 mini 全量生成评测。
+- `routed_v17_deepseek_full/`：DeepSeek 全量生成规则评测。
+- `routed_v17_deepseek_full_judge/`：DeepSeek 全量生成 LLM judge。
+- `badcase_analysis/`：生成阶段 badcase 分析。
+
+## 当前正式结果
+
+当前正式生成链路使用：
+
+```text
+检索：17_routed_compare_raw_entity_slots
+生成：默认 prompt 约束
+模型：DeepSeek deepseek-chat
+```
+
+全量 120 条结果：
+
+| metric | value |
+|---|---:|
+| answer_rate | 100.00% |
+| citation_rate | 97.50% |
+| reference_hit_all | 93.33% |
+| numeric_coverage | 86.31% |
+| judge_correct_rate | 80.00% |
+| judge_avg_score | 86.62 |
+
+按题型：
+
+| question_type | judge_correct_rate | judge_avg_score | reference_hit_all |
+|---|---:|---:|---:|
+| fact | 82.86% | 86.07 | 97.14% |
+| compare | 93.33% | 96.17 | 100.00% |
+| summary | 50.00% | 74.25 | 70.00% |
+
+相关文档：
+
+- `routed_v17_deepseek_full/report.md`
+- `routed_v17_deepseek_full_judge/report.md`
+- `badcase_analysis/report.md`
+
+说明：`summary_evidence_pack_deepseek/` 是一次探索性实验，暂不作为正式链路。
 
 ## 当前自动指标
 

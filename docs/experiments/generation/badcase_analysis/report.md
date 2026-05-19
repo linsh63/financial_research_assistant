@@ -1,12 +1,21 @@
-# 生成阶段 Badcase 分析初稿
+# 生成阶段 Badcase 分析
 
-本文档用于记录回答生成阶段的主要错误类型、代表案例、初步原因判断和后续修复计划。当前结论基于以下评测结果：
+本文档记录回答生成阶段的主要错误类型、代表案例和后续处理方向。当前正式分析以旧版稳定生成链路为准：
 
-- 规则评测：`docs/experiments/generation/routed_gpt54mini_full/report.md`
-- LLM judge：`docs/experiments/generation/routed_gpt54mini_full_judge/report.md`
-- 逐样本详情：`docs/experiments/generation/details/routed_gpt54mini_full_judge/details.json`
+```text
+检索：17_routed_compare_raw_entity_slots
+生成：默认 prompt 约束，不启用 summary evidence pack 实验线
+模型：DeepSeek deepseek-chat
+```
 
-注意：本文档是初稿。之后修复 prompt、context formatter、检索策略或评测集后，需要在本文档中追加“修复前后对比”。
+相关文件：
+
+- 生成结果：`data/generated/eval_runs/routed_v17_deepseek_full_answers.jsonl`
+- 规则评测：`docs/experiments/generation/routed_v17_deepseek_full/report.md`
+- LLM judge：`docs/experiments/generation/routed_v17_deepseek_full_judge/report.md`
+- 逐样本详情：`docs/experiments/generation/details/routed_v17_deepseek_full_judge/details.json`
+
+注意：`summary_evidence_pack_deepseek` 是一次探索性失败实验，暂不纳入当前正式路线。
 
 ## 1. 当前整体结果
 
@@ -14,260 +23,243 @@
 |---|---:|
 | eval_samples | 120 |
 | answer_rate | 100.00% |
-| citation_rate | 100.00% |
-| reference_recall | 93.89% |
-| reference_hit_all | 90.00% |
-| numeric_coverage | 83.69% |
-| judge_correct_rate | 67.50% |
-| judge_avg_score | 81.17 |
+| citation_rate | 97.50% |
+| reference_recall | 95.97% |
+| reference_hit_any | 98.33% |
+| reference_hit_all | 93.33% |
+| numeric_coverage | 86.31% |
+| judge_correct_rate | 80.00% |
+| judge_avg_score | 86.62 |
 
 按问题类型看：
 
 | question_type | count | judge_correct_rate | judge_avg_score | reference_hit_all | numeric_coverage |
 |---|---:|---:|---:|---:|---:|
-| fact | 70 | 84.29% | 86.81 | 97.14% | 85.29% |
-| compare | 30 | 73.33% | 80.73 | 86.67% | 90.83% |
-| summary | 20 | 0.00% | 62.10 | 70.00% | 43.24% |
+| fact | 70 | 82.86% | 86.07 | 97.14% | 86.76% |
+| compare | 30 | 93.33% | 96.17 | 100.00% | 96.11% |
+| summary | 20 | 50.00% | 74.25 | 70.00% | 45.74% |
+
+和上一版 GPT-5.4 mini 全量结果相比：
+
+| metric | GPT-5.4 mini | DeepSeek |
+|---|---:|---:|
+| judge_correct_rate | 67.50% | 80.00% |
+| judge_avg_score | 81.17 | 86.62 |
+| compare_correct_rate | 73.33% | 93.33% |
+| fact_correct_rate | 84.29% | 82.86% |
+| summary_correct_rate | 0.00% | 50.00% |
 
 初步判断：
 
-- 事实型已经比较接近可用，但仍存在“证据命中后取错数字”的问题。
-- 对比型主要问题是召回缺失对比双方之一，或答案中数字和结论不一致。
-- 汇总型是当前最弱环节，主要问题是覆盖不完整、风格扩展、没有严格贴合 ground truth 的政策要点。
+- 对比型已经明显改善，当前主要剩下“证据已命中但生成端说无法确定”的问题。
+- 事实型仍有少量“证据命中但取错数字或拒答”的问题。
+- 汇总型仍是生成阶段最弱环节，主要是覆盖不完整、关键数字缺失和风格扩写。
 
 ## 2. 错误类型汇总
 
-| question_type | failed_count | reference_miss | number_miss | 主要问题 |
-|---|---:|---:|---:|---|
-| fact | 11 | 2 | 10 | 多数不是纯检索失败，而是已命中相关资料后取错数字、自己计算或误判无法确定 |
-| compare | 8 | 4 | 8 | 部分缺少一方资料，部分虽然资料齐全但比较结论或数字错位 |
-| summary | 20 | 6 | 6 | judge 全部判错，主要是答案覆盖不足、扩写较多、政策目标和关键数字缺失 |
+LLM judge 判错 24 条：
+
+| question_type | failed_count | reference_miss | number_miss | no_citation | 主要问题 |
+|---|---:|---:|---:|---:|---|
+| fact | 12 | 2 | 9 | 2 | 证据多数已命中，但模型取错数字、拒答或选择相近口径。 |
+| compare | 2 | 0 | 2 | 0 | 检索证据齐全，但生成端未抽出其中一方关键数字。 |
+| summary | 10 | 5 | 5 | 0 | 多政策、多数字、多要点覆盖不完整。 |
 
 失败样本：
 
-- fact：`fact_002`, `fact_004`, `fact_008`, `fact_013`, `fact_021`, `fact_036`, `fact_043`, `fact_045`, `fact_047`, `fact_049`, `fact_055`
-- compare：`compare_002`, `compare_003`, `compare_007`, `compare_008`, `compare_013`, `compare_021`, `compare_028`, `compare_029`
-- summary：`summary_001` 到 `summary_020`
+- fact：`fact_005`, `fact_007`, `fact_021`, `fact_024`, `fact_028`, `fact_029`, `fact_035`, `fact_036`, `fact_044`, `fact_045`, `fact_047`, `fact_049`
+- compare：`compare_007`, `compare_021`
+- summary：`summary_001`, `summary_003`, `summary_004`, `summary_009`, `summary_011`, `summary_012`, `summary_014`, `summary_015`, `summary_018`, `summary_020`
 
 ## 3. 事实型 Badcase
 
-### 3.1 证据命中但模型取错数字
+### 3.1 命中证据但拒答
 
 代表样本：
 
-- `fact_036`：问“截至 2025 年末，金地集团有息负债多少”
-  - 标准答案：672 亿元
-  - 生成答案：1231 亿元
-  - 现象：引用资料命中，但模型选中了错误口径或相邻指标。
+- `fact_005`
+  - 问题：隆基绿能 26Q1 费用率同比提升了多少？
+  - 标准答案：8.3pct
+  - 生成答案：声称无法确定，但同一段依据中已经出现 `+8.3pct`
+  - 根因：生成约束过于谨慎，模型把“期间费用率”与“费用率”口径拆得过细，导致错误拒答。
 
-- `fact_013`：问“安琪酵母2025A净利润为多少”
-  - 标准答案：15.89 亿元
-  - 生成答案：15.44 亿元
-  - 现象：模型将相近口径数字当成答案，说明 prompt 需要更强约束“公司、年份、指标口径必须完全匹配”。
+- `fact_029`
+  - 问题：金域医学2026Q1实现归母净利润多少
+  - 标准答案：0.43 亿元
+  - 生成答案：正文里给出了 0.43 亿元，但结论仍然说无法确定
+  - 根因：模型识别到数字，但被来源缩写、公司名映射等信息干扰，结论没有落到直接答案。
 
-- `fact_021`：问“爱尔眼科归属母公司净利润是多少”
+处理方向：
+
+- 对事实型 prompt 保持“不要编造”的约束，但需要增加一句：如果同一资料明确出现与问题匹配的公司、期间、指标和数字，应直接给出数字，不要再以口径谨慎为由拒答。
+- 对上下文中的公司简称和文件名缩写，尽量在 references 或 context header 中保留原始 source，帮助模型确认文档归属。
+
+### 3.2 命中证据但取错数字
+
+代表样本：
+
+- `fact_021`
+  - 问题：爱尔眼科归属母公司净利润是多少
   - 标准答案：11.81 亿元
-  - 生成答案：同时回答了 2025 年和 2026Q1 的归母净利润。
-  - 现象：答案包含正确数字，但额外引入无关期间，导致答案焦点不稳定。
+  - 生成答案：32.40 亿元
+  - 根因：同一页存在多个期间的归母净利润，模型选中了错误时间口径。
 
-初步原因：
+- `fact_036`
+  - 问题：截至 2025 年末，金地集团有息负债多少
+  - 标准答案：672 亿元
+  - 生成答案：无法确定
+  - 根因：页面中同时有有息负债绝对值、占比、增速等信息，模型没有定位到目标数值。
 
-- context 中可能包含同一公司多个年份、多个指标，模型没有严格按问题中的时间和指标过滤。
-- 表格或预测表进入 prompt 后，模型容易把相邻列、相邻行或不同口径数字混淆。
-- prompt 旧版本允许模型进行一定解释和推算，导致事实题出现自算或扩展。
+- `fact_045`
+  - 问题：飞荣达公司2025主营收入为多少
+  - 标准答案：6527 百万元
+  - 生成答案：无法确定
+  - 根因：表格字段中存在“主营收入（百万元）”，但模型把营业收入、主营收入和分业务收入区分得过于保守。
 
-修复方向：
+处理方向：
 
-- 已在 prompt v2 中加入“不得自行计算、不得替换相邻指标、必须精确匹配公司/期间/指标”的约束。
-- 后续需要重新跑 fact badcase 子集验证。
-- 如果仍然失败，需要改 `context_formatter`：对事实型问题优先保留包含查询关键词、年份、指标词的原始片段，减少无关上下文。
-
-### 3.2 检索命中资料但关键表格内容没有进入答案
-
-代表样本：
-
-- `fact_004`：国轩高科 2024A PB 估值。
-- `fact_008`：麦加芯彩 2026E 归母净利润。
-- `fact_045`：飞荣达 2025 主营收入。
-
-现象：
-
-- `reference_hit_all = true`，但生成答案说“无法确定”。
-- 说明检索返回了正确文档/页码，但传给模型的可读证据可能没有覆盖到关键表格行，或者被截断。
-
-初步原因：
-
-- 召回粒度和生成证据粒度不完全一致。
-- 当前 context 截断策略可能把表格中的关键行截掉。
-- 对表格型 chunks，答案数字可能在后半段，但 prompt 只看到前部文本。
-
-修复方向：
-
-- 对 `has_table = true` 的 chunk，生成阶段尽量完整保留表格 chunk。
-- 对事实型问题，增加 question-aware context selection：优先保留同时包含公司名、年份、指标词、数字的片段。
-- 对生成前证据做简短重排：含查询关键词更多的片段排前。
+- 生成端不要让模型自行换算或推理，优先摘录原始表格行。
+- 事实型 context formatter 后续可以做 question-aware 证据压缩：优先保留同时包含公司、年份/季度、指标词、数字的句子或表格行。
+- 对 `has_table=true` 的 chunk，生成阶段尽量完整保留相关表格行，避免截断。
 
 ### 3.3 真实检索失败
 
 代表样本：
 
-- `fact_047`：海达尔 2025 年研发费用。
-- `fact_049`：海光信息 2024A 销售毛利率。
+- `fact_047`：海达尔 2025 年研发费用，reference coverage 为 0/1。
+- `fact_049`：海光信息 2024A 销售毛利率，reference coverage 为 0/1。
 
-现象：
+处理方向：
 
-- `reference_hit_all = false`。
-- 模型没有拿到正确资料，回答错误或无法确定。
-
-修复方向：
-
-- 优先检查 ground truth 的 `source/pages` 是否准确。
-- 若数据集无误，进入检索侧优化：同义词扩展、公司简称匹配、BM25 权重、TopK 增大、父页扩展。
+- 这两条优先复核 ground truth 的 source/pages。
+- 如果评测集无误，再考虑只针对 fact 的公司 alias 或指标别名补召回；不建议全局扩大 fact TopK。
 
 ## 4. 对比型 Badcase
 
-### 4.1 召回缺少对比双方之一
+当前 compare 的检索侧已经达到 100% HitAll，剩余问题集中在生成端。
+
+### 4.1 证据齐全但模型漏抽一方数字
 
 代表样本：
 
-- `compare_002`：泸州老窖 vs 五粮液，缺少五粮液 2025 年营收。
-- `compare_003`：千禾味业 vs 神农集团，缺少神农集团 26Q1 营收。
-- `compare_007`：普蕊斯 vs 普瑞眼科，缺少普蕊斯和普瑞眼科关键预测营收。
-- `compare_008`：昭衍新药 vs 通策医疗，缺少通策医疗关键营收。
+- `compare_007`
+  - 问题：普蕊斯 vs 普瑞眼科，预计哪家公司在2026年的营收更高
+  - 标准答案：普瑞眼科更高；普蕊斯 2026E 营收 931.69 百万元，普瑞眼科 2026E 营收 3136 百万元
+  - 当前状态：reference coverage 为 2/2，但生成答案说普瑞眼科 2026 年全年营收预测缺失
+  - 根因：模型看到了正确文档，但没有从预测表中抽出 `2026E / 营收`。
 
-初步原因：
+- `compare_021`
+  - 问题：华源控股 vs 海光信息，哪家公司2026年Q1实现营收更高
+  - 标准答案：海光信息更高；华源控股 5.85 亿元，海光信息 40.34 亿元
+  - 当前状态：reference coverage 为 2/2，但生成答案说华源控股 2026Q1 营收缺失
+  - 根因：同样是表格/季度字段读取失败，而不是召回失败。
 
-- 对比型问题天然需要“两家公司 + 同一指标 + 同一期间”同时命中。
-- 当前路由虽然针对 compare 做了策略调整，但仍可能只召回到其中一方。
-- BM25/向量召回对公司简称、行业近义词、指标别名仍不够稳。
+处理方向：
 
-修复方向：
-
-- 对 compare 类型做实体拆分：分别用公司 A 和公司 B 形成子查询，各召回一批，再合并 rerank。
-- 对最终上下文做覆盖检查：如果缺少任一公司，继续放宽 TopK 或追加 BM25 召回。
-- 生成 prompt 要求“如果一方缺证据，不能给出确定比较结论”。
-
-### 4.2 资料齐全但数字或结论错位
-
-代表样本：
-
-- `compare_013`：中集集团 vs 中自科技。
-  - 结论正确，但中自科技数字写成了 25 亿元，而标准答案是 2337 百万元。
-
-- `compare_021`：华源控股 vs 海光信息。
-  - 结论正确，但遗漏华源控股 5.85 亿元。
-
-- `compare_029`：保利发展 vs 华发股份。
-  - 结论表达混乱，前后出现矛盾，并且华发股份数字错误。
-
-初步原因：
-
-- 模型在对比型答案中容易为了完整表达而引入“看起来相关”的其他年份或其他指标。
-- 单位转换、百万元/亿元混用时容易产生错误。
-- 旧 prompt 没有强制要求“先列双方同口径数字，再给结论”。
-
-修复方向：
-
-- prompt v2 已要求 compare 答案先列双方原始数字和引用，再给结论。
-- 尽量避免让模型做单位换算；若必须换算，要保留原始单位。
-- 对比型答案格式固定为“公司 A：数字；公司 B：数字；结论：谁更高/更低”。
-
-### 4.3 数据集自身错误
-
-代表样本：
-
-- `compare_028`：隆基绿能 vs 格林美。
-  - 标准答案写“格林美更高”。
-  - 但标准答案中的数字是隆基绿能 111.9 亿元、格林美 99.82 亿元。
-  - 按数字应为隆基绿能更高。
-
-处理方式：
-
-- 该样本应先修复评测集，再重新导出 `financial_qa_dev.jsonl`。
-- 数据集修复后，不能直接拿旧评测结果比较，需要重跑生成评测。
+- compare 生成 prompt 已经要求先列双方数字再给结论，后续应加强“若 references 中已包含双方文档，不要轻易判定某一方缺失”。
+- 对 compare 可以在 context formatter 层按公司分组展示证据，避免模型在混合上下文中漏看一方。
+- 保留原始单位，不要求模型换算；判断大小时只在必要时再做单位统一。
 
 ## 5. 汇总型 Badcase
 
-### 5.1 覆盖不完整
+summary 的主要问题不是“完全不会答”，而是多文档覆盖不完整，且答案风格容易偏说明文。
+
+### 5.1 多政策证据覆盖不足
 
 代表样本：
 
-- `summary_001`：新能源消纳与新型电力系统建设。
-  - 缺失 2024—2027 年 9 项专项行动、2025—2027 年年均新增 2 亿千瓦以上新能源合理消纳利用、全国新能源利用率不低于 90%、到 2027 年新型储能装机 1.8 亿千瓦以上等关键点。
+- `summary_001`
+  - reference coverage：2/4
+  - 缺失：2024-2027 年 9 项专项行动、2025-2027 年年均新增 2 亿千瓦以上新能源合理消纳利用、全国新能源利用率不低于 90%、到 2027 年新型储能装机 1.8 亿千瓦以上。
 
-- `summary_003`：可再生能源规划和氢能规划。
-  - 缺失 2025 年可再生能源消费总量 10 亿吨标准煤、年发电量 3.3 万亿千瓦时、总量消纳责任权重 33%、非水电消纳责任权重 18% 等关键数字。
+- `summary_004`
+  - reference coverage：1/5
+  - 缺失：市场化交易电量占全社会用电量 70% 左右、新能源报价政策等。
 
-初步原因：
+- `summary_020`
+  - 低空经济、教育、人工智能制造多个子主题需要同时覆盖，默认 summary 路由仍容易偏向其中一个主题。
 
-- 汇总型问题需要多个政策文件、多页内容共同支撑，当前 TopK 和 context 预算可能不够。
-- LLM 看到局部证据后会自然组织答案，但不能保证覆盖 ground truth 的所有要点。
+处理方向：
 
-修复方向：
+- 当前不采用 `summary_subtopic_slots` 作为默认策略，因为实验 18 虽修复 `summary_004` 和 `summary_020`，但使 `summary_002`、`summary_003`、`summary_005` 回退。
+- 后续更稳的路线是 summary 子主题 fallback：默认结果先保留，只在多主题缺口明显时补新 source，不强行插队。
 
-- summary 类型应采用更大的召回预算和更高的文档覆盖目标。
-- 根据 `source` 或主题索引做 policy-level expansion：同主题政策文件至少各保留 1 条关键证据。
-- prompt 中要求“优先覆盖政策目标、任务、机制、数字，不扩展无关案例”。
-
-### 5.2 风格扩写与原文不贴合
+### 5.2 风格扩写与答案不贴合
 
 代表样本：
 
-- `summary_002`：新型储能政策。
-  - judge score 82，但仍判错。
-  - 问题主要不是完全不会答，而是加入了太多标准答案未明确要求的扩写，且市场机制部分不够贴合。
+- `summary_009`
+  - 问题：绿色低碳转型产业指导目录覆盖哪些主要产业方向
+  - 现象：只覆盖节能降碳产业和绿色服务，遗漏环境保护、资源循环利用、能源绿色低碳转型、生态保护修复、基础设施绿色升级等方向，还加入了标准答案未提及的先进交通装备制造。
 
-- `summary_005`：设备更新和以旧换新。
-  - 检索覆盖较好，但缺失 2027、2023、25% 等能源设备更新目标数字。
+- `summary_014`
+  - 问题：国家区域医疗中心建设和健康产业高质量发展政策怎样扩大优质服务供给
+  - 现象：遗漏补齐短板、中医药服务贸易等要点，加入了标准答案未提及的社会办医等内容。
 
-初步原因：
+- `summary_015`
+  - 问题：生物经济规划和高端医疗器械药品产业化政策如何推动生命健康产业发展
+  - 现象：核心方向正确，但遗漏基础研究、合成生物学、干细胞治疗、生物环保、生物能源等关键点。
 
-- 生成模型倾向把政策材料改写成更完整的说明文。
-- 评测集答案更偏“忠于原文、覆盖指定要点”，因此生成答案需要更克制。
+处理方向：
 
-修复方向：
+- prompt 已经要求 summary 尽量使用原文，但仍需配合更好的上下文组织。
+- 后续可以把 summary 上下文按政策文件分组，并在每组前提示“只总结该文件命中的目标/任务/机制/数字”，减少模型自由重组。
 
-- prompt v2 已要求 summary “只回答问题涉及的维度，尽量使用原文表述，不自行扩展分类、案例或措施”。
-- 需要重新跑 summary 子集，观察 LLM judge 的 correctness、completeness、faithfulness 是否提升。
-- 如果仍不稳定，可把 summary 的上下文组织为“按政策文件分组”的格式，减少模型自行重组造成的偏移。
+## 6. 已尝试但暂不纳入默认的实验
 
-## 6. 当前修复计划
+### 6.1 summary evidence pack
 
-优先级从高到低：
+实验文件：
 
-1. **修复评测集明显错误**
-   - 重点：`compare_028`。
-   - 修复后重新生成 `financial_qa_dev.jsonl`。
+- `data/generated/eval_runs/summary_evidence_pack_deepseek_subset_answers.jsonl`
+- `docs/experiments/generation/summary_evidence_pack_deepseek/subset_report.md`
 
-2. **验证 prompt v2**
-   - 先跑一小批 badcase：事实型 5 条、对比型 4 条、汇总型 3 条。
-   - 观察是否减少“自行计算”“无法确定”“风格扩写”。
+初步结论：
 
-3. **改进 context formatter**
-   - 事实型：优先保留命中公司名、年份、指标词、数字的原始片段。
-   - 表格型：`has_table = true` 的 chunk 不轻易截断。
-   - 对比型：保证双方公司都有证据。
-   - 汇总型：按政策来源组织证据，提升多文档覆盖。
+- 小批量前 5 条 summary 中，证据包让回答更长、更规整，但 reference recall 从旧版前 5 条的 63.33% 降到 47.67%。
+- 这次实验同时启用了 `summary_subtopic_slots`，导致检索上下文也变了，不适合作为正式对比。
+- 当前不接入默认生成路线。
 
-4. **追加修复后评测**
-   - 先跑 badcase subset。
-   - 再跑 120 条全量。
-   - 在本文档追加“修复后指标”和“仍未解决问题”。
+### 6.2 DeepSeek 与 GPT-5.4 mini 的差异
 
-## 7. 后续记录模板
+- DeepSeek 在 compare 和 summary 上明显优于 GPT-5.4 mini。
+- fact 略低于 GPT-5.4 mini，主要表现为更容易谨慎拒答。
+- 因此当前修 fact 时要避免过度强化“无法确定”，而应该强调“证据明确时直接回答”。
 
-后续每次修复后，可以按下面格式追加：
+## 7. 下一步计划
+
+短期优先级：
+
+1. **先固定旧版正式路线**
+   - 继续使用 `routed_v17` 检索 + 默认生成 prompt。
+   - 不把 summary evidence pack 接入主流程。
+
+2. **小步修事实型拒答**
+   - 针对 `fact_005`, `fact_029`, `fact_045` 这类“证据已出现但模型说无法确定”的样本做 prompt/context 小修。
+   - 要求只影响 fact，不动 compare 和 summary。
+
+3. **compare 只做生成端表格读取优化**
+   - compare 检索侧已经 100% HitAll，不能再大改召回。
+   - 重点是让模型从双方 evidence 中稳定抽取 `2026E / 营收`、`2026Q1 / 营收` 等字段。
+
+4. **summary 放到第四周评测闭环继续做**
+   - 第三周已经完成故障定位。
+   - 后续更适合结合人工抽查、RAGAS/LLM judge、上下文组织做闭环优化。
+
+## 8. 后续记录模板
 
 ```text
 ## yyyy-mm-dd 修复记录
 
 ### 改动
 
-- prompt/context/retrieval/eval_set 哪些部分发生变化。
+- 改动范围：
+- 是否影响其他题型：
 
 ### 复测范围
 
-- badcase subset / full 120。
+- subset / full：
+- 模型：
 
 ### 指标变化
 
@@ -280,135 +272,9 @@
 | reference_hit_all |  |  |
 | numeric_coverage |  |  |
 
-### 仍然失败的代表样本
+### 仍失败样本
 
 - question_id：
 - 现象：
 - 下一步：
 ```
-
-## 8. 2026-05-18 Prompt v2 小批复测
-
-### 8.1 复测范围
-
-本次从旧评测失败样本中抽取 12 条：
-
-- fact：`fact_002`, `fact_004`, `fact_008`, `fact_036`, `fact_043`
-- compare：`compare_002`, `compare_003`, `compare_013`, `compare_029`
-- summary：`summary_001`, `summary_002`, `summary_005`
-
-相关文件：
-
-- 小批评测集：`data/eval/badcase_prompt_v2_subset.jsonl`
-- 生成结果：`data/generated/eval_runs/prompt_v2_badcase_subset_answers.jsonl`
-- 评测报告：`docs/experiments/generation/prompt_v2_badcase_subset/report.md`
-- 评测详情：`docs/experiments/generation/details/prompt_v2_badcase_subset/details.json`
-
-### 8.2 指标变化
-
-| metric | old subset | prompt v2 subset |
-|---|---:|---:|
-| judge_correct | 0/12 | 2/12 |
-| judge_correct_rate | 0.00% | 16.67% |
-| judge_avg_score | 36.75 | 38.58 |
-| fact_avg_score | 17.20 | 12.40 |
-| compare_avg_score | 37.25 | 44.00 |
-| summary_avg_score | 68.67 | 75.00 |
-
-按样本看：
-
-| question_id | type | old_correct | old_score | prompt_v2_correct | prompt_v2_score | 备注 |
-|---|---|---:|---:|---:|---:|---|
-| `fact_002` | fact | false | 38 | false | 12 | 不再自行计算 492 倍，但改答 33x，关键 2025A P/E 仍未进入有效上下文 |
-| `fact_004` | fact | false | 18 | false | 12 | 仍回答无法确定，说明 PB 数字可能没有进入 prompt 可见片段 |
-| `fact_008` | fact | false | 12 | false | 25 | 稍有改善，但仍没有命中 272.43 百万元 |
-| `fact_036` | fact | false | 8 | false | 5 | 仍取错为 1231 亿元，属于同文档/同页中的错误口径 |
-| `fact_043` | fact | false | 10 | false | 8 | 仍判断无法确定，检索虽命中但关键公司/指标没有进入可用证据 |
-| `compare_002` | compare | false | 18 | false | 32 | 表达更保守，但仍缺五粮液 405.29 亿元 |
-| `compare_003` | compare | false | 18 | false | 28 | 表达更保守，但仍缺神农集团 13.22 亿元 |
-| `compare_013` | compare | false | 68 | true | 88 | 结论修正为正确，但中自科技数字仍不完全匹配 |
-| `compare_029` | compare | false | 45 | false | 28 | 结论更保守但未给出正确结论，华发股份数字仍错 |
-| `summary_001` | summary | false | 48 | false | 56 | 风格更克制，但关键政策数字仍缺失 |
-| `summary_002` | summary | false | 82 | true | 91 | 明显改善，覆盖目标、场景、技术路线、市场机制 |
-| `summary_005` | summary | false | 76 | false | 78 | 略有改善，但仍缺 2027/2023/25% 等目标数字 |
-
-### 8.3 结论
-
-Prompt v2 对“回答风格”和“对比题格式”有帮助，尤其是：
-
-- summary 答案更克制，`summary_002` 从错误变为正确。
-- compare 答案开始按对象分别列证据，`compare_013` 从错误变为正确。
-- 部分缺证据的问题不再强行下结论，而是更明确地说明缺少哪一方证据。
-
-但 prompt v2 没有解决事实型问题，甚至在本批 fact 上平均分下降。原因不是 prompt 规则不够，而是：
-
-- 关键表格行或关键数字没有稳定进入 prompt。
-- 事实题经常在同一页/同一文档里出现多个相似口径，模型仍会选错。
-- 现有上下文截断策略对表格和预测表不够友好。
-
-### 8.4 下一步
-
-接下来优先改 `context_formatter`，而不是继续加 prompt 规则：
-
-1. 对 fact 类型做 question-aware 证据筛选，优先保留同时包含公司名、年份/季度、指标词、数字的片段。
-2. 对 `has_table = true` 的 chunk 尽量完整保留，避免表格后半部分被截断。
-3. 对 compare 类型做双方覆盖检查，缺公司 B 时追加以公司 B 为核心的召回。
-4. 对 summary 类型提高政策文件覆盖率，按政策来源组织上下文。
-
-复测顺序：
-
-1. 先复测本 12 条小批。
-2. 若 fact 明显改善，再跑完整 120 条。
-3. 将修复后的指标继续追加到本文档。
-
-## 9. 2026-05-18 上下文组织修复记录
-
-### 9.1 问题定位
-
-对 `prompt_v2_badcase_subset` 中 5 条事实型失败样本检查中间检索链路后，发现问题不是“PDF 没解析”，也不是简单的“完全没检索到”，而是：
-
-- 检索阶段经常能命中正确文档和正确页码。
-- 关键答案 chunk 在 `chunks_meta.jsonl` 中存在。
-- 但生成阶段把 child chunk 扩展成 parent window 后，`context_formatter` 只截取父页文本前部，导致真正命中的表格行或正文句子被截断。
-
-典型样本：
-
-| question_id | 现象 | 判断 |
-|---|---|---|
-| `fact_002` | `514.94` 存在于 `EJGF.pdf` 的估值表，但目标 chunk 在混合召回中排第 46 | 父页包含答案，但前部截断导致答案不可见 |
-| `fact_008` | `272.43` 存在于 `MJXC.pdf` 第 2 页预测表 | “归母净利润”和“归属母公司净利润”未做同义匹配，相关片段未抽中 |
-| `fact_043` | 第一名就是 `DLGF.pdf` 中“深圳皓飞新材2026年Q1实现产品销售收入1.57亿元” | child 命中准确，但父页从第 1 页开头截断，答案在第 2 页后部被吞掉 |
-| `fact_036` | 资料正文确有“截至2025年末，公司有息负债672亿元” | 不是评测集错误，而是图表、正文和相邻数字混在一起后模型选错 |
-
-### 9.2 代码改动
-
-本次改动不重建索引，只改变生成阶段的上下文组织：
-
-- `src/financial_report_rag/retrieval/parent_document.py`
-  - 在 `child_hits` 中保留原始命中 child chunk 的文本、类型和表格标记。
-
-- `src/financial_report_rag/generation/context_formatter.py`
-  - 每条证据先展示“命中片段”，再展示围绕 query 词抽取的“相关片段”，最后才展示父页上下文。
-  - 增加 query-aware 片段抽取，优先保留公司名、年份/季度、指标词、数字附近文本。
-  - 增加指标同义词扩展，例如“归母净利润”与“归属母公司净利润/归属于母公司净利润”，“PB”与“P/B/市净率”，“PE”与“P/E/市盈率”。
-
-- `scripts/generation/generate_answers.py`
-  - 调用 `format_contexts` 时传入 `query` 和 `question_type`。
-
-### 9.3 Dry-run 验证
-
-验证文件：
-
-- `data/generated/dry_runs/prompt_v2_context_fix_v2_badcase_subset.jsonl`
-
-验证结果：
-
-| question_id | 关键证据是否进入 prompt |
-|---|---|
-| `fact_002` | `514.94`, `P/E`, `2025A` 均已进入 |
-| `fact_004` | `2.7`, `PB`, `2024A` 均已进入 |
-| `fact_008` | `272.43`, `2026E`, `归属母公司净利润` 均已进入 |
-| `fact_036` | `672`, `有息负债`, `截至2025` 均已进入 |
-| `fact_043` | `1.57`, `深圳皓飞新材`, `产品销售收入` 均已进入 |
-
-这说明本次修复已经解决“关键答案存在但没有进入 prompt”的主要问题。下一步需要调用 API 重新生成 12 条 badcase，并用 LLM judge 复测实际回答是否改善。
