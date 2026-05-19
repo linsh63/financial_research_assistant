@@ -10,6 +10,7 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
+from types import SimpleNamespace
 
 
 def find_project_root() -> Path:
@@ -24,15 +25,17 @@ ROOT = find_project_root()
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
+EVALUATION = ROOT / "scripts" / "evaluation"
+if str(EVALUATION) not in sys.path:
+    sys.path.insert(0, str(EVALUATION))
+
+import evaluate_retrieval as eval_base  # noqa: E402
+import evaluate_routed_retrieval as routed_eval  # noqa: E402
 
 from financial_report_rag.generation.context_formatter import ContextFormatConfig, format_contexts  # noqa: E402
 from financial_report_rag.generation.llm_client import OpenAIChatClient, OpenAIChatConfig  # noqa: E402
-from financial_report_rag.generation.prompt_builder import build_answer_messages  # noqa: E402
-from financial_report_rag.retrieval.routed_retriever import (  # noqa: E402
-    RoutedRetrievalConfig,
-    RoutedRetriever,
-    RoutedRetrieverConfig,
-)
+from financial_report_rag.generation.prompt_builder import build_answer_messages, build_summary_evidence_messages  # noqa: E402
+from financial_report_rag.generation.summary_evidence import SummaryEvidenceConfig, build_summary_evidence_pack  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -45,6 +48,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", default="data/generated/routed_answers.jsonl")
     parser.add_argument("--limit", type=int, default=0, help="批量模式最多处理多少条，0 表示不限制。")
     parser.add_argument("--start", type=int, default=0, help="批量模式从第几条开始处理。")
+    parser.add_argument("--only-question-type", choices=["fact", "compare", "summary"], default="", help="批量模式只处理某类问题。")
     parser.add_argument("--dry-run", action="store_true", help="只保存 prompt 和上下文，不调用 API。")
 
     parser.add_argument("--api-key-env", default="OPENAI_API_KEY")
@@ -66,7 +70,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--reranker-backend", choices=["flagembedding", "transformers"], default="transformers")
     parser.add_argument("--reranker-batch-size", type=int, default=2)
     parser.add_argument("--reranker-max-length", type=int, default=512)
+    parser.add_argument("--score-activation", choices=["none", "sigmoid"], default="none")
+    parser.add_argument("--score-threshold", type=float, default=None)
+    parser.add_argument("--relative-drop-threshold", type=float, default=None)
     parser.add_argument("--use-fp16", action="store_true")
+    parser.add_argument("--no-normalize", action="store_true")
     parser.add_argument("--vector-weight", type=float, default=0.6)
     parser.add_argument("--bm25-weight", type=float, default=0.4)
     parser.add_argument("--fusion", choices=["weighted", "rrf"], default="weighted")
@@ -76,14 +84,37 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--parent-max-chars", type=int, default=0)
     parser.add_argument("--fact-top-k", type=int, default=5)
     parser.add_argument("--compare-candidate-top-k", type=int, default=20)
+    parser.add_argument("--compare-entity-top-k", type=int, default=8)
+    parser.add_argument("--compare-rewrite-file", default="", help="可选：compare query rewrite JSONL。")
+    parser.add_argument("--compare-rewrite-top-k", type=int, default=8)
+    parser.add_argument("--compare-rewrite-mode", choices=["separate", "supplement"], default="separate")
+    parser.add_argument("--compare-rewrite-per-query-keep", type=int, default=2)
+    parser.add_argument("--compare-rewrite-include-merged", action="store_true")
+    parser.add_argument("--compare-parent-fill", action="store_true")
+    parser.add_argument("--compare-parent-fill-pool", type=int, default=12)
+    parser.add_argument("--compare-coarse-to-fine-supplement", action="store_true")
+    parser.add_argument("--compare-coarse-doc-top-n", type=int, default=2)
+    parser.add_argument("--compare-coarse-adaptive-doc-ratio", type=float, default=3.0)
+    parser.add_argument("--compare-coarse-page-top-k", type=int, default=12)
+    parser.add_argument("--compare-coarse-per-entity-keep", type=int, default=4)
+    parser.add_argument("--compare-coarse-guarantee-per-entity", type=int, default=1)
     parser.add_argument("--compare-top-k", type=int, default=5)
     parser.add_argument("--summary-candidate-top-k", type=int, default=50)
     parser.add_argument("--summary-top-k", type=int, default=8)
     parser.add_argument("--summary-per-source", type=int, default=2)
+    parser.add_argument("--summary-subtopic-slots", action="store_true", help="实验开关：summary 子主题槽位。默认不启用。")
+    parser.add_argument("--summary-subtopic-top-k", type=int, default=12)
+    parser.add_argument("--summary-subtopic-max-queries", type=int, default=6)
+    parser.add_argument("--summary-subtopic-guarantee-per-query", type=int, default=1)
+    parser.add_argument("--summary-subtopic-per-query-keep", type=int, default=2)
+    parser.add_argument("--summary-subtopic-per-source", type=int, default=1)
 
     parser.add_argument("--max-contexts", type=int, default=8)
     parser.add_argument("--max-chars-per-context", type=int, default=1800)
     parser.add_argument("--max-total-context-chars", type=int, default=9000)
+    parser.add_argument("--summary-evidence-pack", action="store_true", help="仅对 summary 题启用证据包压缩和专属 prompt。")
+    parser.add_argument("--summary-evidence-points-per-context", type=int, default=6)
+    parser.add_argument("--summary-evidence-max-chars", type=int, default=7000)
     return parser.parse_args()
 
 
@@ -95,37 +126,216 @@ def resolve_path(path_text: str) -> Path:
     return ROOT / path
 
 
-def build_retriever(args: argparse.Namespace) -> RoutedRetriever:
-    """构建默认 routed 检索器。"""
-    runtime_config = RoutedRetrieverConfig(
-        index_dir=args.index_dir,
-        index_type=args.index_type,
-        bm25_path=args.bm25_path,
-        embedding_model=args.embedding_model,
-        embedding_backend=args.embedding_backend,
-        embedding_batch_size=args.embedding_batch_size,
-        embedding_max_length=args.embedding_max_length,
-        use_fp16=args.use_fp16,
-        reranker_model=args.reranker_model,
-        reranker_backend=args.reranker_backend,
-        reranker_batch_size=args.reranker_batch_size,
-        reranker_max_length=args.reranker_max_length,
-        vector_weight=args.vector_weight,
-        bm25_weight=args.bm25_weight,
-        fusion=args.fusion,
-        rrf_k=args.rrf_k,
-    )
-    route_config = RoutedRetrievalConfig(
-        parent_window_pages=args.parent_window_pages,
-        parent_max_chars=args.parent_max_chars,
-        fact_top_k=args.fact_top_k,
-        compare_candidate_top_k=args.compare_candidate_top_k,
-        compare_top_k=args.compare_top_k,
-        summary_candidate_top_k=args.summary_candidate_top_k,
-        summary_top_k=args.summary_top_k,
-        summary_per_source=args.summary_per_source,
-    )
-    return RoutedRetriever(runtime_config, route_config, base_dir=ROOT)
+def display_path(path: Path) -> str:
+    """优先显示项目相对路径，项目外路径则原样显示。"""
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
+class GenerationRoutedRetriever:
+    """生成阶段复用 routed 检索评测中已经验证的完整流程。"""
+
+    def __init__(self, args: argparse.Namespace):
+        """一次性加载索引、BM25、embedding、reranker 和 rewrite 缓存。"""
+        self.args = normalize_retrieval_args(args)
+        self.config = routed_eval.routed_config_from_args(self.args)
+        self.index_dir = resolve_path(self.args.index_dir)
+        self.bm25_path = resolve_path(self.args.bm25_path) if self.args.bm25_path else self.index_dir / "bm25.pkl"
+        self.compare_rewrite_path = resolve_path(self.args.compare_rewrite_file) if self.args.compare_rewrite_file else None
+        if self.compare_rewrite_path and not self.compare_rewrite_path.exists():
+            raise SystemExit(f"Compare rewrite file not found: {self.compare_rewrite_path}")
+        self.rewrite_by_id = (
+            routed_eval.load_compare_rewrites(self.compare_rewrite_path)
+            if self.compare_rewrite_path
+            else {}
+        )
+        self.embedder, self.index, self.metadata, _manifest = routed_eval.load_vector_resources(self.args, self.index_dir)
+        if not self.bm25_path.exists():
+            raise SystemExit(f"BM25 index not found: {self.bm25_path}")
+        self.bm25_store = routed_eval.BM25Store.load(self.bm25_path)
+        self.parent_store = routed_eval.ParentDocumentStore(self.metadata)
+        self._reranker = None
+
+    def retrieve_question(self, question: dict) -> SimpleNamespace:
+        """按题目字典执行一次检索，保留与旧生成脚本兼容的输出字段。"""
+        sample = eval_base.EvalSample(
+            question_id=str(question.get("question_id") or "manual_001"),
+            question_type=str(question.get("question_type") or "fact"),
+            query=str(question.get("query") or ""),
+            answer="",
+            evidences=[],
+            raw=question,
+        )
+        return self.retrieve_sample(sample)
+
+    def retrieve_sample(self, sample: eval_base.EvalSample) -> SimpleNamespace:
+        """复刻 evaluate_routed_retrieval.py 的单样本 routed 流程。"""
+        candidate_top_k = routed_eval.max_candidate_top_k(self.config)
+        vector_results = routed_eval.run_vector_searches(
+            [sample],
+            self.embedder,
+            self.index,
+            self.metadata,
+            top_k=candidate_top_k,
+        )
+        bm25_results = {sample.question_id: self.bm25_store.search(sample.query, top_k=candidate_top_k)}
+        hybrid_results = routed_eval.run_hybrid_searches(
+            self.args,
+            [sample],
+            vector_results,
+            bm25_results,
+            top_k=candidate_top_k,
+        )
+        hybrid_results, compare_rerank_results = self.run_compare_rerank(sample, hybrid_results)
+        hybrid_results = routed_eval.expand_summary_hybrid_results(
+            self.args,
+            [sample],
+            self.embedder,
+            self.index,
+            self.metadata,
+            self.bm25_store,
+            hybrid_results,
+            self.config,
+        )
+        routed_results = routed_eval.run_routed_searches(
+            [sample],
+            hybrid_results,
+            compare_rerank_results,
+            self.parent_store,
+            self.config,
+            args=self.args,
+        )
+        return SimpleNamespace(
+            query=sample.query,
+            question_type=sample.question_type,
+            strategy=routed_eval.routed_strategy_name(sample.question_type, self.args, self.config),
+            results=routed_results.get(sample.question_id, []),
+            hybrid_results=hybrid_results.get(sample.question_id, []),
+            rerank_results=compare_rerank_results.get(sample.question_id, []),
+        )
+
+    def run_compare_rerank(
+        self,
+        sample: eval_base.EvalSample,
+        hybrid_results: dict[str, list],
+    ) -> tuple[dict[str, list], dict[str, list]]:
+        """为单条 compare 问题执行最新的 rewrite、粗到细槽位和 rerank 流程。"""
+        if sample.question_type != "compare":
+            return hybrid_results, {}
+        if self.rewrite_by_id and self.args.compare_rewrite_mode == "separate":
+            return hybrid_results, {sample.question_id: self.rerank_compare_with_rewrites(sample, hybrid_results)}
+
+        expanded = routed_eval.expand_compare_hybrid_results(
+            self.args,
+            [sample],
+            self.embedder,
+            self.index,
+            self.metadata,
+            self.bm25_store,
+            hybrid_results,
+            self.config,
+            self.rewrite_by_id,
+        )
+        merge_top_k = routed_eval.compare_merge_top_k(self.args, self.config)
+        base_reranked = self.reranker.rerank(
+            sample.query,
+            expanded.get(sample.question_id, []),
+            top_k=merge_top_k if self.args.compare_coarse_to_fine_supplement else self.config.compare_top_k,
+        )
+        coarse_guaranteed, coarse_supplemental = routed_eval.run_compare_coarse_to_fine_slots(
+            self.args,
+            sample,
+            self.metadata,
+            self.reranker,
+            self.rewrite_by_id,
+            self.config,
+        )
+        merged = (
+            routed_eval.merge_rerank_results([*coarse_guaranteed, *coarse_supplemental], base_reranked, top_k=merge_top_k)
+            if coarse_guaranteed or coarse_supplemental
+            else base_reranked
+        )
+        return expanded, {sample.question_id: merged}
+
+    def rerank_compare_with_rewrites(
+        self,
+        sample: eval_base.EvalSample,
+        hybrid_results: dict[str, list],
+    ) -> list:
+        """复用 17 号实验的 compare 子查询配额、raw entity slots 和 parent fill 候选池。"""
+        rewrite = self.rewrite_by_id.get(sample.question_id)
+        base_results = hybrid_results.get(sample.question_id, [])[: self.config.compare_candidate_top_k]
+        merge_top_k = routed_eval.compare_merge_top_k(self.args, self.config)
+        original_reranked = self.reranker.rerank(sample.query, base_results, top_k=merge_top_k)
+        coarse_guaranteed, coarse_supplemental = routed_eval.run_compare_coarse_to_fine_slots(
+            self.args,
+            sample,
+            self.metadata,
+            self.reranker,
+            self.rewrite_by_id,
+            self.config,
+        )
+        if rewrite is None:
+            return (
+                routed_eval.merge_rerank_results(
+                    [*coarse_guaranteed, *coarse_supplemental],
+                    original_reranked,
+                    top_k=merge_top_k,
+                )
+                if coarse_guaranteed or coarse_supplemental
+                else original_reranked
+            )
+
+        per_query_results = []
+        for subquery, entity in routed_eval.compare_rewrite_subqueries_with_entities(
+            rewrite,
+            include_merged=self.args.compare_rewrite_include_merged,
+        ):
+            subquery_hybrid = routed_eval.recall_hybrid_for_query(
+                self.args,
+                subquery,
+                self.embedder,
+                self.index,
+                self.metadata,
+                self.bm25_store,
+                top_k=self.args.compare_rewrite_top_k,
+            )
+            reranked = self.reranker.rerank(
+                subquery,
+                subquery_hybrid,
+                top_k=max(self.args.compare_rewrite_per_query_keep, self.config.compare_top_k),
+            )
+            per_query_results.append(routed_eval.prefer_entity_results(reranked, entity))
+
+        quota_selected = routed_eval.interleave_rewrite_results(
+            per_query_results,
+            per_query_keep=self.args.compare_rewrite_per_query_keep,
+        )
+        return routed_eval.merge_rerank_results(
+            [*coarse_guaranteed, *quota_selected, *coarse_supplemental],
+            original_reranked,
+            top_k=merge_top_k,
+        )
+
+    @property
+    def reranker(self):
+        """懒加载并复用 reranker，避免批量生成时重复加载模型。"""
+        if self._reranker is None:
+            self._reranker = routed_eval.build_reranker(self.args)
+        return self._reranker
+
+
+def normalize_retrieval_args(args: argparse.Namespace) -> argparse.Namespace:
+    """补齐复用评测脚本所需的参数别名。"""
+    args.max_length = args.embedding_max_length
+    return args
+
+
+def build_retriever(args: argparse.Namespace) -> GenerationRoutedRetriever:
+    """构建生成阶段 routed 检索器。"""
+    return GenerationRoutedRetriever(args)
 
 
 def build_llm_client(args: argparse.Namespace) -> OpenAIChatClient | None:
@@ -164,10 +374,13 @@ def iter_questions(args: argparse.Namespace) -> list[dict]:
         query = str(row.get("query") or "").strip()
         if not query:
             continue
+        question_type = str(row.get("question_type") or "fact")
+        if args.only_question_type and question_type != args.only_question_type:
+            continue
         questions.append(
             {
                 "question_id": str(row.get("question_id") or f"sample_{len(questions) + 1:03d}"),
-                "question_type": str(row.get("question_type") or "fact"),
+                "question_type": question_type,
                 "query": query,
             }
         )
@@ -198,30 +411,48 @@ def load_rows(path: Path) -> list[dict]:
 
 def generate_one(
     question: dict,
-    retriever: RoutedRetriever,
+    retriever: GenerationRoutedRetriever,
     client: OpenAIChatClient | None,
     context_config: ContextFormatConfig,
+    args: argparse.Namespace,
     dry_run: bool,
 ) -> dict:
     """完成一条问题的检索、prompt 构造和回答生成。"""
-    routed = retriever.retrieve(question["query"], question_type=question["question_type"])
+    routed = retriever.retrieve_question(question)
     formatted = format_contexts(
         routed.results,
         context_config,
         query=question["query"],
         question_type=routed.question_type,
     )
-    messages = build_answer_messages(question["query"], routed.question_type, formatted.text)
+    if args.summary_evidence_pack and routed.question_type == "summary":
+        evidence_pack = build_summary_evidence_pack(
+            question["query"],
+            formatted,
+            SummaryEvidenceConfig(
+                max_points_per_context=args.summary_evidence_points_per_context,
+                max_total_chars=args.summary_evidence_max_chars,
+            ),
+        )
+        messages = build_summary_evidence_messages(question["query"], evidence_pack)
+        context_text = evidence_pack
+        generation_mode = "summary_evidence_pack"
+    else:
+        messages = build_answer_messages(question["query"], routed.question_type, formatted.text)
+        context_text = formatted.text
+        generation_mode = "default"
     answer = "" if dry_run else client.generate(messages)
     return {
         "question_id": question["question_id"],
         "question_type": routed.question_type,
         "query": question["query"],
         "strategy": routed.strategy,
+        "generation_mode": generation_mode,
         "answer": answer,
         "dry_run": dry_run,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "references": formatted.references,
+        "context_text": context_text if dry_run else "",
         "messages": messages,
     }
 
@@ -252,9 +483,9 @@ def main() -> None:
     output_path = resolve_path(args.output)
 
     for index, question in enumerate(questions, start=1):
-        row = generate_one(question, retriever, client, context_config, dry_run=args.dry_run)
+        row = generate_one(question, retriever, client, context_config, args=args, dry_run=args.dry_run)
         write_jsonl(output_path, [row])
-        print(f"[{index}/{len(questions)}] wrote {question['question_id']} -> {output_path.relative_to(ROOT)}")
+        print(f"[{index}/{len(questions)}] wrote {question['question_id']} -> {display_path(output_path)}")
         if row["answer"]:
             print(row["answer"])
         if args.sleep_seconds > 0 and index < len(questions):

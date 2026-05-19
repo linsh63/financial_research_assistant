@@ -13,6 +13,13 @@ from datetime import datetime
 from pathlib import Path
 
 import evaluate_retrieval as eval_base
+from evaluate_compare_coarse_to_fine import (  # noqa: E402
+    adapt_document_candidates,
+    entities_for_sample as coarse_entities_for_sample,
+    locate_entity_documents,
+    metric_query_for_sample,
+    search_within_sources,
+)
 
 
 def find_project_root() -> Path:
@@ -48,6 +55,7 @@ from financial_report_rag.retrieval.routed_retriever import (  # noqa: E402
     extract_compare_entities,
     merge_compare_candidates,
     route_results,
+    select_source_diverse,
 )
 from financial_report_rag.retrieval.vector_store import (  # noqa: E402
     SearchResult,
@@ -95,10 +103,22 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--compare-rewrite-include-merged", action="store_true", help="补召回时同时使用 merged_query。")
     parser.add_argument("--compare-parent-fill", action="store_true", help="compare 题按 parent 去重后继续补齐 TopK。")
     parser.add_argument("--compare-parent-fill-pool", type=int, default=12, help="compare parent 补齐前保留的 child 候选池大小。")
+    parser.add_argument("--compare-coarse-to-fine-supplement", action="store_true", help="compare 题追加“先定位文档、再定位页码”的候选补召回。")
+    parser.add_argument("--compare-coarse-doc-top-n", type=int, default=2, help="粗到细补召回中，每个实体定位的来源文档数。")
+    parser.add_argument("--compare-coarse-adaptive-doc-ratio", type=float, default=3.0, help="top1/top2 文档分数超过该倍数时，只保留 top1。")
+    parser.add_argument("--compare-coarse-page-top-k", type=int, default=12, help="粗到细补召回中，每个实体在已定位文档内保留的页级候选数。")
+    parser.add_argument("--compare-coarse-per-entity-keep", type=int, default=4, help="粗到细补召回中，每个实体最终交错保留的候选数。")
+    parser.add_argument("--compare-coarse-guarantee-per-entity", type=int, default=1, help="粗到细补召回中，每个实体优先保障的候选槽位数。")
     parser.add_argument("--compare-top-k", type=int, default=5)
     parser.add_argument("--summary-candidate-top-k", type=int, default=50)
     parser.add_argument("--summary-top-k", type=int, default=8)
     parser.add_argument("--summary-per-source", type=int, default=2)
+    parser.add_argument("--summary-subtopic-slots", action="store_true", help="summary 题按子主题分路召回，并为每路保留候选槽位。")
+    parser.add_argument("--summary-subtopic-top-k", type=int, default=12, help="summary 每个子主题独立召回的候选数。")
+    parser.add_argument("--summary-subtopic-max-queries", type=int, default=6, help="summary 每个问题最多拆出的子主题 query 数。")
+    parser.add_argument("--summary-subtopic-guarantee-per-query", type=int, default=1, help="summary 每个子主题优先保障的候选数。")
+    parser.add_argument("--summary-subtopic-per-query-keep", type=int, default=2, help="summary 每个子主题最多参与合并的候选数。")
+    parser.add_argument("--summary-subtopic-per-source", type=int, default=1, help="summary 每个子主题内部每个来源最多保留的候选数。")
     parser.add_argument("--output", default="docs/experiments/rerank/06_routed_retrieval/report.md")
     parser.add_argument("--details-output", default="docs/experiments/rerank/06_routed_retrieval/details.json")
     parser.add_argument("--badcase-limit", type=int, default=20)
@@ -208,20 +228,34 @@ def run_compare_rerank(
     samples: list[eval_base.EvalSample],
     hybrid_results: dict[str, list[HybridSearchResult]],
     config: RoutedRetrievalConfig,
+    metadata: list[dict] | None = None,
+    rewrite_by_id: dict[str, CompareQueryRewrite] | None = None,
 ) -> dict[str, list[RerankResult]]:
     """只对 compare 样本执行 rerank。"""
     compare_samples = [sample for sample in samples if sample.question_type == "compare"]
     if not compare_samples:
         return {}
     reranker = build_reranker(args)
-    return {
-        sample.question_id: reranker.rerank(
+    results: dict[str, list[RerankResult]] = {}
+    rewrite_by_id = rewrite_by_id or {}
+    for sample in compare_samples:
+        merge_top_k = compare_merge_top_k(args, config)
+        base_reranked = reranker.rerank(
             sample.query,
             hybrid_results.get(sample.question_id, []),
-            top_k=config.compare_top_k,
+            top_k=merge_top_k if args.compare_coarse_to_fine_supplement else config.compare_top_k,
         )
-        for sample in compare_samples
-    }
+        coarse_guaranteed, coarse_supplemental = (
+            run_compare_coarse_to_fine_slots(args, sample, metadata, reranker, rewrite_by_id, config)
+            if metadata is not None
+            else ([], [])
+        )
+        results[sample.question_id] = (
+            merge_rerank_results([*coarse_guaranteed, *coarse_supplemental], base_reranked, top_k=merge_top_k)
+            if coarse_guaranteed or coarse_supplemental
+            else base_reranked
+        )
+    return results
 
 
 def build_reranker(args: argparse.Namespace) -> CrossEncoderReranker:
@@ -287,8 +321,20 @@ def run_compare_rewrite_rerank(
         base_results = base_hybrid_results.get(sample.question_id, [])[: config.compare_candidate_top_k]
         merge_top_k = compare_merge_top_k(args, config)
         original_reranked = reranker.rerank(sample.query, base_results, top_k=merge_top_k)
+        coarse_guaranteed, coarse_supplemental = run_compare_coarse_to_fine_slots(
+            args,
+            sample,
+            metadata,
+            reranker,
+            rewrite_by_id,
+            config,
+        )
         if rewrite is None:
-            results[sample.question_id] = original_reranked
+            results[sample.question_id] = (
+                merge_rerank_results([*coarse_guaranteed, *coarse_supplemental], original_reranked, top_k=merge_top_k)
+                if coarse_guaranteed or coarse_supplemental
+                else original_reranked
+            )
             continue
 
         per_query_results: list[list[RerankResult]] = []
@@ -317,11 +363,92 @@ def run_compare_rewrite_rerank(
             per_query_keep=args.compare_rewrite_per_query_keep,
         )
         results[sample.question_id] = merge_rerank_results(
-            quota_selected,
+            [*coarse_guaranteed, *quota_selected, *coarse_supplemental],
             original_reranked,
             top_k=merge_top_k,
         )
     return results
+
+
+def run_compare_coarse_to_fine_slots(
+    args: argparse.Namespace,
+    sample: eval_base.EvalSample,
+    metadata: list[dict],
+    reranker: CrossEncoderReranker,
+    rewrite_by_id: dict[str, CompareQueryRewrite],
+    config: RoutedRetrievalConfig,
+) -> tuple[list[RerankResult], list[RerankResult]]:
+    """给 compare 样本生成粗到细保障槽位和普通补充候选。"""
+    if not args.compare_coarse_to_fine_supplement:
+        return [], []
+    entities = coarse_entities_for_sample(sample, rewrite_by_id)
+    per_entity_results: list[list[SearchResult]] = []
+    for entity in entities:
+        docs = locate_entity_documents(entity, metadata, doc_top_n=args.compare_coarse_doc_top_n)
+        docs = adapt_document_candidates(docs, ratio_threshold=args.compare_coarse_adaptive_doc_ratio)
+        sources = [doc["source"] for doc in docs]
+        if not sources:
+            continue
+        metric_query = metric_query_for_sample(sample, entity, entities, rewrite_by_id)
+        page_results = search_within_sources(
+            metric_query,
+            sources,
+            metadata,
+            top_k=args.compare_coarse_page_top_k,
+        )
+        if not page_results:
+            continue
+        per_entity_results.append(page_results)
+    guaranteed, supplemental = split_compare_coarse_to_fine_slots(
+        per_entity_results,
+        guarantee_per_entity=args.compare_coarse_guarantee_per_entity,
+        per_query_keep=args.compare_coarse_per_entity_keep,
+    )
+    return (
+        convert_search_results_to_rerank_results(guaranteed),
+        convert_search_results_to_rerank_results(supplemental),
+    )
+
+
+def split_compare_coarse_to_fine_slots(
+    per_entity_results: list[list[SearchLikeResult]],
+    guarantee_per_entity: int,
+    per_query_keep: int,
+) -> tuple[list[SearchLikeResult], list[SearchLikeResult]]:
+    """把每个实体的粗到细结果拆成保障槽位和后续补充候选。"""
+    guarantee_keep = max(0, guarantee_per_entity)
+    if guarantee_keep <= 0:
+        return [], interleave_rewrite_results(per_entity_results, per_query_keep=per_query_keep)
+
+    guaranteed = interleave_rewrite_results(
+        [results[:guarantee_keep] for results in per_entity_results],
+        per_query_keep=guarantee_keep,
+    )
+    guaranteed_keys = {result_key(result.chunk) for result in guaranteed}
+    remaining_per_entity: list[list[SearchLikeResult]] = []
+    for results in per_entity_results:
+        remaining_per_entity.append(
+            [result for result in results if result_key(result.chunk) not in guaranteed_keys]
+        )
+    supplemental = interleave_rewrite_results(remaining_per_entity, per_query_keep=per_query_keep)
+    return guaranteed, supplemental
+
+
+def convert_search_results_to_rerank_results(results: list[SearchLikeResult]) -> list[RerankResult]:
+    """把粗到细的原始检索结果包装成可合并的 RerankResult。"""
+    converted: list[RerankResult] = []
+    for rank, result in enumerate(results, start=1):
+        converted.append(
+            RerankResult(
+                score=float(result.score),
+                rank=rank,
+                chunk=result.chunk,
+                retrieval_score=float(result.score),
+                retrieval_rank=int(result.rank),
+                rerank_score=float(result.score),
+            )
+        )
+    return converted
 
 
 def compare_merge_top_k(args: argparse.Namespace, config: RoutedRetrievalConfig) -> int:
@@ -382,11 +509,11 @@ def normalize_entity_text(text: str) -> str:
 
 
 def interleave_rewrite_results(
-    per_query_results: list[list[RerankResult]],
+    per_query_results: list[list[SearchLikeResult]],
     per_query_keep: int,
-) -> list[RerankResult]:
+) -> list[SearchLikeResult]:
     """按子查询交错选结果，避免某个对比对象被挤掉。"""
-    selected: list[RerankResult] = []
+    selected: list[SearchLikeResult] = []
     seen: set[str] = set()
     keep = max(1, per_query_keep)
     for offset in range(keep):
@@ -469,6 +596,225 @@ def expand_compare_hybrid_results(
             )
         expanded[sample.question_id] = merge_compare_candidates(base_results, supplemental)
     return expanded
+
+
+def expand_summary_hybrid_results(
+    args: argparse.Namespace,
+    samples: list[eval_base.EvalSample],
+    embedder: FlagEmbeddingModel,
+    index,
+    metadata: list[dict],
+    bm25_store: BM25Store,
+    hybrid_results: dict[str, list[HybridSearchResult]],
+    config: RoutedRetrievalConfig,
+) -> dict[str, list[HybridSearchResult]]:
+    """只为 summary 样本追加“子主题分路召回 + 每路保障槽位”。"""
+    if not args.summary_subtopic_slots:
+        return hybrid_results
+    expanded = dict(hybrid_results)
+    for sample in samples:
+        if sample.question_type != "summary":
+            continue
+        base_results = hybrid_results.get(sample.question_id, [])[: config.summary_candidate_top_k]
+        subqueries = build_summary_subtopic_queries(sample.query, max_queries=args.summary_subtopic_max_queries)
+        per_query_results: list[list[HybridSearchResult]] = []
+        for subquery in subqueries:
+            subquery_hybrid = recall_hybrid_for_query(
+                args,
+                subquery,
+                embedder,
+                index,
+                metadata,
+                bm25_store,
+                top_k=args.summary_subtopic_top_k,
+            )
+            per_query_results.append(
+                select_source_diverse(
+                    subquery_hybrid,
+                    top_k=max(args.summary_subtopic_per_query_keep, args.summary_subtopic_guarantee_per_query),
+                    per_source=args.summary_subtopic_per_source,
+                )
+            )
+
+        guaranteed, supplemental = split_summary_subtopic_slots(
+            per_query_results,
+            guarantee_per_query=args.summary_subtopic_guarantee_per_query,
+            per_query_keep=args.summary_subtopic_per_query_keep,
+        )
+        expanded[sample.question_id] = merge_search_results(
+            [*guaranteed, *base_results, *supplemental],
+            top_k=max(config.summary_candidate_top_k, config.summary_top_k),
+        )
+    return expanded
+
+
+def build_summary_subtopic_queries(query: str, max_queries: int) -> list[str]:
+    """把 summary 问题拆成若干主题 query，用于多路召回。"""
+    cleaned = clean_summary_query(query)
+    subqueries: list[str] = []
+    for clause in split_summary_clauses(cleaned):
+        subqueries.extend(split_summary_clause_to_queries(clause))
+    subqueries = [expand_summary_subtopic_query(item) for item in subqueries]
+    subqueries.append(cleaned)
+    return dedupe_texts([item for item in subqueries if item])[: max(1, max_queries)]
+
+
+def clean_summary_query(query: str) -> str:
+    """去掉 summary 问题里的泛化问法，保留检索主题。"""
+    text = query.strip().strip("？?。")
+    text = re.sub(r"^结合相关政策[，,]?", "", text)
+    text = re.sub(r"^结合.*?政策[，,]?", "", text)
+    return text.strip()
+
+
+def split_summary_clauses(query: str) -> list[str]:
+    """按逗号和分号切出 summary 的大主题片段。"""
+    clauses = [part.strip() for part in re.split(r"[，,；;。]+", query) if part.strip()]
+    return clauses or [query]
+
+
+def split_summary_clause_to_queries(clause: str) -> list[str]:
+    """把一个主题片段拆成可独立召回的子主题 query。"""
+    clause = clause.strip().strip("？?")
+    if not clause:
+        return []
+
+    pattern = re.compile(r"(.+?)(?:分别)?(?:如何|怎样|怎么|主要从哪些方向|主要有哪些)(.*)")
+    match = pattern.search(clause)
+    if match:
+        subject_text = match.group(1).strip()
+        tail = match.group(2).strip()
+    else:
+        subject_text = clause
+        tail = ""
+
+    subjects = split_summary_subjects(subject_text)
+    if not subjects:
+        subjects = [subject_text]
+    return [join_summary_subject_tail(subject, tail) for subject in subjects]
+
+
+def split_summary_subjects(text: str) -> list[str]:
+    """按中文并列连接词拆出 summary 子主题。"""
+    text = re.sub(r"^(相关|有关)", "", text).strip()
+    parts = [part.strip(" “”、") for part in re.split(r"[、/]|以及|及其|以及|和|与", text) if part.strip(" “”、")]
+    cleaned: list[str] = []
+    for part in parts:
+        part = part.strip()
+        if len(part) <= 1:
+            continue
+        cleaned.append(part)
+    return cleaned
+
+
+def join_summary_subject_tail(subject: str, tail: str) -> str:
+    """把子主题和问题目标合成检索 query。"""
+    subject = subject.strip()
+    tail = re.sub(r"^(如何|怎样|怎么|支撑|服务|推进|形成|界定)", "", tail).strip()
+    tail = re.sub(r"(？|\\?)$", "", tail).strip()
+    return f"{subject} {tail}".strip()
+
+
+def expand_summary_subtopic_query(query: str) -> str:
+    """给常见政策主题补充少量同义检索词。"""
+    expansions: list[str] = []
+    topic_expansions = [
+        (r"配电网|电网建设", "配电网 高质量发展 承载力"),
+        (r"电力市场", "全国统一电力市场 市场化交易 新能源市场报价 集中报价"),
+        (r"容量电价|容量机制", "发电侧容量电价 容量补偿 可靠容量"),
+        (r"报价|市场报价", "新能源 市场报价 集中报价"),
+        (r"可再生能源", "可再生能源 规划 消纳"),
+        (r"氢能", "氢能 绿色低碳 转型"),
+        (r"绿色低碳转型", "新型电力系统 清洁低碳"),
+        (r"固体废物|固废", "固体废物 全链条治理 塑料污染治理"),
+        (r"绿色产业|绿色低碳产业", "绿色低碳转型产业目录 资源循环利用"),
+        (r"低空经济", "低空经济 核心产业 统计分类"),
+        (r"教育", "职业教育 专业 实训基地"),
+        (r"人工智能", "人工智能 制造业 智能制造"),
+    ]
+    for pattern, words in topic_expansions:
+        if re.search(pattern, query):
+            expansions.append(words)
+    if not expansions:
+        return query
+    return f"{query} {' '.join(expansions)}"
+
+
+def split_summary_subtopic_slots(
+    per_query_results: list[list[HybridSearchResult]],
+    guarantee_per_query: int,
+    per_query_keep: int,
+) -> tuple[list[HybridSearchResult], list[HybridSearchResult]]:
+    """把 summary 子主题候选拆成保障槽位和普通补充候选。"""
+    guarantee_keep = max(0, guarantee_per_query)
+    if guarantee_keep <= 0:
+        return [], interleave_hybrid_results(per_query_results, per_query_keep=per_query_keep)
+
+    guaranteed = interleave_hybrid_results(
+        [results[:guarantee_keep] for results in per_query_results],
+        per_query_keep=guarantee_keep,
+    )
+    guaranteed_keys = {result_key(result.chunk) for result in guaranteed}
+    remaining_per_query = [
+        [result for result in results if result_key(result.chunk) not in guaranteed_keys]
+        for results in per_query_results
+    ]
+    supplemental = interleave_hybrid_results(remaining_per_query, per_query_keep=per_query_keep)
+    return guaranteed, supplemental
+
+
+def interleave_hybrid_results(
+    per_query_results: list[list[HybridSearchResult]],
+    per_query_keep: int,
+) -> list[HybridSearchResult]:
+    """按子主题交错合并候选，避免单个主题挤占全部槽位。"""
+    selected: list[HybridSearchResult] = []
+    seen: set[str] = set()
+    keep = max(1, per_query_keep)
+    for offset in range(keep):
+        for results in per_query_results:
+            if offset >= len(results):
+                continue
+            result = results[offset]
+            key = result_key(result.chunk)
+            if key in seen:
+                continue
+            seen.add(key)
+            selected.append(result)
+    return selected
+
+
+def merge_search_results(
+    results: list[HybridSearchResult],
+    top_k: int,
+) -> list[HybridSearchResult]:
+    """按顺序合并候选并按 chunk 去重。"""
+    merged: list[HybridSearchResult] = []
+    seen: set[str] = set()
+    for result in results:
+        key = result_key(result.chunk)
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(result)
+        if len(merged) >= top_k:
+            break
+    for rank, result in enumerate(merged, start=1):
+        result.rank = rank
+    return merged
+
+
+def dedupe_texts(items: list[str]) -> list[str]:
+    """按规范化文本去重。"""
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for item in items:
+        key = re.sub(r"\s+", "", item)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        deduped.append(item)
+    return deduped
 
 
 def run_routed_searches(
@@ -555,7 +901,7 @@ def render_report(
         f"- 父文档窗口：前后各 {config.parent_window_pages} 页",
         f"- fact 策略：hybrid_top{config.fact_top_k} + parent_window",
         f"- compare 策略：{compare_strategy_text(args, config)}",
-        f"- summary 策略：hybrid_top{config.summary_candidate_top_k} + source_diverse_top{config.summary_top_k} + parent_window",
+        f"- summary 策略：{summary_strategy_text(args, config)}",
         "",
         "## Overall",
         "",
@@ -675,9 +1021,41 @@ def strategy_name(question_type: str, config: RoutedRetrievalConfig) -> str:
     return f"hybrid_top{config.fact_top_k}_parent_window{config.parent_window_pages}"
 
 
+def summary_strategy_text(args: argparse.Namespace, config: RoutedRetrievalConfig) -> str:
+    """生成 summary 策略的报告文本。"""
+    subtopic = ""
+    if args.summary_subtopic_slots:
+        subtopic = (
+            f"subtopic_top{args.summary_subtopic_top_k}"
+            f"_maxq{args.summary_subtopic_max_queries}"
+            f"_slot{args.summary_subtopic_guarantee_per_query}"
+            f"_keep{args.summary_subtopic_per_query_keep}"
+            f"_src{args.summary_subtopic_per_source} + "
+        )
+    return (
+        f"hybrid_top{config.summary_candidate_top_k} + "
+        f"{subtopic}"
+        f"source_diverse_top{config.summary_top_k} + parent_window"
+    )
+
+
+def summary_strategy_suffix(args: argparse.Namespace) -> str:
+    """生成 summary 子主题策略名后缀。"""
+    if not args.summary_subtopic_slots:
+        return ""
+    return (
+        f"_subtopic_top{args.summary_subtopic_top_k}"
+        f"_maxq{args.summary_subtopic_max_queries}"
+        f"_slot{args.summary_subtopic_guarantee_per_query}"
+        f"_keep{args.summary_subtopic_per_query_keep}"
+        f"_src{args.summary_subtopic_per_source}"
+    )
+
+
 def compare_strategy_text(args: argparse.Namespace, config: RoutedRetrievalConfig) -> str:
     """生成 compare 策略的报告文本。"""
     parent_fill = f" + parent_fill_pool{args.compare_parent_fill_pool}" if args.compare_parent_fill else ""
+    coarse_supplement = compare_coarse_to_fine_text(args)
     if args.compare_rewrite_file:
         merged = "+merged_query" if args.compare_rewrite_include_merged else ""
         if args.compare_rewrite_mode == "separate":
@@ -685,18 +1063,47 @@ def compare_strategy_text(args: argparse.Namespace, config: RoutedRetrievalConfi
                 f"hybrid_top{config.compare_candidate_top_k} + "
                 f"llm_rewrite_separate_subquery_top{args.compare_rewrite_top_k}{merged} + "
                 f"per_query_keep{args.compare_rewrite_per_query_keep} + "
+                f"{coarse_supplement}"
                 "entity_prefer + "
                 f"rerank_top{config.compare_top_k}{parent_fill} + parent_window"
             )
         return (
             f"hybrid_top{config.compare_candidate_top_k} + "
             f"llm_rewrite_subquery_top{args.compare_rewrite_top_k}{merged} + "
+            f"{coarse_supplement}"
             f"rerank_top{config.compare_top_k}{parent_fill} + parent_window"
         )
     return (
         f"hybrid_top{config.compare_candidate_top_k} + "
         f"entity_top{config.compare_entity_top_k} + "
+        f"{coarse_supplement}"
         f"rerank_top{config.compare_top_k}{parent_fill} + parent_window"
+    )
+
+
+def compare_coarse_to_fine_text(args: argparse.Namespace) -> str:
+    """生成 compare 粗到细补召回的报告片段。"""
+    if not args.compare_coarse_to_fine_supplement:
+        return ""
+    return (
+        f"coarse_to_fine_doc_top{args.compare_coarse_doc_top_n}"
+        f"_adaptive{args.compare_coarse_adaptive_doc_ratio:g}"
+        f"_page_top{args.compare_coarse_page_top_k}"
+        f"_keep{args.compare_coarse_per_entity_keep} + "
+        f"raw_entity_slot{args.compare_coarse_guarantee_per_entity} + "
+    )
+
+
+def compare_coarse_to_fine_strategy_suffix(args: argparse.Namespace) -> str:
+    """生成 compare 粗到细补召回的策略名后缀。"""
+    if not args.compare_coarse_to_fine_supplement:
+        return ""
+    return (
+        f"_coarse_to_fine_doc_top{args.compare_coarse_doc_top_n}"
+        f"_adaptive{args.compare_coarse_adaptive_doc_ratio:g}"
+        f"_page_top{args.compare_coarse_page_top_k}"
+        f"_keep{args.compare_coarse_per_entity_keep}"
+        f"_raw_entity_slot{args.compare_coarse_guarantee_per_entity}"
     )
 
 
@@ -704,6 +1111,7 @@ def routed_strategy_name(question_type: str, args: argparse.Namespace, config: R
     """给每条样本记录实际采用的策略。"""
     question_type = (question_type or "").strip().lower()
     parent_fill = f"_parent_fill_pool{args.compare_parent_fill_pool}" if args.compare_parent_fill else ""
+    coarse_suffix = compare_coarse_to_fine_strategy_suffix(args)
     if question_type == "compare" and args.compare_rewrite_file:
         merged = "_merged" if args.compare_rewrite_include_merged else ""
         if args.compare_rewrite_mode == "separate":
@@ -712,18 +1120,34 @@ def routed_strategy_name(question_type: str, args: argparse.Namespace, config: R
                 f"_llm_rewrite_separate_top{args.compare_rewrite_top_k}{merged}"
                 f"_keep{args.compare_rewrite_per_query_keep}"
                 "_entity_prefer"
+                f"{coarse_suffix}"
                 f"_rerank_top{config.compare_top_k}{parent_fill}_parent_window{config.parent_window_pages}"
             )
         return (
             f"hybrid_top{config.compare_candidate_top_k}"
             f"_llm_rewrite_top{args.compare_rewrite_top_k}{merged}"
+            f"{coarse_suffix}"
             f"_rerank_top{config.compare_top_k}{parent_fill}_parent_window{config.parent_window_pages}"
         )
     if question_type == "compare" and args.compare_parent_fill:
         return (
             f"hybrid_top{config.compare_candidate_top_k}"
             f"_entity_top{config.compare_entity_top_k}"
+            f"{coarse_suffix}"
             f"_rerank_top{config.compare_top_k}{parent_fill}_parent_window{config.parent_window_pages}"
+        )
+    if question_type == "compare" and args.compare_coarse_to_fine_supplement:
+        return (
+            f"hybrid_top{config.compare_candidate_top_k}"
+            f"_entity_top{config.compare_entity_top_k}"
+            f"{coarse_suffix}"
+            f"_rerank_top{config.compare_top_k}_parent_window{config.parent_window_pages}"
+        )
+    if question_type == "summary":
+        return (
+            f"hybrid_top{config.summary_candidate_top_k}"
+            f"{summary_strategy_suffix(args)}"
+            f"_source_diverse_top{config.summary_top_k}_parent_window{config.parent_window_pages}"
         )
     return strategy_name(question_type, config)
 
@@ -781,7 +1205,24 @@ def main() -> None:
             config,
             rewrite_by_id,
         )
-        compare_rerank_results = run_compare_rerank(args, samples, hybrid_results, config)
+        compare_rerank_results = run_compare_rerank(
+            args,
+            samples,
+            hybrid_results,
+            config,
+            metadata=metadata,
+            rewrite_by_id=rewrite_by_id,
+        )
+    hybrid_results = expand_summary_hybrid_results(
+        args,
+        samples,
+        embedder,
+        index,
+        metadata,
+        bm25_store,
+        hybrid_results,
+        config,
+    )
     routed_results = run_routed_searches(samples, hybrid_results, compare_rerank_results, parent_store, config, args=args)
 
     all_scores = {

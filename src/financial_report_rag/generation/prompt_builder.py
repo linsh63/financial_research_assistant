@@ -69,6 +69,35 @@ def build_answer_messages(query: str, question_type: str, context_text: str) -> 
     ]
 
 
+def build_summary_evidence_messages(query: str, evidence_pack: str) -> list[dict[str, str]]:
+    """为 summary 证据包生成更严格的回答 prompt。"""
+    user_prompt = f"""问题类型：summary
+任务要求：这是汇总型问题。你拿到的是已经从原始资料中抽取出的“证据包”，不是完整资料。
+- 必须先逐份资料理解证据包中的原文要点，再综合回答。
+- 答案只能覆盖证据包中出现的目标、任务、机制、分类、数字和时间。
+- 尽量沿用证据包里的原文措辞，不要自行扩展政策背景、案例或解释。
+- 如果多份资料分别回答问题的不同部分，必须尽量都覆盖；不要只总结第一份资料。
+- 每个要点末尾必须标注对应资料编号，例如 [资料1]。
+- 如果证据包不足以覆盖某个方面，可以说明“资料中未明确提及”，不要编造。
+
+输出要求：
+1. 按主题或政策来源分点回答，每点保留关键数字、时间、目标或机制。
+2. 最后一行用“结论：……”做一句话概括。
+3. 不要输出“证据提取过程”，直接输出最终答案。
+
+问题：
+{query}
+
+证据包：
+{evidence_pack}
+
+请只根据以上证据包回答。"""
+    return [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+
+
 def normalize_question_type(question_type: str) -> str:
     """规范化问题类型，未知类型按 fact 处理。"""
     normalized = (question_type or "").strip().lower()

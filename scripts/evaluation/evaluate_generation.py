@@ -67,6 +67,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--pred", required=True, help="generate_answers.py 输出的 JSONL。")
     parser.add_argument("--output", default="docs/experiments/generation/generation_eval.md")
     parser.add_argument("--details-output", default="docs/experiments/generation/details/generation_eval.details.json")
+    parser.add_argument("--only-question-type", choices=["fact", "compare", "summary"], default="", help="只评估某一类问题。")
     parser.add_argument("--badcase-limit", type=int, default=30)
     parser.add_argument("--match-level", choices=["doc", "page"], default="page")
     parser.add_argument("--llm-judge", action="store_true", help="启用 LLM judge，对答案正确性和完整性打分。")
@@ -655,6 +656,8 @@ def main() -> None:
     details_path = resolve_path(args.details_output)
 
     samples, total_rows, skipped = eval_base.load_eval_samples(eval_path)
+    if args.only_question_type:
+        samples = [sample for sample in samples if sample.question_type == args.only_question_type]
     generated_by_id, generated_by_query, total_pred_rows = load_generated_rows(pred_path)
     scores = score_generation(samples, generated_by_id, generated_by_query, match_level=args.match_level)
     run_llm_judge(args, scores)
