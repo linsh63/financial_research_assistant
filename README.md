@@ -70,7 +70,7 @@ src/financial_report_rag/  可复用核心代码
 建议使用当前项目的 Homebrew Python 虚拟环境：
 
 ```bash
-cd /Users/linsh/Documents/Recommendation/project/ProjectSet/financial_research_assistant
+cd /path/to/financial_research_assistant
 source .venv-brew/bin/activate
 pip install -r requirements.txt
 ```
@@ -95,7 +95,7 @@ export OPENAI_MODEL="deepseek-chat"
 Demo 支持输入问题、展示路由策略、召回证据、引用来源和最终回答。没有 API Key 时也可以使用 dry-run 模式，只看检索证据和 prompt。
 
 ```bash
-cd /Users/linsh/Documents/Recommendation/project/ProjectSet/financial_research_assistant
+cd /path/to/financial_research_assistant
 source .venv-brew/bin/activate
 streamlit run demo/app.py
 ```
