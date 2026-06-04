@@ -27,3 +27,7 @@ logs/
 !data/processed/metadata/
 !data/processed/metadata/*.csv
 !data/external/.gitkeep
+
+# Brain & understand-anything artifacts
+docs/brain/
+.understand-anything/
